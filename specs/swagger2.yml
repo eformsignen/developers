@@ -1,0 +1,162 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: eformsign
+  description: eformsign이 제공하는 API를 통해 eformsign의 기능을 고객의 시스템 또는 서비스에서 호출해 사용할 수 있습니다.
+  contact:
+    email: eformsign@forcs.com
+    name: eformsign Service Team
+    url: www.eformsign.com
+host: virtserver.swaggerhub.com
+basePath: /f3375/eformsign/1.0.0
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /api_auth/access_token:
+    post:
+      description: API 키로 Access Token을 발급받습니다.
+      summary: post-api_auth-access_token
+      tags:
+      - eformsign
+      operationId: post-api_auth-access_token
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: application/json
+      - name: eformsign_signature
+        in: header
+        required: true
+        type: string
+        description: execution_time 값을 private Key로 서명한 값
+      - name: Authorization
+        in: header
+        required: false
+        type: string
+        description: Bearer <api key>
+      - name: body
+        in: body
+        required: false
+        description: ''
+        schema:
+          $ref: '#/definitions/ApiAuthAccessTokenRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ApiAuthAccessTokenResponse'
+          examples:
+            application/json:
+              api_key:
+                name: access key
+                alias: access Key alias
+                company:
+                  company_id: 129jd93j29jd9j29jd
+                  name: Forcs
+                  api_url: https://kr-api.eformsign.com
+              oauth_token:
+                token_type: JWT
+                access_token: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJvY2UuaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjE5MzEyYWI2NWQxMT...
+                refresh_token: dcaf137b-e93e-4207-ba8a-2dd5a1250c45
+                expires_in: 3600
+          headers: {}
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ApiAuthAccessToken403Error'
+          examples:
+            application/json:
+              code: 4000002
+              ErrorMessage: The validation time has expired.
+              execution_time: 1600247345051
+definitions:
+  ApiAuthAccessTokenRequest:
+    title: ApiAuthAccessTokenRequest
+    type: object
+    properties:
+      execution_time:
+        description: API 호출 시간(현재 시간)으로, 서버시간의 +/- 30초 내에서만 호출이 유효하다.
+        type: integer
+        format: int64
+      member_id:
+        description: 회사 멤버의 ID로, 회사 멤버의 Access token을 발급받을 때 추가로 입력한다.
+        type: string
+    required:
+    - execution_time
+  ApiAuthAccessTokenResponse:
+    title: ApiAuthAccessTokenResponse
+    type: object
+    properties:
+      api_key:
+        $ref: '#/definitions/ApiKey'
+      oauth_token:
+        $ref: '#/definitions/OauthToken'
+  ApiKey:
+    title: ApiKey
+    description: API Key 정보로, name, alias, company등의 객체를 포함한다.
+    type: object
+    properties:
+      name:
+        description: API Key 이름
+        type: string
+      alias:
+        description: API Key 별칭
+        type: string
+      company:
+        $ref: '#/definitions/Company'
+  Company:
+    title: Company
+    description: API Key의 회사 정보로, id, name, api_url 객체를 포함한다.
+    type: object
+    properties:
+      id:
+        description: 회사 ID
+        type: string
+      name:
+        description: 회사명
+        type: string
+      api_url:
+        description: 회사의 서비스 API URL
+        type: string
+  OauthToken:
+    title: OauthToken
+    description: 토큰 정보로, token_type, access_token, refresh_token, expires_in 객체를 포함한다.
+    type: object
+    properties:
+      token_type:
+        description: 토큰 타입(JWT 고정)
+        type: string
+      access_token:
+        description: access token
+        type: string
+      refresh_token:
+        description: refresh token
+        type: string
+      expires_in:
+        description: Access token 유효시간(초)으로, Access token 발급 시점부터 expires_in 시간까지만 유효하다.
+        type: integer
+        format: int32
+  ApiAuthAccessToken403Error:
+    title: ApiAuthAccessToken403Error
+    type: object
+    properties:
+      code:
+        description: 에러 코드
+        type: string
+      ErrorMessage:
+        description: 에러 메시지
+        type: string
+      execution_time:
+        description: 수행 시간
+        type: integer
+        format: int64
+tags:
+- name: eformsign
