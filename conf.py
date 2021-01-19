@@ -39,7 +39,7 @@ release = '2021.01.11'
 # ones.
 extensions = [
 #'sphinxcontrib.httpdomain', 'sphinxcontrib.openapi'
-'sphinxcontrib.redoc',
+#'sphinxcontrib.redoc',
 'sphinx_code_tabs',
 ]
 
@@ -175,12 +175,5 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-redoc = [
-    {
-        'name': 'eformsign API',
-        'page': 'api',
-        'spec': 'specs/eformsign2.0.yaml',
-        'embed': True,
-    }
-]
+
 
