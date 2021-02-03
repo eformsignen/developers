@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Using eformsign API</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/code-tabs.js"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Using eformsign Webhook" href="eformsign_webhook_en.html" />
+  <link rel="prev" title="Overview" href="eformsign_api_overview_en.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/forcs.png" alt="doit logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#eformsign-api-webhook">Contents:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="eformsign_api_overview_en.html" class="reference internal ">Overview</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Using eformsign API</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#getting-started" class="reference internal">Getting started</a></li>
+                
+                  <li class="toctree-l2"><a href="#generating-a-signature" class="reference internal">Generating a signature</a></li>
+                
+                  <li class="toctree-l2"><a href="#open-api-list" class="reference internal">Open API list</a></li>
+                
+                  <li class="toctree-l2"><a href="#id3" class="reference internal">API 관련 정보</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="eformsign_webhook_en.html" class="reference internal ">Using eformsign Webhook</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Using eformsign API</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="eformsign_api_overview_en.html"
+       title="previous chapter">← Overview</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_webhook_en.html"
+       title="next chapter">Using eformsign Webhook →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="using-eformsign-api">
+<h1>Using eformsign API<a class="headerlink" href="#using-eformsign-api" title="Permalink to this headline">¶</a></h1>
+<p>The API provided by eformsign allows customers to call and use eformsign features in their system/service.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>eformsign API를 사용하기 위해서는 다음의 준비 작업이 필요합니다.</p>
+<ul class="simple">
+<li><p>회사 ID와 문서 ID 확인하기</p></li>
+<li><p>API 키 발급 및 비밀키 확인하기</p></li>
+<li><p>서명 생성하기</p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다.</p>
+</div>
+<div class="section" id="id-id">
+<h3>회사 ID와 문서 ID 확인하기<a class="headerlink" href="#id-id" title="Permalink to this headline">¶</a></h3>
+<p>eformsign API를 사용하기 위해서는 소속 회사의 ID와 조회하고자 하는 문서의 ID를 알고 있어야 합니다.</p>
+<p>eformsign 서비스에 로그인하여 회사 ID와 문서 ID를 확인해 주십시오.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>회사 ID는 왼쪽 메뉴 트리의 회사 관리 &gt; 회사 정보 메뉴의 “기본 정보” 탭에서 확인할 수 있습니다.</p>
+<p><a class="reference internal" href="../_images/company_id.png"><img alt="image1" src="../_images/company_id.png" style="width: 600px;" /></a></p>
+<p>문서 ID는 각 문서함 오른쪽 상단의 문서 아이콘(<img alt="image2" src="../_images/column_icon.png" />)을 클릭하여 문서 ID 컬럼을 추가하면 조회하고자 하는 문서의 ID를 확인할 수 있습니다.</p>
+<p><img alt="image3" src="../_images/document_id.png" /></p>
+</div>
+</div>
+<div class="section" id="getting-an-api-key-and-private-key">
+<span id="apikey"></span><h3>Getting an API key and private key<a class="headerlink" href="#getting-an-api-key-and-private-key" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Log in to eformsign as the company administrator and then go to <strong>[Integration] &gt; [API / Webhook]</strong> in the sidebar menu.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/apikey1.PNG"><img alt="Integration &gt; API/Webhook menu" src="../_images/apikey1.PNG" style="width: 700px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Select the <strong>[Manage API key]</strong> tab and then click the <strong>Create an API key</strong> button.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/apikey2.PNG"><img alt="Create an API key button" src="../_images/apikey2.PNG" style="width: 700px;" /></a>
+<ol class="arabic simple" start="3">
+<li><p>Enter the alias and application name in the <strong>Create an API key</strong> pop-up and then click the <strong>Save</strong> button.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/apikey3.PNG"><img alt="Create an API key pop-up" src="../_images/apikey3.PNG" style="width: 700px;" /></a>
+<ol class="arabic simple" start="4">
+<li><p>Click the <strong>View key</strong> button in the list to view the API key and Private key.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/apikey4.PNG"><img alt="View key button" src="../_images/apikey4.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/apikey5.PNG"><img alt="API key and Private key" src="../_images/apikey5.PNG" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Editing an API key</strong></p>
+<p>You can change the alias and application name by clicking the <strong>Edit</strong> button in the API key list. You can also disable/enable the key by clicking the <strong>Status</strong> toggle button.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Deleting an API key</strong></p>
+<p>You can delete an API key by clicking the <strong>Delete</strong> button in the API key list.</p>
+</div>
+</div>
+</div>
+<div class="section" id="generating-a-signature">
+<h2>Generating a signature<a class="headerlink" href="#generating-a-signature" title="Permalink to this headline">¶</a></h2>
+<p>eformsign_signature uses asymmetric key cryptography and elliptic curve cryptography.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Elliptic curve cryptography is a public key encryption method and is currently the most popular method used in data encryption, digital authentication, etc.</p>
+</div>
+<p>The following describes how to generate a signature for each language: Java, Python, and PHP.</p>
+<div class="section" id="java">
+<h3>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
+<p>Convert the current time of the server to String (UTF-8) and sign using the private key issued to you in <a class="reference external" href="#apikey">Getting an API Key</a>. Then, convert the signed data into hex string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The signature algorithm used is SHA256withECDSA.</p>
+</div>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>Use the library for key generation in the link below. Install the library using the following command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+<p>Make sure that the keycheck.inc.php and test.php files in the following examples are located in the same path before proceeding.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>The following shows the examples for each language.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>execution_time은 long 타입을 사용합니다. 따라서, execution_time 입력 시에는 Access Token 발급 시에 확인한 시간 뒤에 L을 넣어 입력합니다.</p>
+</div>
+<div class="code-tabs docutils container">
+<div class="code-tab" data-title="Java">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.security.KeyFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.spec.PKCS8EncodedKeySpec</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.PrivateKey</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.security.Signature</span><span class="p">;</span>
+
+<span class="c1">//private key</span>
+<span class="n">String</span> <span class="n">privateKeyHexStr</span> <span class="o">=</span> <span class="s">&quot;the private key(String) issued to you&quot;</span><span class="p">;</span>
+<span class="n">KeyFactory</span> <span class="n">keyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
+<span class="n">PKCS8EncodedKeySpec</span> <span class="n">psks8KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PKCS8EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">privateKeyHexStr</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
+<span class="n">PrivateKey</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="n">keyFact</span><span class="p">.</span><span class="na">generatePrivate</span><span class="p">(</span><span class="n">psks8KeySpec</span><span class="p">);</span>
+
+<span class="c1">//execution_time - the current server time</span>
+<span class="kt">long</span> <span class="n">execution_time</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="p">().</span><span class="na">getTime</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">execution_time_str</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">execution_time</span><span class="p">);</span>
+
+<span class="c1">//the generated eformsign_signature</span>
+<span class="n">Signature</span> <span class="n">ecdsa</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
+<span class="n">ecdsa</span><span class="p">.</span><span class="na">initSign</span><span class="p">(</span><span class="n">privateKey</span><span class="p">);</span>
+<span class="n">ecdsa</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">execution_time_str</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
+<span class="n">String</span> <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">ecdsa</span><span class="p">.</span><span class="na">sign</span><span class="p">()).</span><span class="na">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+
+
+<span class="c1">//the current time and the signature value at the current time</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;execution_time : &quot;</span><span class="o">+</span><span class="n">execution_time</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;eformsign_signature : &quot;</span><span class="o">+</span><span class="n">eformsign_signature</span><span class="p">);</span>
+</pre></div>
+</div>
+</div><div class="code-tab" data-title="Python">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">SigningKey</span><span class="p">,</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
+<span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
+
+<span class="c1"># private key</span>
+<span class="n">privateKeyHex</span> <span class="o">=</span> <span class="s2">&quot;the private key(String) issued to you&quot;</span>
+<span class="n">privateKey</span> <span class="o">=</span> <span class="n">SigningKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">privateKeyHex</span><span class="p">))</span>
+
+<span class="c1"># execution_time - current server time</span>
+<span class="n">execution_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># the generated eformsign_signature</span>
+<span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">privateKey</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">execution_time</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigencode</span><span class="o">=</span><span class="n">sigencode_der</span><span class="p">)</span>
+
+<span class="c1"># the current time and the signature value at the current time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;execution_time : &quot;</span> <span class="o">+</span> <span class="n">execution_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eformsign_signature : &quot;</span> <span class="o">+</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div><div class="code-tab" data-title="PHP - keycheck.inc.php">
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">eformsignECDSA</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">PublicKey</span>
+<span class="p">{</span>
+
+    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$pem_data</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nb">hex2bin</span><span class="p">(</span><span class="nv">$str</span><span class="p">));</span>
+        <span class="nv">$offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nv">$pem</span> <span class="o">=</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nv">$offset</span> <span class="o">&lt;</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$pem_data</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="nv">$offset</span> <span class="o">=</span> <span class="nv">$offset</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nv">$pem</span> <span class="o">=</span> <span class="nv">$pem</span> <span class="o">.</span> <span class="s2">&quot;-----END PUBLIC KEY-----</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">openSslPublicKey</span> <span class="o">=</span> <span class="nb">openssl_get_publickey</span><span class="p">(</span><span class="nv">$pem</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">function</span> <span class="nf">getNowMillisecond</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">list</span><span class="p">(</span><span class="nv">$microtime</span><span class="p">,</span><span class="nv">$timestamp</span><span class="p">)</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="nb">microtime</span><span class="p">());</span>
+  <span class="nv">$time</span> <span class="o">=</span> <span class="nv">$timestamp</span><span class="o">.</span><span class="nb">substr</span><span class="p">(</span><span class="nv">$microtime</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nv">$time</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">function</span> <span class="nf">Sign</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">openssl_sign</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="o">-&gt;</span><span class="na">openSslPrivateKey</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$signature</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div><div class="code-tab" data-title="PHP - test.php">
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">eformsignECDSA\PrivateKey</span><span class="p">;</span>
+
+
+<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PRIVATE_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;the private key(String)&#39;</span> <span class="nx">issued</span> <span class="nx">to</span> <span class="nx">you</span><span class="p">);</span>
+
+
+<span class="c1">//setting a private key</span>
+<span class="nv">$privateKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PrivateKey</span><span class="p">(</span><span class="nx">PRIVATE_KEY</span><span class="p">);</span>
+
+
+<span class="c1">//execution_time - current server time</span>
+<span class="nv">$execution_time</span> <span class="o">=</span> <span class="nx">eformsignECDSA\getNowMillisecond</span><span class="p">();</span>
+
+
+<span class="c1">//the generated eformsign_signature</span>
+<span class="nv">$signature</span> <span class="o">=</span> <span class="nx">eformsignECDSA\Sign</span><span class="p">(</span><span class="nx">execution_time</span><span class="p">,</span> <span class="nv">$privateKey</span><span class="p">);</span>
+
+
+<span class="c1">//the current time and the signature value at the current time</span>
+<span class="k">print</span> <span class="s1">&#39;execution_time : &#39;</span> <span class="o">.</span> <span class="nx">execution_time</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="k">print</span> <span class="s1">&#39;eformsign_signature : &#39;</span> <span class="o">.</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nv">$signature</span><span class="p">)</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="section" id="open-api-list">
+<h2>Open API list<a class="headerlink" href="#open-api-list" title="Permalink to this headline">¶</a></h2>
+<p>eformsign API는 서명 생성을 위한 API와 문서 작성 및 처리를 위한 API로 구분되어 있습니다.</p>
+<div class="section" id="api-for-generating-a-signature">
+<h3>API for generating a signature<a class="headerlink" href="#api-for-generating-a-signature" title="Permalink to this headline">¶</a></h3>
+<p>서명 생성을 위해 먼저 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>를 사용해 주십시오.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token">/api_auth/access_token</a> Access Token 발급</p>
+<p>Access Token API에 대한 자세한 설명은
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>에서 확인하실 수 있습니다.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>서명 생성에는 30초의 시간 제한이 있습니다. 30초 이내에 서명을 생성하고 토큰을 발급받아야 합니다.
+또한, 서버 상의 시간과 현재 시간이 일치하지 않을 수 있습니다. Access Token API를 호출한 후 수신한 응답 메시지의 “execution_time”을 확인하세요.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;4000002&quot;</span><span class="p">,</span> <span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span> <span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span>     <span class="nt">&quot;execution_time&quot;</span><span class="p">:</span> <span class="mi">1611538409405</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>의 예제 위치에도 “execution_time”을 입력하세요.</p>
+<p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 450px;" /></a></p>
+<p>Access Token은 멤버 권한에 대해서도 발급받을 수 있습니다. 멤버에 대한 Access Token을 발급받으려면 다음과 같이 “execution_time” 외에 “member_id”를 함께 입력해 주세요.</p>
+<p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
+<p>이후 해당 API를 실행하면 Access Token이 발급되며, 다음과 같은 형태의 응답을 수신할 수 있습니다.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nt">&quot;api_key&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;애플리케이션_&quot;</span><span class="p">,</span> <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;테스트용&quot;</span><span class="p">,</span> <span class="nt">&quot;company&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;company_id&quot;</span><span class="p">:</span> <span class="s2">&quot;dec5418e58694d90a65d6c38e3d226db&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;샘플 데모&quot;</span><span class="p">,</span> <span class="nt">&quot;api_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://kr-api.eformsign.com&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="nt">&quot;oauth_token&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;expires_in&quot;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="nt">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">,</span> <span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="s2">&quot;8fd0a3c1-44dc-4a03-96ad-01fa34cd159c&quot;</span><span class="p">,</span> <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlZm9ybXNpZ24uaWFtIiwiY29udGV4dCI6eyJjbGllbnRJZCI6IjY4MDk0ZWVhMjVhZjRhNjI5ZTI4ZGU5Y2ZlYzRlYmZjIiwiY2xpZW50S2V5IjoiZTNiM2IzZTUtMGEzMS00NTE1LWE5NzEtN2M4Y2FlNDI4NzZmIiwibWFuYWdlbWVudElkIjoiMzRhYWI4MDBjMmEwNDQwNThmZDRlZjc5OGFlY2RlY2EiLCJzY29wZXMiOiJzbWFydF9lZm9ybV9zY29wZSIsInR5cGUiOiJ1c2VyIiwidXNlck5hbWUiOiIzMmIzZDRmOC00MjdkLTRjZjQtOTZiYS1mYzAxNjIxNWRkNDciLCJ1c2VySWQiOiJhNTEyNGVkNmU2M2Y0OTMzOGJlOTA0MjVhNjFkYjlmNSIsInJlZnJlc2hUb2tlbiI6IjhmZDBhM2MxLTQ0ZGMtNGEwMy05NmFkLTAxZmEzNGNkMTU5YyJ9LCJjbGFpbSI6eyJjb21wYW55X2lkIjoiZGVjNTQxOGU1ODY5NGQ5MGE2NWQ2YzM4ZTNkMjI2ZGIiLCJhY2Nlc3Nfa2V5IjoiMzJiM2Q0ZjgtNDI3ZC00Y2Y0LTk2YmEtZmMwMTYyMTVkZDQ3In0sImV4cCI6MTYxMTU0MjIzNiwiaWF0IjoxNjExNTM4NjM2fQ.BltoXXBSabjXfpyLsZik9OZTE5XtLqe9lguMmJ_qfwZN1NyoVoxDqA5y1-_TLis7FvvNjfI1eegOroCZDZPFyXRaBxAj0CW8TijVjbhliJBuccHFyKXaJxmo_GMmTHYtxNNB1SUgLeFIrYROnpQndU8J7ZkfPDgYGwh1YSx-5s4&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>발급한 API 키는 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">다음</a>의 위치에 있는 <strong>Authorize</strong> 버튼(<img alt="image4" src="../_images/authorize_icon.png" />)을 눌러 등록하세요. 단, API 키 값에는 <strong>반드시 Base64</strong>로 인코딩한 문자열을 넣어야 합니다. <a class="reference external" href="https://www.base64encode.org/">https://www.base64encode.org/</a> 에 접속하여 발급한 API 키를 넣고 인코딩된 텍스트를 받아 삽입하세요.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Access Token API의 <strong>Authorize</strong> 버튼에는 API 키 값을 입력해야 합니다.</p>
+</div>
+</div>
+<div class="section" id="api">
+<h3>문서 작성 및 처리를 위한 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>서명을 생성한 후에는 다음의 문서 API를 사용해 새 문서를 작성하거나 문서 정보를 조회할 수 있으며, 완료 문서 파일(문서 PDF, 감사추적증명서)  다운로드하거나 문서의 첨부파일을 다운로드할 수 있습니다.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>본 문서 API를 사용하기 위해서는 Access Token을 먼저 발급받아야 합니다. <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>으로 발급 받은 Access Token을 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">다음</a>의 위치에 있는 <strong>Authorize</strong> 버튼(<img alt="image4" src="../_images/authorize_icon.png" />)을 눌러 등록하세요.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>문서 API의 <strong>Authorize</strong> 버튼에는 Access Token 값을 입력해야 합니다.</p>
+</div>
+<p>현재 제공 중인 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">문서 API</a>는 다음과 같습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token">/api_auth/refresh_token</a> Access Token 갱신</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents">/api/documents</a> 새 문서 작성(내부 수신자)</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external">/api/documents/external</a> 새 문서 작성(외부 수신자)</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID">/api/documents/{document_id}</a> 문서정보 조회</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files">/api/docuemnts/{document_id}/download_files</a> 문서 파일 다운로드(문서 PDF, 감사추적증명서)</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files">/api/doduments/{document_id}/download_attach_files</a> 문서 첨부 파일 다운로드</p>
+<p>각 eformsign 문서 API에 대한 자세한 설명은
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">다음</a>에서 확인하실 수 있습니다.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>API 관련 정보<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api-status-code">
+<h3>API status code<a class="headerlink" href="#api-status-code" title="Permalink to this headline">¶</a></h3>
+<p>The API status code are as follows.</p>
+<div class="section" id="id4">
+<h4>200<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>Success</p></td>
+<td><p>Success</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h4>202<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2020001</p></td>
+<td><p>Generating a PDF</p></td>
+<td><dl class="simple">
+<dt>-When downloading a PDF file, the file is generated asynchronously,</dt><dd><p>so it takes additional time to generate the PDF file after saving a document.</p>
+</dd>
+</dl>
+<p>-Downloadable when rerequesting within seconds to minutes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h4>400<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 29%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4000001</p></td>
+<td><p>When omitting a required input value</p></td>
+<td><p>When the API’s required input value (header or parameter value) is omitted</p></td>
+</tr>
+<tr class="row-odd"><td><p>4000002</p></td>
+<td><p>Authentication timeout</p></td>
+<td><p>When the API authentication request time has expired</p></td>
+</tr>
+<tr class="row-even"><td><p>4000003</p></td>
+<td><p>No API key</p></td>
+<td><p>When the API key is deleted or incorrectly entered</p></td>
+</tr>
+<tr class="row-odd"><td><p>4000004</p></td>
+<td><p>No document</p></td>
+<td><p>When the document ID is incorrectly entered</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h4>403<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 42%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4030002</p></td>
+<td><p>Access token authentication error</p></td>
+<td><p>When the access token is incorrect</p></td>
+</tr>
+<tr class="row-odd"><td><p>4030003</p></td>
+<td><p>Refresh token authentication error</p></td>
+<td><p>When the refresh token is incorrect</p></td>
+</tr>
+<tr class="row-even"><td><p>4030004</p></td>
+<td><p>Signature value authentication failure</p></td>
+<td><p>When the signature value is incorrect</p></td>
+</tr>
+<tr class="row-odd"><td><p>4030005</p></td>
+<td><p>Unsupported API</p></td>
+<td><p>When calling an unsupported API</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h4>405<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 30%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4050001</p></td>
+<td><p>Unsupported method</p></td>
+<td><p>When calling an unsupported method</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h4>500<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 22%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5000001~5000003</p></td>
+<td><p>Server error</p></td>
+<td><p>When a server error occurs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="step-types">
+<h3>Step types<a class="headerlink" href="#step-types" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Start</p></td>
+<td><p>00</p></td>
+<td><p>Start step</p></td>
+</tr>
+<tr class="row-odd"><td><p>Complete</p></td>
+<td><p>01</p></td>
+<td><p>Complete step</p></td>
+</tr>
+<tr class="row-even"><td><p>Approval</p></td>
+<td><p>02</p></td>
+<td><p>Approval step</p></td>
+</tr>
+<tr class="row-odd"><td><p>External</p></td>
+<td><p>03</p></td>
+<td><p>External recipient step</p></td>
+</tr>
+<tr class="row-even"><td><p>Accept</p></td>
+<td><p>04</p></td>
+<td><p>Internal recipient step</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="user-types">
+<h3>User types<a class="headerlink" href="#user-types" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 19%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Internal member</p></td>
+<td><p>01</p></td>
+<td><p>Whether the user is an internal member or not</p></td>
+</tr>
+<tr class="row-odd"><td><p>External recipient</p></td>
+<td><p>02</p></td>
+<td><p>Whether the user is an external user or not</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="status-types">
+<h3>Status types<a class="headerlink" href="#status-types" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 14%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>doc_tempsave</p></td>
+<td><p>001</p></td>
+<td><p>Draft (when a document is saved as a draft by the initial creator)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_create</p></td>
+<td><p>002</p></td>
+<td><p>Document created</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_complete</p></td>
+<td><p>003</p></td>
+<td><p>Document completed</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_update</p></td>
+<td><p>043</p></td>
+<td><p>Document modified</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_delete</p></td>
+<td><p>047</p></td>
+<td><p>Document deletion requested</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_delete</p></td>
+<td><p>049</p></td>
+<td><p>Document deleted</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_revoke</p></td>
+<td><p>040</p></td>
+<td><p>Document void requested</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_revoke</p></td>
+<td><p>041</p></td>
+<td><p>Document voided</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_reject</p></td>
+<td><p>045</p></td>
+<td><p>Document decline requested</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_approval</p></td>
+<td><p>010</p></td>
+<td><p>Document approval requested</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_approval</p></td>
+<td><p>012</p></td>
+<td><p>Document approval request approved</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_reject_approval</p></td>
+<td><p>011</p></td>
+<td><p>Document approval request declined</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_cancel</p></td>
+<td><p>013</p></td>
+<td><p>Document approval request canceled</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_reception</p></td>
+<td><p>020</p></td>
+<td><p>Document approval requested to internal recipient</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_reception</p></td>
+<td><p>022</p></td>
+<td><p>Document approval request approved by internal recipient</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_reject_reception</p></td>
+<td><p>021</p></td>
+<td><p>Document approval request declined by internal recipient</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_outsider</p></td>
+<td><p>030</p></td>
+<td><p>Document approval requested to external recipient</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_outsider</p></td>
+<td><p>032</p></td>
+<td><p>Document approved request approved by external recipient</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_outsider</p></td>
+<td><p>031</p></td>
+<td><p>Document approval request declined by external recipient</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="action-types">
+<h3>Action types<a class="headerlink" href="#action-types" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 15%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>doc_tempsave</p></td>
+<td><p>001</p></td>
+<td><p>Saving a document as a draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_create</p></td>
+<td><p>002</p></td>
+<td><p>Creating a document</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_complete</p></td>
+<td><p>003</p></td>
+<td><p>Completing a document</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_approval</p></td>
+<td><p>010</p></td>
+<td><p>Requesting a document for approval</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_approval</p></td>
+<td><p>011</p></td>
+<td><p>Declining a document approval request</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_approval</p></td>
+<td><p>012</p></td>
+<td><p>Approving a document approval request</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_cancel</p></td>
+<td><p>013</p></td>
+<td><p>Cancelling a document approval</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_reception</p></td>
+<td><p>020</p></td>
+<td><p>Requesting a document to be approved by an internal recipient</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_reception</p></td>
+<td><p>021</p></td>
+<td><p>Requesting a document to be declined by an internal recipient</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_reception</p></td>
+<td><p>022</p></td>
+<td><p>An internal recipient approving a document approval request</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_tempsave</p></td>
+<td><p>023</p></td>
+<td><p>An internal recipient saving a document as a draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_outsider</p></td>
+<td><p>030</p></td>
+<td><p>Requesting a document approval to an internal recipient</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_outsider</p></td>
+<td><p>031</p></td>
+<td><p>An external recipient declining a document</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_outsider</p></td>
+<td><p>032</p></td>
+<td><p>An external recipient approving a document</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_rerequest_outsider</p></td>
+<td><p>033</p></td>
+<td><p>Rerequesting a document approval to an external recipient</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_open_outsider</p></td>
+<td><p>034</p></td>
+<td><p>An external recipient opening a document</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_outsider_tempsave</p></td>
+<td><p>035</p></td>
+<td><p>An external recipient saving a document as a draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_revoke</p></td>
+<td><p>040</p></td>
+<td><p>Requesting a document to be voided</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_refuse_revoke</p></td>
+<td><p>041</p></td>
+<td><p>Declining a document void request</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_revoke</p></td>
+<td><p>042</p></td>
+<td><p>Voiding a document</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_update</p></td>
+<td><p>043</p></td>
+<td><p>Correcting a document</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_cancel_update</p></td>
+<td><p>044</p></td>
+<td><p>Cancelling a document correction</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_reject</p></td>
+<td><p>045</p></td>
+<td><p>Requesting a document to be declined</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_refuse_reject</p></td>
+<td><p>046</p></td>
+<td><p>Rejecting a document decline request</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_delete</p></td>
+<td><p>047</p></td>
+<td><p>Requesting a document to be deleted</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_refuse_delete</p></td>
+<td><p>048</p></td>
+<td><p>Rejecting a document deletion request</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_delete</p></td>
+<td><p>049</p></td>
+<td><p>Deleting a document</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_complete_send_pdf</p></td>
+<td><p>050</p></td>
+<td><p>Sending a PDF file of a completed document</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_transfer</p></td>
+<td><p>051</p></td>
+<td><p>Transferring a document</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="eformsign_api_overview_en.html"
+       title="previous chapter">← Overview</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_webhook_en.html"
+       title="next chapter">Using eformsign Webhook →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021, forcs.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
