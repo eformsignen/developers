@@ -282,25 +282,25 @@ The following shows the examples for each language.
         require_once __DIR__ . '/keycheck.inc.php';
         use eformsignECDSA\PublicKey;
          
-        define('PUBLIC_KEY', '발급 받은 public key를 넣어주세요.');
+        define('PUBLIC_KEY', 'input the issued public key.');
         ...
         /*
-         *  request에서 header와 body를 읽습니다.
+         *  Reads the header and body in the request.
          *
          */
          
          
         //1. get eformsign signature
-        //eformsignSignature는 request header에 담겨 있습니다.
+        //eformsignSignature is contained in the request header.
         $eformsignSignature = $_SERVER['HTTP_eformsign_signature'];
          
          
         //2. get request body data
-        // eformsign signature 검증을 위해 body의 데이터를 읽습니다.
+        // Reads the data in the body to verify the eformsign signature.
         $eformsignEventBody = json_decode(file_get_contents('php://input'), true);
          
          
-        //3. publicKey 세팅
+        //3. publicKey configuration
         $publicKey = new PublicKey(PUBLIC_KEY);
          
          
@@ -311,7 +311,7 @@ The following shows the examples for each language.
         if ($ret == 1) {
             print 'verify success' . PHP_EOL;
             /*
-             * 이곳에서 이벤트에 맞는 처리를 진행합니다.
+             * Events are handled here.
              */
         } else {
             print 'verify fail' . PHP_EOL;
@@ -321,21 +321,21 @@ The following shows the examples for each language.
         ?>
 
 
-Webhook 제공 리스트
+Webhook list
 ====================
 
-다음의 Webhook을 설정하면 해당 이벤트 발생 시 설정한 Webhook endpoint로 변경 정보를 수신할 수 있습니다. 
+By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign. 
 
-현재 제공 중인 `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\은 다음과 같습니다.
-
-
-``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  문서 이벤트 전송
-
-``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  PDF 생성 이벤트 전송
+The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\ provided in eformsign.
 
 
-각 eformsign Webhook에 대한 자세한 설명은 
-`다음 <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ 에서 확인하실 수 있습니다.
+``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Send document events
+
+``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  Send PDF generation events
+
+
+Click 
+`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ for more information about each eformsign Webhook.
 
 
 

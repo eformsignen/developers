@@ -110,23 +110,23 @@ There are two types of eformsign objects: embedded and redirect.
 
 
 +----------+--------------------+----------------------------------------------+
-| Type     | Name               | Description                               |
+| Type     | Name               | Description                                  |
 +==========+====================+==============================================+
-| embedding| eformsign.         | Function that allows to create documents  |
-|          | document(          | by embedding eformsign                    |         
-|          | document_option,   |                                           |
-|          | iframe_id,         | callback parameters are optional          |
-|          | success_callback,  |                                           |
-|          | error_callback)    | -  document_option, iframe_id: required   |
-|          |                    |                                           |
-|          |                    | -  success_callback: optional             |
-|          |                    |                                           |
-|          |                    | -  error_callback: optional               |
+| embedding| eformsign.         | Function that allows to create documents     |
+|          | document(          | by embedding eformsign                       |         
+|          | document_option,   |                                              |
+|          | iframe_id,         | callback parameters are optional             |
+|          | success_callback,  |                                              |
+|          | error_callback)    | -  document_option, iframe_id: required      |
+|          |                    |                                              |
+|          |                    | -  success_callback: optional                |
+|          |                    |                                              |
+|          |                    | -  error_callback: optional                  |
 +----------+--------------------+----------------------------------------------+
-| redirect | eformsign.documen  | Function that allows to create documents  |
-|          | t(document_option) | by redirecting to eformsign               |
-|          |                    |                                           |
-|          |                    | -  document_option : required             |
+| redirect | eformsign.documen  | Function that allows to create documents     |
+|          | t(document_option) | by redirecting to eformsign                  |
+|          |                    |                                              |
+|          |                    | -  document_option : required                |
 +----------+--------------------+----------------------------------------------+
 
 
@@ -533,23 +533,26 @@ The callback functions are configured as follows.
 When a callback function is configured with the document function parameter, the following values are returned when a callback function is called. 
 
 +----------+--------+-----------------------------------------------+-------------------------+
-| Callback | Type   | Description                                   | Remark                 |
-+==========+========+===============================================+==========================+
-| code     | string | Returns an error code when                    |normal if -1          |
-|          |        | failed to submit a document                   |                      |
+| Callback | Type   | Description                                   | Remark                  |
++==========+========+===============================================+=========================+
+| code     | string | Returns an error code when                    |normal if -1             |
+|          |        | failed to submit a document                   |                         |
 +----------+--------+-----------------------------------------------+-------------------------+
-| doc      | string | Returns the document_ID                       | ex)                  |
-| ument_id |        | of the created document when                  | 910b8a965f9          |
-|          |        | a document is successfully submitted.         | 402b82152f48c6da5a5c |
+| doc      | string | Returns the document_ID                       | ex)                     |
+| ument_id |        | of the created document when                  | 910b8a965f9             |
+|          |        | a document is successfully submitted.         | 402b82152f48c6da5a5c    |
 +----------+--------+-----------------------------------------------+-------------------------+
-| fiel     | object | Can get the value entered by                  | ex).                 |
-| d_values |        | the user in return_fields                     | field_values["name"] |
-|          |        | specified in document_option                  | // john              |
+| fiel     | object | Can get the value entered by                  | ex).                    |
+| d_values |        | the user in return_fields                     | field_values["name"]    |
+|          |        | specified in document_option                  | // john                 |
 +----------+--------+-----------------------------------------------+-------------------------+
 | message  | string | Returns an error message when                 | normal if an empty value|
 |          |        | failed to submit a document                   |                         |
 +----------+--------+-----------------------------------------------+-------------------------+
 | title    | string | Returns the title of the document             | ex) contract            |
-|          |        | when a document is submitted                  |                         |+----------+--------+-----------------------------------------------+-------------------------+
+|          |        | when a document is submitted                  |                         |
++----------+--------+-----------------------------------------------+-------------------------+
 
-+
+
+
+
