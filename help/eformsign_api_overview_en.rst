@@ -17,6 +17,6 @@ eformsign allows customers to use eformsign's electronic document features withi
 This is a feature that allows customers to call the API provided by eformsign to use eformsign features in customers' systems/services. 
 
 
-**Using the eformsign Webhook **
+**Using the eformsign Webhook**
 
 This is a feature that sends event information to the customer's system/service when an event occurs in eformsign.
