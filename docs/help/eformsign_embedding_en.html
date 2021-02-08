@@ -24,7 +24,9 @@
       <script src="../_static/theme.js" defer></script>
     
   <link rel="index" title="Index" href="../genindex.html" />
-  <link rel="search" title="Search" href="../search.html" /> 
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Using eformsign API" href="eformsign_api_en.html" />
+  <link rel="prev" title="Overview" href="eformsign_api_overview_en.html" /> 
   </head>
 
   <body>
@@ -72,10 +74,26 @@
       <p class="caption">
         <span class="caption-text"><a href="../index.html#eformsign-api-webhook">Contents:</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
         
           <li class="toctree-l1 "><a href="eformsign_api_overview_en.html" class="reference internal ">Overview</a>
 
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Embedding eformsign features</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#getting-started" class="reference internal">Getting started</a></li>
+                
+                  <li class="toctree-l2"><a href="#installation" class="reference internal">Installation</a></li>
+                
+                  <li class="toctree-l2"><a href="#about-the-eformsign-object" class="reference internal">About the eformsign object</a></li>
+                
+              </ul>
             
           </li>
 
@@ -109,6 +127,14 @@
   
 
   <ul class="page-nav">
+  <li class="prev">
+    <a href="eformsign_api_overview_en.html"
+       title="previous chapter">← Overview</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_api_en.html"
+       title="next chapter">Using eformsign API →</a>
+  </li>
 </ul>
   
 </div>
@@ -174,6 +200,48 @@
 <div class="section" id="about-the-eformsign-object">
 <h2>About the eformsign object<a class="headerlink" href="#about-the-eformsign-object" title="Permalink to this headline">¶</a></h2>
 <p>There are two types of eformsign objects: embedded and redirect.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 26%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>embedding</p></td>
+<td><p>eformsign.
+document(
+document_option,
+iframe_id,
+success_callback,
+error_callback)</p></td>
+<td><p>Function that allows to create documents
+by embedding eformsign</p>
+<p>callback parameters are optional</p>
+<ul class="simple">
+<li><p>document_option, iframe_id: required</p></li>
+<li><p>success_callback: optional</p></li>
+<li><p>error_callback: optional</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>redirect</p></td>
+<td><p>eformsign.documen
+t(document_option)</p></td>
+<td><p>Function that allows to create documents
+by redirecting to eformsign</p>
+<ul class="simple">
+<li><p>document_option : required</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The redirect method will be available in the future.</p>
@@ -508,12 +576,61 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
 </table>
 <p>The callback functions are configured as follows.</p>
 <p>When a callback function is configured with the document function parameter, the following values are returned when a callback function is called.</p>
-<div class="line-block">
-<div class="line">|        | failed to submit a document                   |                         |</div>
-</div>
-<ul class="simple">
-<li></li>
-</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 52%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Callback</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>code</p></td>
+<td><p>string</p></td>
+<td><p>Returns an error code when
+failed to submit a document</p></td>
+<td><p>normal if -1</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc
+ument_id</p></td>
+<td><p>string</p></td>
+<td><p>Returns the document_ID
+of the created document when
+a document is successfully submitted.</p></td>
+<td><p>ex)
+910b8a965f9
+402b82152f48c6da5a5c</p></td>
+</tr>
+<tr class="row-even"><td><p>fiel
+d_values</p></td>
+<td><p>object</p></td>
+<td><p>Can get the value entered by
+the user in return_fields
+specified in document_option</p></td>
+<td><p>ex).
+field_values[“name”]
+// john</p></td>
+</tr>
+<tr class="row-odd"><td><p>message</p></td>
+<td><p>string</p></td>
+<td><p>Returns an error message when
+failed to submit a document</p></td>
+<td><p>normal if an empty value</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>string</p></td>
+<td><p>Returns the title of the document
+when a document is submitted</p></td>
+<td><p>ex) contract</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -522,6 +639,14 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="eformsign_api_overview_en.html"
+       title="previous chapter">← Overview</a>
+  </li>
+  <li class="next">
+    <a href="eformsign_api_en.html"
+       title="next chapter">Using eformsign API →</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, forcs.
     <br>

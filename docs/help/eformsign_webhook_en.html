@@ -81,6 +81,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="eformsign_embedding_en.html" class="reference internal ">Embedding eformsign features</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="eformsign_api_en.html" class="reference internal ">Using eformsign API</a>
 
             
@@ -96,9 +102,9 @@
                 
                   <li class="toctree-l2"><a href="#generating-a-signature" class="reference internal">Generating a signature</a></li>
                 
-                  <li class="toctree-l2"><a href="#id1" class="reference internal">Webhook 제공 리스트</a></li>
-                
                   <li class="toctree-l2"><a href="#webhook-list" class="reference internal">Webhook list</a></li>
+                
+                  <li class="toctree-l2"><a href="#id2" class="reference internal">Webhook list</a></li>
                 
               </ul>
             
@@ -365,25 +371,25 @@ Test URL : Webhook URL
 <span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">eformsignECDSA\PublicKey</span><span class="p">;</span>
 
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;발급 받은 public key를 넣어주세요.&#39;</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;input the issued public key.&#39;</span><span class="p">);</span>
 <span class="o">...</span>
 <span class="cm">/*</span>
-<span class="cm"> *  request에서 header와 body를 읽습니다.</span>
+<span class="cm"> *  Reads the header and body in the request.</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 
 
 <span class="c1">//1. get eformsign signature</span>
-<span class="c1">//eformsignSignature는 request header에 담겨 있습니다.</span>
+<span class="c1">//eformsignSignature is contained in the request header.</span>
 <span class="nv">$eformsignSignature</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_eformsign_signature&#39;</span><span class="p">];</span>
 
 
 <span class="c1">//2. get request body data</span>
-<span class="c1">// eformsign signature 검증을 위해 body의 데이터를 읽습니다.</span>
+<span class="c1">// Reads the data in the body to verify the eformsign signature.</span>
 <span class="nv">$eformsignEventBody</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
 
 
-<span class="c1">//3. publicKey 세팅</span>
+<span class="c1">//3. publicKey configuration</span>
 <span class="nv">$publicKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PublicKey</span><span class="p">(</span><span class="nx">PUBLIC_KEY</span><span class="p">);</span>
 
 
@@ -394,7 +400,7 @@ Test URL : Webhook URL
 <span class="k">if</span> <span class="p">(</span><span class="nv">$ret</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify success&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
     <span class="cm">/*</span>
-<span class="cm">     * 이곳에서 이벤트에 맞는 처리를 진행합니다.</span>
+<span class="cm">     * Events are handled here.</span>
 <span class="cm">     */</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify fail&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
@@ -407,17 +413,17 @@ Test URL : Webhook URL
 </div></div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>Webhook 제공 리스트<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>다음의 Webhook을 설정하면 해당 이벤트 발생 시 설정한 Webhook endpoint로 변경 정보를 수신할 수 있습니다.</p>
-<p>현재 제공 중인 <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a>은 다음과 같습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> 문서 이벤트 전송</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> PDF 생성 이벤트 전송</p>
-<p>각 eformsign Webhook에 대한 자세한 설명은
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">다음</a>에서 확인하실 수 있습니다.</p>
-</div>
 <div class="section" id="webhook-list">
 <h2>Webhook list<a class="headerlink" href="#webhook-list" title="Permalink to this headline">¶</a></h2>
+<p>By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign.</p>
+<p>The following is <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a>provided in eformsign.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> Send document events</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> Send PDF generation events</p>
+<p>Click
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">here</a>for more information about each eformsign Webhook.</p>
+</div>
+<div class="section" id="id2">
+<h2>Webhook list<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>eformsign provides <strong>document</strong> events and <strong>PDF generation</strong> events as Webhook events.</p>
 <div class="section" id="document-events">
 <h3>Document events<a class="headerlink" href="#document-events" title="Permalink to this headline">¶</a></h3>
