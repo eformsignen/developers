@@ -72,7 +72,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../index.html#eformsign-api-webhook">Contents:</a></span>
+        <span class="caption-text"><a href="../index.html#eformsign-api-webhook-guide">Contents:</a></span>
       </p>
       <ul class="current">
         
@@ -214,9 +214,8 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>embedding</p></td>
-<td><p>eformsign.
-document(
-document_option,
+<td><p>eformsign.document
+(document_option,
 iframe_id,
 success_callback,
 error_callback)</p></td>
@@ -231,8 +230,8 @@ by embedding eformsign</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p>redirect</p></td>
-<td><p>eformsign.documen
-t(document_option)</p></td>
+<td><p>eformsign.document
+(document_option)</p></td>
 <td><p>Function that allows to create documents
 by redirecting to eformsign</p>
 <ul class="simple">
@@ -246,6 +245,62 @@ by redirecting to eformsign</p>
 <p class="admonition-title">Note</p>
 <p>The redirect method will be available in the future.</p>
 </div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">eformsign</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EformSign</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;company&quot;</span> <span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// enter the company id</span>
+     <span class="s2">&quot;country_code&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// enter the country code (ex: kr)</span>
+     <span class="s2">&quot;user_key&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// enter the unique key in the customer&#39;s system (the unique key of the user who logged in to the customer&#39;s system) - optional</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;user&quot;</span> <span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span>
+       <span class="s2">&quot;access_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering access tokens</span>
+       <span class="s2">&quot;refresh_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering refresh tokens</span>
+       <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens used in the external recipient step</span>
+       <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name in the external recipient step</span>
+       <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;mode&quot;</span> <span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;template_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// enter the template id</span>
+       <span class="s2">&quot;document_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>  <span class="c1">// enter the document_id</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;prefill&quot;</span> <span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;document_name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// enter the document title</span>
+       <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span>
+           <span class="s2">&quot;id&quot;</span> <span class="p">;</span> <span class="s2">&quot;customer name&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;enabled&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="s2">&quot;required&quot;</span> <span class="o">:</span> <span class="kc">true</span>
+       <span class="p">}]</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;return_fields&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;customer name&#39;</span><span class="p">]</span>
+<span class="p">};</span>
+
+<span class="c1">//callback option</span>
+<span class="kd">var</span> <span class="nx">success_callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+   <span class="k">if</span><span class="p">(</span> <span class="nx">response</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span><span class="p">){</span>
+       <span class="c1">//successfully created document</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">document_id</span><span class="p">);</span>
+       <span class="c1">// Can view the data sent to return_fields. The field refers to the ID of the input component generated when filling in a form.</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;company_name&quot;</span><span class="p">]);</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">field_values</span><span class="p">[</span><span class="s2">&quot;position&quot;</span><span class="p">]);</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">error_callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+   <span class="c1">//failed to create document</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span> <span class="p">,</span> <span class="s2">&quot;eformsign_iframe&quot;</span> <span class="p">,</span> <span class="nx">success_callback</span> <span class="p">,</span> <span class="nx">error_callback</span>  <span class="p">);</span>
+</pre></div>
+</div>
 <div class="section" id="embedding-document-function">
 <h3>embedding_document function<a class="headerlink" href="#embedding-document-function" title="Permalink to this headline">¶</a></h3>
 <p>This function allows to create documents in the customer’s website/service by embedding eformsign features.</p>
@@ -253,7 +308,7 @@ by redirecting to eformsign</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Functions
-document(document_option, iframe_id, success_callback, error_callback)</p>
+document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -303,9 +358,9 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
        <span class="s2">&quot;access_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering access tokens</span>
        <span class="s2">&quot;refresh_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering refresh tokens</span>
-       <span class="s2">&quot;external_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens used at the external recipient step</span>
+       <span class="s2">&quot;external_token&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens used in the external recipient step</span>
        <span class="s2">&quot;external_user_info&quot;</span><span class="o">:</span> <span class="p">{</span>
-           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name at the external recipient step</span>
+           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name in the external recipient step</span>
        <span class="p">}</span>
    <span class="p">},</span>
    <span class="s2">&quot;mode&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -402,7 +457,7 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
     <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
         <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (required)</span>
         <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name when handling an external recipient</span>
+            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name in the external recipient step</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -417,9 +472,9 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">document_option</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;02&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (required)</span>
-    <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens when handling external recipient transactions</span>
+    <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens in the external recipient step</span>
     <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name when handling an external recipient transactions</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name in the external recipient step</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -430,9 +485,9 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
         <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;01&quot;</span> <span class="p">,</span> <span class="c1">// 01 - internal or  02 - external  (required)</span>
         <span class="s2">&quot;access_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering access tokens</span>
         <span class="s2">&quot;refresh_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering refresh tokens</span>
-        <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens when handling external recipient transactions</span>
+        <span class="s2">&quot;external_token&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// refer to openAPI accessToken for information on entering external tokens in the external recipient step</span>
         <span class="s2">&quot;external_user_info&quot;</span> <span class="o">:</span> <span class="p">{</span>
-           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name when handling an external recipient transaction</span>
+           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="c1">// enter the external recipient name in the external recipient step</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -578,10 +633,10 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
 <p>When a callback function is configured with the document function parameter, the following values are returned when a callback function is called.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 9%" />
-<col style="width: 52%" />
-<col style="width: 28%" />
+<col style="width: 16%" />
+<col style="width: 8%" />
+<col style="width: 53%" />
+<col style="width: 24%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Callback</p></th>
@@ -593,28 +648,21 @@ document(document_option, iframe_id, success_callback, error_callback)</p>
 <tbody>
 <tr class="row-even"><td><p>code</p></td>
 <td><p>string</p></td>
-<td><p>Returns an error code when
-failed to submit a document</p></td>
+<td><p>Returns an error code when failed to submit a document</p></td>
 <td><p>normal if -1</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc
-ument_id</p></td>
+<tr class="row-odd"><td><p>document_id</p></td>
 <td><p>string</p></td>
-<td><p>Returns the document_ID
-of the created document when
-a document is successfully submitted.</p></td>
-<td><p>ex)
-910b8a965f9
+<td><p>Returns the document_ID of the created document
+when a document is successfully submitted.</p></td>
+<td><p>ex) 910b8a965f9
 402b82152f48c6da5a5c</p></td>
 </tr>
-<tr class="row-even"><td><p>fiel
-d_values</p></td>
+<tr class="row-even"><td><p>field_values</p></td>
 <td><p>object</p></td>
-<td><p>Can get the value entered by
-the user in return_fields
-specified in document_option</p></td>
-<td><p>ex).
-field_values[“name”]
+<td><p>Can get the value entered by the user
+in return_fields specified in document_option</p></td>
+<td><p>ex).field_values[“name”]
 // john</p></td>
 </tr>
 <tr class="row-odd"><td><p>message</p></td>
