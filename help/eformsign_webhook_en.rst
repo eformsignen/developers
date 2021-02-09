@@ -326,7 +326,7 @@ Webhook list
 
 By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign. 
 
-The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\ provided in eformsign.
+The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\  provided in eformsign.
 
 
 ``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Send document events
@@ -335,11 +335,11 @@ The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsi
 
 
 Click 
-`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\ for more information about each eformsign Webhook.
+`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\  for more information about each eformsign Webhook.
 
 
 
-Webhook list
+Webhook events
 =================
 
 eformsign provides **document** events and **PDF generation** events as Webhook events.

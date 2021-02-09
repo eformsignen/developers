@@ -68,7 +68,7 @@ Getting an API key and private key
     :alt: Create an API key pop-up
 
 
-4. Click the **View key** button in the list to view the API key and Private key.
+4. Click the **View key** in the list to view the API key and Private key.
 
 .. image:: resources/apikey4.PNG
     :width: 700

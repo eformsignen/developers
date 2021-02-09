@@ -112,19 +112,19 @@ There are two types of eformsign objects: embedded and redirect.
 +----------+--------------------+----------------------------------------------+
 | Type     | Name               | Description                                  |
 +==========+====================+==============================================+
-| embedding| eformsign.         | Function that allows to create documents     |
-|          | document(          | by embedding eformsign                       |         
-|          | document_option,   |                                              |
-|          | iframe_id,         | callback parameters are optional             |
-|          | success_callback,  |                                              |
-|          | error_callback)    | -  document_option, iframe_id: required      |
+| embedding| eformsign.document | Function that allows to create documents     |
+|          | (document_option,  | by embedding eformsign                       |         
+|          | iframe_id,         |                                              |
+|          | success_callback,  | callback parameters are optional             |
+|          | error_callback)    |                                              |
+|          |                    | -  document_option, iframe_id: required      |
 |          |                    |                                              |
 |          |                    | -  success_callback: optional                |
 |          |                    |                                              |
 |          |                    | -  error_callback: optional                  |
 +----------+--------------------+----------------------------------------------+
-| redirect | eformsign.documen  | Function that allows to create documents     |
-|          | t(document_option) | by redirecting to eformsign                  |
+| redirect | eformsign.document | Function that allows to create documents     |
+|          | (document_option)  | by redirecting to eformsign                  |
 |          |                    |                                              |
 |          |                    | -  document_option : required                |
 +----------+--------------------+----------------------------------------------+
@@ -136,7 +136,9 @@ There are two types of eformsign objects: embedded and redirect.
 
    The redirect method will be available in the future. 
 
-.. code-block::javascript
+
+
+.. code-block:: javascript
 
      var eformsign = new EformSign();
      
@@ -150,9 +152,9 @@ There are two types of eformsign objects: embedded and redirect.
             "type" : "01" ,
             "access_token" : "", // refer to openAPI accessToken for information on entering access tokens
             "refresh_token" : "", // refer to openAPI accessToken for information on entering refresh tokens
-            "external_token" : "", // refer to openAPI accessToken for information on entering external tokens used when handling external recipient transactions
+            "external_token" : "", // refer to openAPI accessToken for information on entering external tokens used in the external recipient step
             "external_user_info" : {
-               "name" : "" // enter the external recipient name when handling external recipient transactions
+               "name" : "" // enter the external recipient name in the external recipient step
             }
         },
         "mode" : {
@@ -205,7 +207,7 @@ You can use two types of parameters: document_option and callback.
 .. note::
 
    Functions
-   document(document_option, iframe_id, success_callback, error_callback)
+   document (document_option, iframe_id, success_callback, error_callback)
 
 ===================  ===============  =============  =======================================================================================
  Parameter Name      Parameter Type   Required Y/N   Description 
@@ -231,9 +233,9 @@ You can use two types of parameters: document_option and callback.
             "type": "01",
             "access_token": "", // refer to openAPI accessToken for information on entering access tokens
             "refresh_token": "", // refer to openAPI accessToken for information on entering refresh tokens
-            "external_token": "", // refer to openAPI accessToken for information on entering external tokens used at the external recipient step
+            "external_token": "", // refer to openAPI accessToken for information on entering external tokens used in the external recipient step
             "external_user_info": {
-                "name": "" // enter the external recipient name at the external recipient step
+                "name": "" // enter the external recipient name in the external recipient step
             }
         },
         "mode": {
@@ -333,7 +335,7 @@ In document-option, you can configure settings regarding company information, us
         "user":{
             "type" : "02" , // 01 - internal or  02 - external  (required)
             "external_user_info" : {
-                "name" : "" // enter the external recipient name when handling an external recipient
+                "name" : "" // enter the external recipient name in the external recipient step
             }
         }
     };
@@ -346,9 +348,9 @@ In document-option, you can configure settings regarding company information, us
     var document_option = {
         "user":{
         "type" : "02" , // 01 - internal or  02 - external  (required)
-        "external_token" : "", // refer to openAPI accessToken for information on entering external tokens when handling external recipient transactions
+        "external_token" : "", // refer to openAPI accessToken for information on entering external tokens in the external recipient step
         "external_user_info" : {
-        "name" : "" // enter the external recipient name when handling an external recipient transactions
+        "name" : "" // enter the external recipient name in the external recipient step
             }
         }
     };
@@ -360,9 +362,9 @@ In document-option, you can configure settings regarding company information, us
             "type" : "01" , // 01 - internal or  02 - external  (required)
             "access_token" : "", // refer to openAPI accessToken for information on entering access tokens
             "refresh_token" : "", // refer to openAPI accessToken for information on entering refresh tokens
-            "external_token" : "", // refer to openAPI accessToken for information on entering external tokens when handling external recipient transactions
+            "external_token" : "", // refer to openAPI accessToken for information on entering external tokens in the external recipient step
             "external_user_info" : {
-               "name" : "" // enter the external recipient name when handling an external recipient transaction
+               "name" : "" // enter the external recipient name in the external recipient step
             }
         }
     };
@@ -532,26 +534,23 @@ The callback functions are configured as follows.
 
 When a callback function is configured with the document function parameter, the following values are returned when a callback function is called. 
 
-+----------+--------+-----------------------------------------------+-------------------------+
-| Callback | Type   | Description                                   | Remark                  |
-+==========+========+===============================================+=========================+
-| code     | string | Returns an error code when                    |normal if -1             |
-|          |        | failed to submit a document                   |                         |
-+----------+--------+-----------------------------------------------+-------------------------+
-| doc      | string | Returns the document_ID                       | ex)                     |
-| ument_id |        | of the created document when                  | 910b8a965f9             |
-|          |        | a document is successfully submitted.         | 402b82152f48c6da5a5c    |
-+----------+--------+-----------------------------------------------+-------------------------+
-| fiel     | object | Can get the value entered by                  | ex).                    |
-| d_values |        | the user in return_fields                     | field_values["name"]    |
-|          |        | specified in document_option                  | // john                 |
-+----------+--------+-----------------------------------------------+-------------------------+
-| message  | string | Returns an error message when                 | normal if an empty value|
-|          |        | failed to submit a document                   |                         |
-+----------+--------+-----------------------------------------------+-------------------------+
-| title    | string | Returns the title of the document             | ex) contract            |
-|          |        | when a document is submitted                  |                         |
-+----------+--------+-----------------------------------------------+-------------------------+
++-----------------+--------+--------------------------------------------------------+-------------------------+
+| Callback        | Type   | Description                                            | Remark                  |
++=================+========+========================================================+=========================+
+| code            | string | Returns an error code when failed to submit a document |normal if -1             |
++-----------------+--------+--------------------------------------------------------+-------------------------+
+| document_id     | string | Returns the document_ID of the created document        | ex) 910b8a965f9         |
+|                 |        | when a document is successfully submitted.             | 402b82152f48c6da5a5c    |
++-----------------+--------+--------------------------------------------------------+-------------------------+
+| field_values    | object | Can get the value entered by the user                  | ex).field_values["name"]|
+|                 |        | in return_fields specified in document_option          | // john                 |
++-----------------+--------+--------------------------------------------------------+-------------------------+
+| message         | string | Returns an error message when                          | normal if an empty value|
+|                 |        | failed to submit a document                            |                         |
++-----------------+--------+--------------------------------------------------------+-------------------------+
+| title           | string | Returns the title of the document                      | ex) contract            |
+|                 |        | when a document is submitted                           |                         |
++-----------------+--------+--------------------------------------------------------+-------------------------+
 
 
 
