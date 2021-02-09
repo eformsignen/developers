@@ -165,7 +165,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can view the company ID in Manage company &gt; Company profile &gt; Basic information.</p>
-<p><a class="reference internal" href="../_images/company_id.png"><img alt="image1" src="../_images/company_id.png" style="width: 600px;" /></a></p>
+<p><a class="reference internal" href="help\companyinfo_companyid.png"><img alt="image1" src="help\companyinfo_companyid.png" style="width: 600px;" /></a></p>
 <p>Go to the document box and click the document icon (<img alt="image2" src="../_images/column_icon.png" />) at the top right corner and add Document ID column. Then you can view the document ID in the document list.</p>
 <p><img alt="image3" src="../_images/document_id.png" /></p>
 </div>
@@ -361,9 +361,9 @@
 <div class="section" id="api-for-generating-a-signature">
 <h3>API for generating a signature<a class="headerlink" href="#api-for-generating-a-signature" title="Permalink to this headline">¶</a></h3>
 <p>To generate a signature, use <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token">/api_auth/access_token</a>Issue Access Token</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token">/api_auth/access_token</a> Issue Access Token</p>
 <p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">here</a>for more information about Access Token API.</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">here</a> for more information about Access Token API.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>There is a time limit of 30 seconds when generating a signature. A signature must be generated and a token must be issued within 30 seconds. Also, the server time and the current time may not match. Check the ‘execution_time’ of response message received after calling Access Token API.</p>
@@ -393,13 +393,13 @@
 <p>After generating a signature, you can use the following document API to create new documents, to inquiry document information, or to download completed document files(PDF and audit trail certificate), or attached files.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a>by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">here</a>.</p>
+<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth">Access Token API</a> by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">here</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure to enter Access Token value by clicking the <strong>Authorize</strong> button.</p>
 </div>
-<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">Document API</a>provided in eformsign.</p>
+<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">Document API</a> provided in eformsign.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token">/api_auth/refresh_token</a> Refresh Access Token</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents">/api/documents</a> Create a new document (internal recipients)</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api-documents-external">/api/documents/external</a> Create a new document (external recipients)</p>
@@ -407,7 +407,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_files">/api/docuemnts/{document_id}/download_files</a> Download document files (PDF, Audit trail certificate)</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/get-api-documents-DOCUMENT_ID-download_attach_files">/api/doduments/{document_id}/download_attach_files</a> Download attached files</p>
 <p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">here</a>for more information about each eformsign document API.</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">here</a> for more information about each eformsign document API.</p>
 </div>
 </div>
 <div class="section" id="api-code">
