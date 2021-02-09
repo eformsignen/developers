@@ -104,7 +104,7 @@ The following describes how to generate a signature for each language: Java, Pyt
 Java
 -------
 
-Check the event information received from the eformsign server by using the public key issued to you in `Getting a Webhook Key <#webhook>`__\ to verify whether the event was called normally from eformsign.
+Check the event information received from the eformsign server by using the public key issued to you in `Getting a Webhook Key <#webhook>`__\  to verify whether the event was called normally from eformsign.
 
 
 .. note:: 

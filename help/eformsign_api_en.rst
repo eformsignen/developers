@@ -277,11 +277,11 @@ API for generating a signature
 
 To generate a signature, use `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\. 
 
-``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\ Issue Access Token
+``POST``: `/api_auth/access_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth#/eformsign/post-api_auth-access_token>`_\  Issue Access Token
 
 
 Click
-`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\ for more information about Access Token API.
+`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`__\  for more information about Access Token API.
 
 .. caution:: 
    
@@ -329,7 +329,7 @@ After generating a signature, you can use the following document API to create n
 
 .. caution:: 
 
-   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\ by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\. 
+   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_auth>`_\  by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\. 
 
 
 .. note:: 
@@ -337,7 +337,7 @@ After generating a signature, you can use the following document API to create n
    Make sure to enter Access Token value by clicking the **Authorize** button. 
 
 
-The followings are `Document API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\ provided in eformsign.
+The followings are `Document API <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`_\  provided in eformsign.
 
 
 ``POST``: `/api_auth/refresh_token <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general#/eformsign/post-api_auth-refresh_token>`_\  Refresh Access Token
@@ -354,7 +354,7 @@ The followings are `Document API <https://app.swaggerhub.com/apis/eformsign_api/
 
 
 Click 
-`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\ for more information about each eformsign document API.
+`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general>`__\  for more information about each eformsign document API.
 
 
 API code
@@ -526,7 +526,7 @@ doc_transfer             051              Transferring a document
 ======================  ===============  =================================================================
 
 
-.. |image1| image:: resources/company_id.png
+.. |image1| image:: companyinfo_companyid.png
    :width: 600px
 .. |image2| image:: resources/column_icon.png
 .. |image3| image:: resources/document_id.png
