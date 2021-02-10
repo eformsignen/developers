@@ -526,7 +526,7 @@ doc_transfer             051              Transferring a document
 ======================  ===============  =================================================================
 
 
-.. |image1| image:: companyinfo_companyid.png
+.. |image1| image:: resources/companyinfo_companyid.png
    :width: 600px
 .. |image2| image:: resources/column_icon.png
 .. |image3| image:: resources/document_id.png
