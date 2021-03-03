@@ -8,7 +8,6 @@ eformsign API / Webhook Guide
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
 
    help/eformsign_api_overview_en

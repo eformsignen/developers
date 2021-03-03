@@ -20,3 +20,10 @@ This is a feature that allows customers to call the API provided by eformsign to
 **Using the eformsign Webhook**
 
 This is a feature that sends event information to the customer's system/service when an event occurs in eformsign.
+
+
+.. note:: 
+
+
+  This eformsign API documentation is v2.0. For the previous version, please contact eformsign team (eformsign@forcs.com, 02-6188-8400).
+
