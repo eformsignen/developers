@@ -304,7 +304,8 @@
 <span class="n">privateKey</span> <span class="o">=</span> <span class="n">SigningKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">privateKeyHex</span><span class="p">))</span>
 
 <span class="c1"># execution_time - current server time</span>
-<span class="n">execution_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">execution_time_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">execution_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">execution_time_int</span><span class="p">)</span>
 
 <span class="c1"># the generated eformsign_signature</span>
 <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">privateKey</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">execution_time</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigencode</span><span class="o">=</span><span class="n">sigencode_der</span><span class="p">)</span>
@@ -470,7 +471,7 @@
 <p class="admonition-title">Note</p>
 <p>Make sure to enter Access Token value by clicking the <strong>Authorize</strong> button.</p>
 </div>
-<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members">Member and group management API</a>provided in eformsign.</p>
+<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members">Member and group management API</a> provided in eformsign.</p>
 <div class="section" id="api-for-managing-members">
 <h4>API for managing members<a class="headerlink" href="#api-for-managing-members" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members">Inquiry member list</a></p>

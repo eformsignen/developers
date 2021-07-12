@@ -241,7 +241,7 @@ The following shows the examples for each language.
 		 
 		# 4. verify
 		try:
-		    if publickey.verify(eformsignSignature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
+		    if publickey.verify(eformsign_signature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
 		        print("verify success")
 		        # Events are handled here.
 		except BadSignatureError:

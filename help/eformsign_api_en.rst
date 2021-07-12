@@ -220,7 +220,8 @@ The following shows the examples for each language.
         privateKey = SigningKey.from_der(binascii.unhexlify(privateKeyHex))
          
         # execution_time - current server time
-        execution_time = int(time() * 1000)
+        execution_time_int = int(time() * 1000)
+        execution_time = str(execution_time_int)
           
         # the generated eformsign_signature
         eformsign_signature = privateKey.sign(execution_time.encode('utf-8'), hashfunc=hashlib.sha256, sigencode=sigencode_der)

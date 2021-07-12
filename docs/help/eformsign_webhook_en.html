@@ -303,9 +303,9 @@ Test URL : Webhook URL
         <span class="p">}</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python">
+</div><div class="code-tab" data-title="Python 3.9.6">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
-        <span class="kn">import</span> <span class="nn">binascii</span>
+                <span class="kn">import</span> <span class="nn">binascii</span>
 
         <span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
         <span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
@@ -316,12 +316,13 @@ Test URL : Webhook URL
         <span class="c1"># Reads the header and boy in the request.</span>
         <span class="c1"># 1. get eformsign signature</span>
         <span class="c1"># eformsignSignature is contained in the request header.</span>
-        <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
+    <span class="n">eformsign_signature_str</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
+    <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">eformsign_signature_str</span><span class="p">)</span>
 
 
         <span class="c1"># 2. get request body data</span>
         <span class="c1"># Converts the data in the body to string to verify the eformsign signature.</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span>
 
 
         <span class="c1"># 3. publicKey configuration</span>
@@ -331,7 +332,7 @@ Test URL : Webhook URL
 
         <span class="c1"># 4. verify</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
                 <span class="c1"># Events are handled here.</span>
         <span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
@@ -416,11 +417,10 @@ Test URL : Webhook URL
 <div class="section" id="webhook-list">
 <h2>Webhook list<a class="headerlink" href="#webhook-list" title="Permalink to this headline">¶</a></h2>
 <p>By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign.</p>
-<p>The following is <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">Webhook</a> provided in eformsign.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> Send document events</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf">/webhook pdf</a> Send PDF generation events</p>
+<p>The following is <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook">Webhook</a> provided in eformsign.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> Send Webhook</p>
 <p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook">here</a> for more information about each eformsign Webhook.</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook">here</a> for more information about each eformsign Webhook.</p>
 </div>
 <div class="section" id="webhook-events">
 <h2>Webhook events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h2>
