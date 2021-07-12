@@ -211,26 +211,27 @@ The following shows the examples for each language.
 
 
     .. code-tab:: python
-        :title: Python
+        :title: Python 3.9.6
 
         import hashlib
-		import binascii
+			import binascii
 		 
-		from ecdsa import VerifyingKey, BadSignatureError
-		from ecdsa.util import sigencode_der, sigdecode_der
-		from flask import request
+    		from ecdsa import VerifyingKey, BadSignatureError
+    		from ecdsa.util import sigencode_der, sigdecode_der
+    		from flask import request
 		 
 		 
 		...
 		# Reads the header and boy in the request.
 		# 1. get eformsign signature
 		# eformsignSignature is contained in the request header.
-		eformsignSignature = request.headers['eformsign_signature']
+            eformsign_signature_str= request.headers['eformsign_signature']
+            eformsign_signature = binascii.unhexlify(eformsign_signature_str)
 		 
 		 
 		# 2. get request body data
 		# Converts the data in the body to string to verify the eformsign signature.
-		data = request.json
+		data = request.data
 		 
 		 
 		# 3. publicKey configuration
@@ -240,7 +241,7 @@ The following shows the examples for each language.
 		 
 		# 4. verify
 		try:
-		    if publickey.verify(eformsignSignature, data.encode('utf-8'), hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
+		    if publickey.verify(eformsignSignature, data, hashfunc=hashlib.sha256, sigdecode=sigdecode_der):
 		        print("verify success")
 		        # Events are handled here.
 		except BadSignatureError:
@@ -326,16 +327,16 @@ Webhook list
 
 By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign. 
 
-The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`_\  provided in eformsign.
+The following is `Webhook <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook>`_\  provided in eformsign.
 
 
-``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Send document events
+``POST``: `/webhook document event <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook#/default/post-webhook-document-event>`_\  Send Webhook
 
-``POST``: `/webhook pdf <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook#/default/post-webhook-pdf>`_\  Send PDF generation events
+
 
 
 Click 
-`here <https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/Webhook>`__\  for more information about each eformsign Webhook.
+`here <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook>`__\  for more information about each eformsign Webhook.
 
 
 

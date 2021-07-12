@@ -434,7 +434,7 @@ You can use the following API to manage members and groups.
    Make sure to enter Access Token value by clicking the **Authorize** button. 
 
 
-The followings are `Member and group management API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members>`_\ provided in eformsign.
+The followings are `Member and group management API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members>`_\  provided in eformsign.
 
 
 API for managing members
