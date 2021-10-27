@@ -1,145 +1,194 @@
-<!DOCTYPE html>
-<html  lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Embedding eformsign features</title>
-    
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
-          <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
-      
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
-      <!-- sphinx script_files -->
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Embedding eformsign features &mdash; eformsign API guide 2021.01.11 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
         <script src="../_static/code-tabs.js"></script>
-
-      
-      <script src="../_static/theme-vendors.js"></script>
-      <script src="../_static/theme.js" defer></script>
     
-  <link rel="index" title="Index" href="../genindex.html" />
-  <link rel="search" title="Search" href="../search.html" />
-  <link rel="next" title="Using eformsign API" href="eformsign_api_en.html" />
-  <link rel="prev" title="Overview" href="eformsign_api_overview_en.html" /> 
-  </head>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  <body>
-    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
-  <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../_static/forcs.png" alt="doit logo"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using eformsign API" href="eformsign_api_en.html" />
+    <link rel="prev" title="Overview" href="eformsign_api_overview_en.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
     
-  </router-link>
-
-  <div class="links">
-    <navlinks class="can-hide">
-
-
-
-    </navlinks>
-  </div>
-</navbar>
-
-      
-      <div class="sidebar-mask" @click="toggleSidebar(false)">
-      </div>
-        <sidebar @toggle-sidebar="toggleSidebar">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
-          <navlinks>
+
+          
+            <a href="../index.html">
+          
+
+          
             
+            <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-
-
+          
             
-          </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">Quick search</span>
-    <div class="searchformwrapper">
-      <form class="search" action="../search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Search" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#eformsign-api-webhook-guide">Contents:</a></span>
-      </p>
-      <ul class="current">
-        
-          <li class="toctree-l1 "><a href="eformsign_api_overview_en.html" class="reference internal ">Overview</a>
-
             
-          </li>
+          
 
-        
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Embedding eformsign features</a>
-
-            
-              <ul>
-                
-                  <li class="toctree-l2"><a href="#getting-started" class="reference internal">Getting started</a></li>
-                
-                  <li class="toctree-l2"><a href="#installation" class="reference internal">Installation</a></li>
-                
-                  <li class="toctree-l2"><a href="#about-the-eformsign-object" class="reference internal">About the eformsign object</a></li>
-                
-              </ul>
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="eformsign_api_en.html" class="reference internal ">Using eformsign API</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="eformsign_webhook_en.html" class="reference internal ">Using eformsign Webhook</a>
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
-        </sidebar>
 
-      <page>
-          <div class="body-header" role="navigation" aria-label="navigation">
-  
-  <ul class="breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-    
-    <li>Embedding eformsign features</li>
-  </ul>
-  
+          
+        </div>
 
-  <ul class="page-nav">
-  <li class="prev">
-    <a href="eformsign_api_overview_en.html"
-       title="previous chapter">← Overview</a>
-  </li>
-  <li class="next">
-    <a href="eformsign_api_en.html"
-       title="next chapter">Using eformsign API →</a>
-  </li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_overview_en.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Embedding eformsign features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#where-to-find-company-id">Where to find Company ID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eformsign-menu">eformsign Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eformsign-company-profile-menu">eformsign Company profile menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#company-profile-basic-information">Company profile &gt; Basic information</a></li>
 </ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#where-to-find-template-id">Where to find Template ID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eformsign-manage-template-menu">eformsign Manage template menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eformsign-manage-templates-page">eformsign Manage templates page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template-id">Template ID</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#about-the-eformsign-object">About the eformsign object</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#embedding-document-function">embedding_document function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-description-document-option">Parameter description: document-option</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#company-information-required">1. Company information (required)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-information-optional">2. User information (optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode-required">3. Mode (required)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return-fields-optional">4. Return fields (optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-entry-used-for-automatically-entering-fields-in-the-document-creation-process">5. Auto entry (used for automatically entering fields in the document creation process)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-description-callback">Parameter description: Callback</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_api_en.html">Using eformsign API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eformsign_webhook_en.html">Using eformsign Webhook</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eformsign API guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Embedding eformsign features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/help/eformsign_embedding_en.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
+  <hr/>
 </div>
-<hr>
-          <div class="content" role="main">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="embedding-eformsign-features">
 <h1>Embedding eformsign features<a class="headerlink" href="#embedding-eformsign-features" title="Permalink to this headline">¶</a></h1>
@@ -684,27 +733,59 @@ when a document is submitted</p></td>
 </div>
 
 
+           </div>
+           
           </div>
-          <div class="page-nav">
-            <div class="inner"><ul class="page-nav">
-  <li class="prev">
-    <a href="eformsign_api_overview_en.html"
-       title="previous chapter">← Overview</a>
-  </li>
-  <li class="next">
-    <a href="eformsign_api_en.html"
-       title="next chapter">Using eformsign API →</a>
-  </li>
-</ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021. FORCS CO., LTD. All rights reserved.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
-</div>
-            </div>
-          </div>
-      </page>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eformsign_api_en.html" class="btn btn-neutral float-right" title="Using eformsign API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="eformsign_api_overview_en.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021. FORCS CO., LTD. All rights reserved
+
+    </p>
+  </div>
     
     
-  </body>
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
