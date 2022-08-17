@@ -694,7 +694,7 @@ doc_reject_reviewer         071              Document rejected by reviewer
 .. |image3| image:: resources/document_id.png
 .. |image4| image:: resources/authorize_icon.png
 .. |image5| image:: resources/execution_time.png
-   :width: 450px
+   :width: 650px
 .. |image6| image:: resources/execution_time2.png
    :width: 450px
 
