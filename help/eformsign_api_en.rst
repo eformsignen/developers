@@ -62,22 +62,76 @@ Getting an API key and private key
     :alt: Create an API key button
 
 
-3. Enter the alias and application name in the **Create an API key** pop-up and then click the **Save** button.
+3. Enter the alias and application name in the **Create an API key** pop-up.
 
 .. image:: resources/apikey3.PNG
-    :width: 700
+    :width: 300
     :alt: Create an API key pop-up
 
 
-4. Click the **View key** in the list to view the API key and Private key.
+4. Select the **Authentication type** and click **Save**.
+
+.. note:: 
+    
+   You can select from one of three authentication types: **Bearer token, Basic authentication, and eformsign signature**. 
+
+   - **Bearer Token**\ : Uses a preset value for authentication.
+
+    .. image:: resources/apikeyauth1.PNG
+        :width: 300
+        :alt: API key pop-up 1
+
+
+    Select **Bearer token** as the authentication type and enter the value to be used as the token value under **Value** and click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the token value in the format of the **Bearer token value** in the request header, eformsign_signature. Refer to the following example.
+
+    .. code:: Javascript
+
+        curl --location --request POST 'https://service.eformsign.com/v2.0/api_auth/access_token' \
+        --header 'eformsign_signature: Bearer {token value}' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer {base64 encoded api key }' \
+        --data-raw '{
+         "execution_time":{timestamp in ms},
+         "member_id": {eformsign account}
+        }'
+
+
+   - **Basic Authentication**\ : Uses an ID and password for authentication. 
+
+    .. image:: resources/apikeyauth2.PNG
+        :width: 300
+        :alt: API key pop-up 2
+
+
+
+    Select **Basic authentication** as the authentication type and enter the ID and password, then click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the Base64-encoded value in the format of **ID:Password** in the request header, eformsign_signature. Refer to the following example. 
+
+    .. code:: Javascript
+
+        curl --location --request POST 'https://service.eformsign.com/v2.0/api_auth/access_token' \
+        --header 'eformsign_signature: Basic {base64 encoded "id:password"}' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer {base64 encoded api key }' \
+        --data-raw '{
+         "execution_time":{timestamp in ms},
+         "member_id": {eformsign account}
+        }'
+
+
+   - **eformsign Signature**\ : Uses the eformsign Signature value for authentication. Select the authentication type to **eformsign signature** and click **Save**. Refer to `Generating a signature <#eformsign-signature>`_ on how to sign a signature with eformsign Signature.
+
+
+
+
+4. Select the **View key** button in the list of keys and view the API key and private key.
 
 .. image:: resources/apikey4.PNG
     :width: 700
-    :alt: View key button
+    :alt: View API key
 
 .. image:: resources/apikey5.PNG
     :width: 700
-    :alt: API key and Private key
+    :alt: View private key
 
 
 
@@ -89,6 +143,7 @@ Getting an API key and private key
 
     You can delete an API key by clicking the **Delete** button in the API key list.
 
+.. _eformsign_signature:
 
 Generating a signature 
 ==============================
