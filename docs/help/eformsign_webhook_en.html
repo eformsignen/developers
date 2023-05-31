@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Using eformsign Webhook &mdash; eformsign API guide 2021.01.11 documentation</title>
   
@@ -13,13 +13,18 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -29,10 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/code-tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -54,12 +59,9 @@
           
 
           
-            <a href="../index.html">
+            <a href="../index.html" class="icon icon-home"> eformsign API guide
           
 
-          
-            
-            <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -95,19 +97,29 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using eformsign Webhook</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-a-webhook-key">Getting a Webhook key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-webhooks">Managing Webhooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-a-key">Viewing a key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-a-webhook">Editing a Webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-webhook">Deleting a Webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-a-webhook">Testing a Webhook</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#generating-a-signature">Generating a signature</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#java">Java</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#php">PHP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#webhook-list">Webhook list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhookauth">Webhook authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-code-for-signature-authentication">Sample code for signature authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#php">PHP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-by-language">Sample code by language</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#webhook-events">Webhook events</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#document-events">Document events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pdf-generation-events">PDF generation events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webhook-event-types">Webhook event types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webhook-structure">Webhook structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-status-code">Document status code</a></li>
 </ul>
 </li>
 </ul>
@@ -152,6 +164,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -163,7 +177,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/help/eformsign_webhook_en.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -197,188 +211,275 @@
 </ol>
 <a class="reference internal image-reference" href="../_images/webhook2.PNG"><img alt="New Webhook button" src="../_images/webhook2.PNG" style="width: 700px;" /></a>
 <ol class="arabic simple" start="3">
-<li><p>In the New Webhook pop-up, enter the Name, URL, and the List of affected templates, and make sure that the status is in enabled status. Then, click the <strong>Register</strong> button.</p></li>
+<li><p>In the New Webhook pop-up, enter the Name, URL (endpoint URL), and choose the Status.</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook3.PNG"><img alt="New Webhook pop-up" src="../_images/webhook3.PNG" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../_images/Webhook_key1.png"><img alt="New Webhook pop-up" src="../_images/Webhook_key1.png" style="width: 500px;" /></a>
 <ol class="arabic simple" start="4">
-<li><p>Click the <strong>View key</strong> button in the Webhook list to view the Webhook public key.</p></li>
+<li><p>Select the <strong>Target</strong> documents. You can choose from <strong>All documents, Documents created from my files, and documents created from templates</strong>.</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook4.PNG"><img alt="Webhook View key button" src="../_images/webhook4.PNG" style="width: 700px;" /></a>
-<a class="reference internal image-reference" href="../_images/webhook5.PNG"><img alt="View key" src="../_images/webhook5.PNG" style="width: 700px;" /></a>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If you click the <strong>Regenerate key</strong> button, the Webhook public key will be issued to you again and you will not be able to use the previous key.</p>
-</div>
+<a class="reference internal image-reference" href="../_images/Webhook_key2.png"><img alt="New Webhook pop-up 2" src="../_images/Webhook_key2.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p><strong>All documents:</strong> Sends a webhook for all documents created in the company.</p></li>
+<li><p><strong>Documents created from my files:</strong> Sends a webhook for documents created using <strong>New from my file</strong>.</p></li>
+<li><p><strong>Documents created from templates:</strong> Send a webhook for dcouments created from a selected template.</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Editing Webhook information</strong></p>
-<p>You can change the information of a Webhook by clicking the <strong>Edit</strong> button in the Webhook list.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Deleting a Webhook</strong></p>
-<p>You can delete a Webhook by clicking the <strong>Delete</strong> button in the Webhook list.</p>
+<p>You can select a template by following the instructions below.</p>
+<p>① Click <strong>List of affected templates</strong> to view the list of templates and the select the template you want. Make sure to select a template (<img alt="image1" src="../_images/template_icon.png" />) here. Selecting a category (<img alt="image2" src="../_images/category_icon.png" />) instead will not add any templates.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_select_template.png"><img alt="New Webhook pop-up 3" src="../_images/Webhook_select_template.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p>② Select a template you want, and then click the <strong>Add</strong> button on the right.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_add_popup.png"><img alt="New Webhook pop-up 4" src="../_images/Webhook_add_popup.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p>③ You can see that the selected templated has been added to the <strong>List of affected templates</strong>. You can add multiple templates this way.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Webhook_add_popup2.png"><img alt="New Webhook pop-up 5" src="../_images/Webhook_add_popup2.png" style="width: 500px;" /></a>
+</div></blockquote>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>Click the <strong>Test</strong> button in the Webhook list to send a test Webhook and get the returned results.</p></li>
+<li><p>Select the <strong>Authentication type</strong>.You can select from one of <strong>No authentication, Bearer token, Basic authentication, and eformsign signature</strong>. For more information, refer to <a class="reference external" href="#webhookauth">Webhook authentication</a>.</p></li>
 </ol>
-<a class="reference internal image-reference" href="../_images/webhook6.PNG"><img alt="Webhook Test" src="../_images/webhook6.PNG" style="width: 700px;" /></a>
-<p>The following is a json file used for testing purposes.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-&quot;webhook_id&quot; : &quot;Webhook ID&quot;,
-&quot;webhook_name&quot; : &quot;Webhook name&quot;,
-&quot;company_id&quot; : &quot;company ID&quot;,
-&quot;event_type&quot; : “document”,
-&quot;document&quot; : {
-  &quot;id&quot; : “test_doc_id”,
-   &quot;template_id&quot; : “test_template_id”,
-   &quot;template_version&quot; : “1”,
-   &quot;document_history_id&quot; : “test_document_history_id”,
-   &quot;doc_status&quot; : “doc_create”,
-   &quot;editor_id&quot; : &quot;user ID&quot;,
-   &quot;updated_date&quot; : &quot;current time(UTC Long)&quot;
+<a class="reference internal image-reference" href="../_images/Webhook_add_popup3.png"><img alt="New Webhook pop-up 6" src="../_images/Webhook_add_popup3.png" style="width: 500px;" /></a>
+<ol class="arabic simple" start="6">
+<li><p>Click the <strong>Register</strong> button to add the Webhook. You can view the webhook you added in the <strong>Manage Webhook</strong> tab.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/Webhook_add.png"><img alt="Webhook registration completed" src="../_images/Webhook_add.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="managing-webhooks">
+<h3>Managing Webhooks<a class="headerlink" href="#managing-webhooks" title="Permalink to this headline">¶</a></h3>
+<p>You can manage webhooks with the buttons on the right of each webhook.</p>
+<a class="reference internal image-reference" href="../_images/Webhook_manage1.png"><img alt="Integration &gt; API/Webhook &gt; Manage Webhook" src="../_images/Webhook_manage1.png" style="width: 700px;" /></a>
+<div class="section" id="viewing-a-key">
+<h4>Viewing a key<a class="headerlink" href="#viewing-a-key" title="Permalink to this headline">¶</a></h4>
+<p>If you select ‘eformsign signature’ for the Authentication type, you can view the public key for Webhook authentication.
+You can also regenerate the key by clicking the <strong>Regenerate key</strong> button. Note that regenerating a key means you cannot use the previous key.</p>
+<p>If you select the Authentication type to anything other than ‘eformsign signature’, the Public key will be left blank.</p>
+<a class="reference internal image-reference" href="../_images/Webhook_Key.png"><img alt="Integration &gt; API/Webhook &gt; Manage Webhook &gt; View key" src="../_images/Webhook_Key.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="editing-a-webhook">
+<h4>Editing a Webhook<a class="headerlink" href="#editing-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can change the Name, URL, Status, Target, and Authentication type of a Webhook by clicking the <strong>Edit</strong> button next to a Webhook.</p>
+</div>
+<div class="section" id="deleting-a-webhook">
+<h4>Deleting a Webhook<a class="headerlink" href="#deleting-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can delete a Webhook by clicking the <strong>Delete</strong> button next to a Webhook.</p>
+</div>
+<div class="section" id="testing-a-webhook">
+<h4>Testing a Webhook<a class="headerlink" href="#testing-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can test a Webhook by sending it to the configured Webhook URL and return results.</p>
+<p>The body of a test Webhook is as follows. Note that relevant data will be sent in the header according to the selected Authentication type.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
+  &quot;webhook_id&quot;: &quot;Webhook ID&quot;,
+  &quot;webhook_name&quot;: &quot;Webhook name&quot;,
+  &quot;company_id&quot;: Company ID&quot;,
+  &quot;event_type&quot;: &quot;document&quot;,
+  &quot;document&quot;: {
+    &quot;id&quot;: &quot;test_doc_id&quot;,
+    &quot;document_title&quot;: &quot;test_document_title&quot;,
+    &quot;template_id&quot;: &quot;test_template_id&quot;,
+    &quot;template_name&quot;: &quot;test_template_name&quot;,
+    &quot;workflow_seq&quot;: 0,
+    &quot;template_version&quot;: &quot;1&quot;,
+    &quot;history_id&quot;: &quot;test_document_history_id&quot;,
+    &quot;status&quot;: &quot;doc_create&quot;,
+    &quot;editor_id&quot;: &quot;User ID&quot;,
+    &quot;updated_date&quot;: &quot;Current time (UTC Long)&quot;
+  }
 }
-}
-Test URL : Webhook URL
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="generating-a-signature">
-<h2>Generating a signature<a class="headerlink" href="#generating-a-signature" title="Permalink to this headline">¶</a></h2>
-<p>The following describes how to generate a signature for each language: Java, Python, and PHP.</p>
-<div class="section" id="java">
-<h3>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h3>
-<p>Check the event information received from the eformsign server by using the public key issued to you in <a class="reference external" href="#webhook">Getting a Webhook Key</a> to verify whether the event was called normally from eformsign.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The signature algorithm used is SHA256withECDSA.</p>
+<p>A pop-up message is displayed according to the test status as follows.</p>
+<p><strong>Upon successful send</strong>: “Transmission test succeeded.””</p>
+<p><strong>Upon send failure</strong>: “Transmission test failed.””</p>
+<p><strong>Upon send error or no response</strong>: “A temporary error occurred. Please retry.””</p>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="webhookauth">
+<span id="id1"></span><h2>Webhook authentication<a class="headerlink" href="#webhookauth" title="Permalink to this headline">¶</a></h2>
+<p>This is a feature that allows you to authenticate that the received webhook is a legitimate webhook called by eformsign.</p>
+<p>When adding or editing a Webhook, you can select one of the following authentication types.</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type.png"><img alt="Selecting a Webhook authentication type" src="../_images/Webhook_auth_type.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p><strong>No authentication</strong></p></li>
+</ul>
+<p>Sends a Webhook without any information for authentication. In this case, you can still see the event information, but you can’t authenticate that the Webhook received is a legitimate Webhook.</p>
+<ul class="simple">
+<li><p><strong>Bearer Token</strong></p></li>
+</ul>
+<p>Uses the preset token value for authentication. When adding or editing a Webhook, select <strong>Bearer token</strong> as the Authentication type and enter the value to be used as the token under <strong>Value</strong>.</p>
+<p>In this case, the value will be included in the Authorization field of the request header when the Webhook is sent.</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type1.png"><img alt="Selecting a Webhook authentication type" src="../_images/Webhook_auth_type1.png" style="width: 500px;" /></a>
+<p>For example, if you enter the test value as “bearer_test_value” as shown in the above image, you will see the following information in the header when the Webhook is received.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Bearer bearer_test_value
+</pre></div>
+</div>
+<p>This way, authentication can be done by extracting the token value from the header of the Webhook and checking to see if it matches the preset value.</p>
+<ul class="simple">
+<li><p><strong>Basic Authentication</strong></p></li>
+</ul>
+<p>Uses the ID and password for authentication. When adding or editing a Webhook, select <strong>Basic authentication</strong> as the Authentication type and enter the ID and password to be used for authentication.</p>
+<p>In this case, the value of the preset ID and password Base64-encoded in the form of <strong>ID:password</strong> will be included in the Authorization field of the request header when the Webhook is sent.</p>
+<a class="reference internal image-reference" href="../_images/Webhook_auth_type2.png"><img alt="Selecting a Webhook authentication type" src="../_images/Webhook_auth_type2.png" style="width: 500px;" /></a>
+<p>For example, if you enter the ID and password as <strong>eformsign</strong> and <strong>Webhook123!</strong>, respectively, you will see the following information in the header when the Webhook is received.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Basic ZWZvcm1zaWduOldlYmhvb2sxMjMh
+</pre></div>
+</div>
+<p>If you Base64 decode the value after Basic in the example above, you’ll see <strong>eformsign:Webhook123!</strong>.</p>
+<p>This way, authentication can be done by Base64 decoding the value that comes after Basic in the header of the Webhook checking to see if it matches the preset ID and password.</p>
+<ul class="simple">
+<li><p><strong>eformsign Signature</strong></p></li>
+</ul>
+<p>Uses the eformsign Signature value for authentication.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>eformsign_signature uses asymmetric key cryptography and elliptic curve cryptography, and uses the SHA256withECDSA algorithm.</p>
+</div>
+<p>When adding or editing a Webhook, if you select <strong>eformsign signature</strong> as the Authentication type, the signature value will be included in the eformsign_signature field of the request header when the Webhook is sent.</p>
+<p>You can see an example of the header information as follows.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>eformsign_signature : 3045022100b9f1e0cdd21492cb5fa16dabff4c4402bf3efb9a9741a40a0d1c70aeda24bc8c02204a57ca1abab288e968a799e2fecbf18de9ab59c7c5814144b17f32553640a71a
+</pre></div>
+</div>
+<div class="section" id="sample-code-for-signature-authentication">
+<h3>Sample code for signature authentication<a class="headerlink" href="#sample-code-for-signature-authentication" title="Permalink to this headline">¶</a></h3>
+<p>After extracting the eformsign_signature value from the Webhook’s header, you can verify the signature by using the Webhook’s public key, which can be found by clicking the <strong>View Key</strong> button in the Webhook list and the Request Body content of the incoming Webhook.</p>
+<div class="section" id="java">
+<h4>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h4>
+<p>Refer to the sample code provided in <strong>Sample code by language</strong></p>
 </div>
 <div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
-<p>Use the library for key generation in the link below. Install the library using the following command.</p>
+<h4>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h4>
+<p>You must use a library for key formatting. Install the library using the following command beforehand.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="php">
-<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
-<p>Make sure that the keycheck.inc.php and test.php files in the following examples are located in the same path before proceeding.</p>
+<h4>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h4>
+<p>Make sure that the keycheck.inc.php and test.php files in the sample code below are placed in the same path before proceeding.</p>
 </div>
-<div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
-<p>The following shows the examples for each language.</p>
-<div class="code-tabs docutils container">
-<div class="code-tab" data-title="Java">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="p">;</span>
-        <span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="p">;</span>
-        <span class="kn">import</span> <span class="nn">java.security.*</span><span class="p">;</span>
-        <span class="kn">import</span> <span class="nn">java.security.spec.X509EncodedKeySpec</span><span class="p">;</span>
-
-        <span class="p">....</span>
-        <span class="cm">/**</span>
-<span class="cm">         *  Reads the header and body in the request.</span>
-<span class="cm">         *</span>
-<span class="cm">         */</span>
-
-
-        <span class="c1">//1. get eformsign signature</span>
-        <span class="c1">//eformsignSignature is contained in the request header.</span>
-        <span class="n">String</span> <span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;eformsign_signature&quot;</span><span class="p">);</span>
+<div class="section" id="sample-code-by-language">
+<h4>Sample code by language<a class="headerlink" href="#sample-code-by-language" title="Permalink to this headline">¶</a></h4>
+<p>The following are the sample codes by language.</p>
+<div class="tabs docutils container" data-tabgroup="">
+<ul class="tabbar">
+<li class="tabbutton selected" data-id="0" onclick="sphinx_code_tabs_onclick(this)">
+java</li><li class="tabbutton" data-id="1" onclick="sphinx_code_tabs_onclick(this)">
+Python 3.9.6</li><li class="tabbutton" data-id="2" onclick="sphinx_code_tabs_onclick(this)">
+PHP - keycheck.inc.php</li><li class="tabbutton" data-id="3" onclick="sphinx_code_tabs_onclick(this)">
+PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigInteger</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.*</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.spec.X509EncodedKeySpec</span><span class="p">;</span><span class="w"></span>
 
 
-        <span class="c1">//2. get request body data</span>
-        <span class="c1">// Converts the data in the body to string to verify the eformsign signature.</span>
-        <span class="n">String</span> <span class="n">eformsignEventBody</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="n">StringBuilder</span> <span class="n">stringBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
-        <span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">inputStream</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="n">inputStream</span><span class="p">));</span>
-                <span class="kt">char</span><span class="o">[]</span> <span class="n">charBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">128</span><span class="o">]</span><span class="p">;</span>
-                <span class="kt">int</span> <span class="n">bytesRead</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-                <span class="k">while</span> <span class="p">((</span><span class="n">bytesRead</span> <span class="o">=</span> <span class="n">bufferedReader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">stringBuilder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bytesRead</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span>
-         <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">bufferedReader</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">try</span> <span class="p">{</span>
-                    <span class="n">bufferedReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">throw</span> <span class="n">ex</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-         <span class="p">}</span>
-        <span class="n">eformsignEventBody</span> <span class="o">=</span> <span class="n">stringBuilder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="cm">/**</span>
+<span class="cm"> *  Reads the header and body in the request.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span><span class="w"></span>
 
 
+<span class="c1">//1. get eformsign signature</span><span class="w"></span>
+<span class="c1">//eformsignSignature is included in the request header.</span><span class="w"></span>
+<span class="n">String</span><span class="w"> </span><span class="n">eformsignSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;eformsign_signature&quot;</span><span class="p">);</span><span class="w"></span>
 
 
-        <span class="c1">//3. publicKey configuration</span>
-        <span class="n">String</span> <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s">&quot;the issued Public Key(String)&quot;</span><span class="p">;</span>
-        <span class="n">KeyFactory</span> <span class="n">publicKeyFact</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span>
-        <span class="n">X509EncodedKeySpec</span> <span class="n">x509KeySpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span>
-        <span class="n">PublicKey</span> <span class="n">publicKey</span> <span class="o">=</span> <span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span>
+<span class="c1">//2. get request body data</span><span class="w"></span>
+<span class="c1">// You must convert the body&#39;s data into string for authenticating the eformsign signature.</span><span class="w"></span>
+<span class="n">String</span><span class="w"> </span><span class="n">eformsignEventBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="n">StringBuilder</span><span class="w"> </span><span class="n">stringBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span><span class="w"></span>
+<span class="n">BufferedReader</span><span class="w"> </span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
 
-        <span class="c1">//4. verify</span>
-        <span class="n">Signature</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span>
-        <span class="n">signature</span><span class="p">.</span><span class="na">initVerify</span><span class="p">(</span><span class="n">publicKey</span><span class="p">);</span>
-        <span class="n">signature</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">eformsignEventBody</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="k">new</span> <span class="n">BigInteger</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">())){</span>
-            <span class="c1">//verify success</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span>
-            <span class="cm">/*</span>
-<span class="cm">             *Events are handled here.</span>
-<span class="cm">             */</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="c1">//verify fail</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify fail&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">InputStream</span><span class="w"> </span><span class="n">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputStream</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">inputStream</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">charBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="o">[</span><span class="mi">128</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bytesRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">bytesRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferedReader</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">stringBuilder</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">charBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytesRead</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ex</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bufferedReader</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">bufferedReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">ex</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="n">eformsignEventBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringBuilder</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w"></span>
+
+
+
+
+<span class="c1">//3. Setting up the publicKey</span><span class="w"></span>
+<span class="n">String</span><span class="w"> </span><span class="n">publicKeyHex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Enter the public key you received here.&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">KeyFactory</span><span class="w"> </span><span class="n">publicKeyFact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyFactory</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EC&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">X509EncodedKeySpec</span><span class="w"> </span><span class="n">x509KeySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">X509EncodedKeySpec</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">());</span><span class="w"></span>
+<span class="n">PublicKey</span><span class="w"> </span><span class="n">publicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">publicKeyFact</span><span class="p">.</span><span class="na">generatePublic</span><span class="p">(</span><span class="n">x509KeySpec</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//4. verify</span><span class="w"></span>
+<span class="n">Signature</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Signature</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;SHA256withECDSA&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">signature</span><span class="p">.</span><span class="na">initVerify</span><span class="p">(</span><span class="n">publicKey</span><span class="p">);</span><span class="w"></span>
+<span class="n">signature</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">eformsignEventBody</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">signature</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span><span class="mi">16</span><span class="p">).</span><span class="na">toByteArray</span><span class="p">())){</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//verify success</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify success&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * Event-specific processing is done here.</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//verify fail</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;verify fail&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="Python 3.9.6">
+</div><div class="tab codetab" data-id="1">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
-                <span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
 
-        <span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
-        <span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
-        <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
-
-
-        <span class="o">...</span>
-        <span class="c1"># Reads the header and boy in the request.</span>
-        <span class="c1"># 1. get eformsign signature</span>
-        <span class="c1"># eformsignSignature is contained in the request header.</span>
-    <span class="n">eformsign_signature_str</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
-    <span class="n">eformsign_signature</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">eformsign_signature_str</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ecdsa</span> <span class="kn">import</span> <span class="n">VerifyingKey</span><span class="p">,</span> <span class="n">BadSignatureError</span>
+<span class="kn">from</span> <span class="nn">ecdsa.util</span> <span class="kn">import</span> <span class="n">sigencode_der</span><span class="p">,</span> <span class="n">sigdecode_der</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
 
 
-        <span class="c1"># 2. get request body data</span>
-        <span class="c1"># Converts the data in the body to string to verify the eformsign signature.</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span>
+<span class="c1"># Reads the header and body in the request.</span>
+<span class="c1"># 1. get eformsign signature</span>
+<span class="c1"># eformsignSignature is included in the request header.</span>
+<span class="n">eformsignSignature</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;eformsign_signature&#39;</span><span class="p">]</span>
 
 
-        <span class="c1"># 3. publicKey configuration</span>
-        <span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;the issued public key&quot;</span>
-        <span class="n">publickey</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
+<span class="c1"># 2. get request body data</span>
+<span class="c1"># Convert the body&#39;s data into string for verifying the eformsign signature.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
 
 
-        <span class="c1"># 4. verify</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsign_signature</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
-                <span class="c1"># Events are handled here.</span>
-        <span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
+<span class="c1"># 3. Setting up the publicKey</span>
+<span class="n">publicKeyHex</span> <span class="o">=</span> <span class="s2">&quot;Enter the public key you received here&quot;</span>
+<span class="n">publickey</span> <span class="o">=</span> <span class="n">VerifyingKey</span><span class="o">.</span><span class="n">from_der</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">publicKeyHex</span><span class="p">))</span>
+
+
+<span class="c1"># 4. verify</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">publickey</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">eformsignSignature</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashfunc</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">,</span> <span class="n">sigdecode</span><span class="o">=</span><span class="n">sigdecode_der</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify success&quot;</span><span class="p">)</span>
+        <span class="c1"># Event-specific processing is done here.</span>
+<span class="k">except</span> <span class="n">BadSignatureError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verify fail&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - keycheck.inc.php">
+</div><div class="tab codetab" data-id="2">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">namespace</span> <span class="nx">eformsignECDSA</span><span class="p">;</span>
 
@@ -406,13 +507,13 @@ Test URL : Webhook URL
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
-</div><div class="code-tab" data-title="PHP - test.php">
+</div><div class="tab codetab" data-id="3">
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="k">require_once</span> <span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/keycheck.inc.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">eformsignECDSA\PublicKey</span><span class="p">;</span>
 
-<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;input the issued public key.&#39;</span><span class="p">);</span>
-<span class="o">...</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">&#39;PUBLIC_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter the public key you received here&#39;</span><span class="p">);</span>
+
 <span class="cm">/*</span>
 <span class="cm"> *  Reads the header and body in the request.</span>
 <span class="cm"> *</span>
@@ -420,16 +521,16 @@ Test URL : Webhook URL
 
 
 <span class="c1">//1. get eformsign signature</span>
-<span class="c1">//eformsignSignature is contained in the request header.</span>
+<span class="c1">//eformsignSignature is included in the request header.</span>
 <span class="nv">$eformsignSignature</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_eformsign_signature&#39;</span><span class="p">];</span>
 
 
 <span class="c1">//2. get request body data</span>
-<span class="c1">// Reads the data in the body to verify the eformsign signature.</span>
+<span class="c1">// Reads the body&#39;s data for verifying eformsign signature.</span>
 <span class="nv">$eformsignEventBody</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
 
 
-<span class="c1">//3. publicKey configuration</span>
+<span class="c1">//3. Setting up publicKey</span>
 <span class="nv">$publicKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PublicKey</span><span class="p">(</span><span class="nx">PUBLIC_KEY</span><span class="p">);</span>
 
 
@@ -440,93 +541,106 @@ Test URL : Webhook URL
 <span class="k">if</span> <span class="p">(</span><span class="nv">$ret</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify success&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
     <span class="cm">/*</span>
-<span class="cm">     * Events are handled here.</span>
+<span class="cm">     * Event specific processing is done here.</span>
 <span class="cm">     */</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">print</span> <span class="s1">&#39;verify fail&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="p">}</span>
- <span class="o">...</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
-</div></div>
+</div></div></div>
 </div>
-</div>
-<div class="section" id="webhook-list">
-<h2>Webhook list<a class="headerlink" href="#webhook-list" title="Permalink to this headline">¶</a></h2>
-<p>By configuring the following Webhook, you can receive the information in the webhook endpoint when the configured event occurs in eformsign.</p>
-<p>The following is <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook">Webhook</a> provided in eformsign.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook#/default/post-webhook-document-event">/webhook document event</a> Send Webhook</p>
-<p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook">here</a> for more information about each eformsign Webhook.</p>
 </div>
 <div class="section" id="webhook-events">
-<h2>Webhook events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h2>
-<p>eformsign provides <strong>document</strong> events and <strong>PDF generation</strong> events as Webhook events.</p>
-<div class="section" id="document-events">
-<h3>Document events<a class="headerlink" href="#document-events" title="Permalink to this headline">¶</a></h3>
-<p>This event occurs when a document is created or the status of a document is changed in eformsign.</p>
+<span id="webhookevent"></span><h2>Webhook events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h2>
+<p>Setting up a Webhook allows you to receive event information at the Webhook URL you set when specific events occur in eformsign.</p>
+<p>The current Webhook provided, <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/Webhook#/">Webhook</a>, is as follows.</p>
+<div class="section" id="webhook-event-types">
+<h3>Webhook event types<a class="headerlink" href="#webhook-event-types" title="Permalink to this headline">¶</a></h3>
+<p>Currently, eformsign sends Webhooks for <strong>Document events</strong> and <strong>PDF generation events</strong>.</p>
+<ul class="simple">
+<li><p><strong>Document events:</strong> These are events that occur when a document is generated or its status is changed in eformsign. The event_type is document and contains a document object.</p></li>
+<li><p><strong>PDF generation events:</strong> These are events that occur when the PDF file of a document is generated in eformsign. The event_type is ready_document_pdf and contains a ready_document_pdf object.</p></li>
+</ul>
+</div>
+<div class="section" id="webhook-structure">
+<h3>Webhook structure<a class="headerlink" href="#webhook-structure" title="Permalink to this headline">¶</a></h3>
+<p>A Webhook is sent to the Webhook URL set by the user when a Webhook event occurs.</p>
+<p>The structure of the request body of the Webhook sent is as follows.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 5%" />
+<col style="width: 31%" />
 <col style="width: 48%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Type</p></th>
 <th class="head"><p>Description</p></th>
+<th class="head"><p>Remark</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>id</p></td>
+<tr class="row-even"><td><p>webhook_id</p></td>
 <td><p>String</p></td>
-<td><p>Document ID</p></td>
+<td><p>ID of Webhook that generated event</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>template_id</p></td>
+<tr class="row-odd"><td><p>webhook_name</p></td>
 <td><p>String</p></td>
-<td><p>Template ID</p></td>
+<td><p>Name of Webhook that generated event</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>template_name</p></td>
+<tr class="row-even"><td><p>company_id</p></td>
 <td><p>String</p></td>
-<td><p>Template name</p></td>
+<td><p>Company ID</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>template_version</p></td>
+<tr class="row-odd"><td><p>event_type</p></td>
 <td><p>String</p></td>
-<td><p>Template title</p></td>
+<td><p>Generated Webhook event type</p></td>
+<td><p>document: document event</p>
+<p>ready_document_pdf: PDF generation event</p>
+</td>
 </tr>
-<tr class="row-even"><td><p>workflow_seq</p></td>
-<td><p>int</p></td>
-<td><p>Workflow order</p></td>
+<tr class="row-even"><td><p>document</p></td>
+<td><p>Object</p></td>
+<td><p>Document event’s details</p></td>
+<td><p>Only displayed at a document event generation
+(includes id, document_title, template_id, template_name,
+workflow_seq, workflow_name, template_version,
+history_id, status, editor_id, outside_token,
+updated_date, and mass_job_request_id).</p></td>
 </tr>
-<tr class="row-odd"><td><p>workflow_name</p></td>
+<tr class="row-odd"><td><p>ready_document_pdf</p></td>
 <td><p>String</p></td>
 <td><p>Workflow name</p></td>
-</tr>
-<tr class="row-even"><td><p>history_id</p></td>
-<td><p>String</p></td>
-<td><p>Document history ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>status</p></td>
-<td><p>String</p></td>
-<td><p>Document status</p></td>
-</tr>
-<tr class="row-even"><td><p>editor_id</p></td>
-<td><p>String</p></td>
-<td><p>Creator ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>updated_date</p></td>
-<td><p>long</p></td>
-<td><p>Document update time</p></td>
+<td><p>Only displayed at a PDF generation event
+(includes document_id, document_title, workflow_seq,
+workflow_name, template_id, template_name,
+template_version, document_status,
+document_history_id, export_ready_list, and
+mass_job_request_id).</p></td>
 </tr>
 </tbody>
 </table>
-<p>Refer to the following for the meaning of each document status in event data.</p>
-<table class="docutils align-default" id="status">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find more information about the eformsign Webhook’s structure and samples in <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook">eformsign Webhook</a>.</p>
+</div>
+</div>
+<div class="section" id="document-status-code">
+<span id="status"></span><h3>Document status code<a class="headerlink" href="#document-status-code" title="Permalink to this headline">¶</a></h3>
+<p>A Webhook’s request body contains a code that indicates the document status.</p>
+<p>The document status code is shown in document.status and ready_document_pdf.document_status, for document events and PDF creation events, respectively.</p>
+<p>The below tables describes each code.</p>
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 36%" />
-<col style="width: 64%" />
+<col style="width: 28%" />
+<col style="width: 72%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -534,123 +648,89 @@ Test URL : Webhook URL
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>doc_create</p></td>
-<td><p>Document created</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_tempsave</p></td>
+<tr class="row-even"><td><p>doc_tempsave</p></td>
 <td><p>Document saved as a draft</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_request_approval</p></td>
-<td><p>Document approval requested</p></td>
+<tr class="row-odd"><td><p>doc_create</p></td>
+<td><p>Document created</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_accept_approval</p></td>
-<td><p>Document approval request approved</p></td>
+<tr class="row-even"><td><p>doc_request_participant</p></td>
+<td><p>Document sent to a participant</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_reject_approval</p></td>
-<td><p>Document approval request declined</p></td>
+<tr class="row-odd"><td><p>doc_accept_participant</p></td>
+<td><p>Document approved by a participant</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_request_external</p></td>
-<td><p>Document sent to external recipient</p></td>
+<tr class="row-even"><td><p>doc_reject_participant</p></td>
+<td><p>Document rejected by a participant</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_remind_external</p></td>
-<td><p>Document resent to external recipient</p></td>
+<tr class="row-odd"><td><p>doc_request_reviewer</p></td>
+<td><p>Document sent a reviewer</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_open_external</p></td>
-<td><p>Document opened by external recipient</p></td>
+<tr class="row-even"><td><p>doc_accept_reviewer</p></td>
+<td><p>Document approved by a reviewer</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_accept_external</p></td>
-<td><p>Document reviewed by external recipient</p></td>
+<tr class="row-odd"><td><p>doc_reject_reviewer</p></td>
+<td><p>Document rejected by a reviewer</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_reject_external</p></td>
-<td><p>Document declined by external recipient</p></td>
+<tr class="row-even"><td><p>doc_reject_request</p></td>
+<td><p>Document requested to be declined</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_request_internal</p></td>
-<td><p>Document sent to internal recipient</p></td>
+<tr class="row-odd"><td><p>doc_decline_cancel_request</p></td>
+<td><p>Document decline request rejected</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_accept_internal</p></td>
-<td><p>Document reviewed by internal recipient</p></td>
+<tr class="row-even"><td><p>doc_delete_request</p></td>
+<td><p>Document requested to be deleted</p></td>
 </tr>
-<tr class="row-even"><td><p>doc_reject_internal</p></td>
-<td><p>Document declined by internal recipient</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_tempsave_internal</p></td>
-<td><p>Document saved as a draft by internal recipient</p></td>
+<tr class="row-odd"><td><p>doc_decline_delete_request</p></td>
+<td><p>Document deletion request rejected</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_cancel_request</p></td>
 <td><p>Document approval request cancelled</p></td>
 </tr>
-<tr class="row-odd"><td><p>doc_reject_request</p></td>
-<td><p>Document requested to be declined</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_decline_cancel_request</p></td>
-<td><p>Document decline request rejected</p></td>
-</tr>
-<tr class="row-odd"><td><p>doc_delete_request</p></td>
-<td><p>Document requested to be deleted</p></td>
-</tr>
-<tr class="row-even"><td><p>doc_decline_delete_request</p></td>
-<td><p>Document deletion request rejected</p></td>
-</tr>
 <tr class="row-odd"><td><p>doc_deleted</p></td>
 <td><p>Document deleted</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_approval</p></td>
+<td><p>Document approval requested (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_approval</p></td>
+<td><p>Document approval request approved (legacy workflow)</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_approval</p></td>
+<td><p>Document approval request declined (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_request_external</p></td>
+<td><p>Document sent to an external recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_remind_external</p></td>
+<td><p>Document resent to an external recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_open_external</p></td>
+<td><p>Document opened by an external recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_accept_external</p></td>
+<td><p>Document reviewed by an external recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_reject_external</p></td>
+<td><p>Document declined by an external recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_request_internal</p></td>
+<td><p>Document sent to an internal recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_accept_internal</p></td>
+<td><p>Document reviewed by an internal recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-even"><td><p>doc_reject_internal</p></td>
+<td><p>Document declined by an internal recipient (legacy workflow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>doc_tempsave_internal</p></td>
+<td><p>Document saved as a draft by an internal recipient(legacy workflow)</p></td>
 </tr>
 <tr class="row-even"><td><p>doc_complete</p></td>
 <td><p>Document completed</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="pdf-generation-events">
-<h3>PDF generation events<a class="headerlink" href="#pdf-generation-events" title="Permalink to this headline">¶</a></h3>
-<p>The following is a list of events generated when the PDF file of a document is created in eformsign.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 46%" />
-<col style="width: 13%" />
-<col style="width: 41%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>document_id</p></td>
-<td><p>String</p></td>
-<td><p>Document ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>template_id</p></td>
-<td><p>String</p></td>
-<td><p>Template ID</p></td>
-</tr>
-<tr class="row-even"><td><p>template_name</p></td>
-<td><p>String</p></td>
-<td><p>Template name</p></td>
-</tr>
-<tr class="row-odd"><td><p>template_version</p></td>
-<td><p>String</p></td>
-<td><p>Template title</p></td>
-</tr>
-<tr class="row-even"><td><p>workflow_seq</p></td>
-<td><p>int</p></td>
-<td><p>Workflow order</p></td>
-</tr>
-<tr class="row-odd"><td><p>workflow_name</p></td>
-<td><p>String</p></td>
-<td><p>Workflow name</p></td>
-</tr>
-<tr class="row-even"><td><p>document_history_id</p></td>
-<td><p>String</p></td>
-<td><p>Document history ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>document_status</p></td>
-<td><p>String</p></td>
-<td><p>Document status</p></td>
-</tr>
-</tbody>
-</table>
-<p>For the meaning of each document status in event data, refer to <a class="reference external" href="#status">the document status section</a>.</p>
 </div>
 </div>
 </div>
@@ -660,35 +740,28 @@ Test URL : Webhook URL
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="eformsign_api_en.html" class="btn btn-neutral float-left" title="Using eformsign API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="eformsign_api_en.html" class="btn btn-neutral float-left" title="Using eformsign API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2021. FORCS CO., LTD. All rights reserved
+        &#169; Copyright 2021. FORCS CO., LTD. All rights reserved.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
