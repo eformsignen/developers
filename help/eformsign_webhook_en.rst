@@ -2,7 +2,7 @@
   Using eformsign Webhook
 ----------------------------
 
-This is a feature that sends event information to the customer's system/service when an event occurs in eformsign. By configuring Webhook, event information is sent to the customer's webhook endpoint in the HTTP POST method.
+This is a feature that sends event information to the customer's system/service when an event occurs in eformsign. By configuring a webhook, event information is sent to the customer's webhook endpoint in the HTTP POST method.
 
 .. tip:: 
 
@@ -15,7 +15,7 @@ Getting started
 
 .. _webhook:
 
-Getting a Webhook key
+Getting a webhook key
 -------------------------------
 
 1. Log in to eformsign as the company administrator and then go to **[Integration] > [API / Webhook]** in the sidebar menu.
@@ -50,13 +50,13 @@ Getting a Webhook key
 
 - **All documents:** Sends a webhook for all documents created in the company.
 - **Documents created from my files:** Sends a webhook for documents created using **New from my file**.
-- **Documents created from templates:** Send a webhook for dcouments created from a selected template.
+- **Documents created from templates:** Send a webhook for documents created from a selected template.
 
 .. note::
 
    You can select a template by following the instructions below.
 
-   ① Click **List of affected templates** to view the list of templates and the select the template you want. Make sure to select a template (|image1|) here. Selecting a category (|image2|) instead will not add any templates.
+   ① Click **List of affected templates** to view the list of templates and then select the template you want. Make sure to select a template (|image1|) here. Selecting a category (|image2|) instead will not add any templates.
 
     .. image:: resources/Webhook_select_template.png
         :width: 500
@@ -68,7 +68,7 @@ Getting a Webhook key
         :width: 500
         :alt: New Webhook pop-up 4
 
-   ③ You can see that the selected templated has been added to the **List of affected templates**\. You can add multiple templates this way.
+   ③ You can see that the selected template has been added to the **List of affected templates**\. You can add multiple templates this way.
 
     .. image:: resources/Webhook_add_popup2.png
         :width: 500
@@ -76,13 +76,13 @@ Getting a Webhook key
 
 
 
-5. Select the **Authentication type**.You can select from one of **No authentication, Bearer token, Basic authentication, and eformsign signature**. For more information, refer to `Webhook authentication <#webhookauth>`_.
+5. Select the **Authentication type**. You can select from one of **No authentication**, **Bearer token**, **Basic authentication**, and **eformsign signature**. For more information, refer to `Webhook authentication <#webhookauth>`_.
 
 .. image:: resources/Webhook_add_popup3.png
     :width: 500
     :alt: New Webhook pop-up 6
 
-6. Click the **Register** button to add the Webhook. You can view the webhook you added in the **Manage Webhook** tab.
+6. Click the **Register** button to add the webhook. You can view the webhook you added in the **Manage Webhook** tab.
 
 .. image:: resources/Webhook_add.png
     :width: 700
@@ -91,7 +91,7 @@ Getting a Webhook key
 
 
 
-Managing Webhooks
+Managing webhooks
 --------------------
 
 You can manage webhooks with the buttons on the right of each webhook.
@@ -104,27 +104,27 @@ You can manage webhooks with the buttons on the right of each webhook.
 Viewing a key
 ~~~~~~~~~~~~~~~
 
-If you select 'eformsign signature' for the Authentication type, you can view the public key for Webhook authentication.
+If you select **eformsign signature** for the **Authentication type**, you can view the public key for webhook authentication.
 You can also regenerate the key by clicking the **Regenerate key** button. Note that regenerating a key means you cannot use the previous key.
 
-If you select the Authentication type to anything other than 'eformsign signature', the Public key will be left blank.
+If you select the **Authentication type** to anything other than **eformsign signature**, the public key will be left blank.
 
 .. image:: resources/Webhook_Key.png
     :width: 400
     :alt: Integration > API/Webhook > Manage Webhook > View key
 
 
-Editing a Webhook
+Editing a webhook
 ~~~~~~~~~~~~~~~~~~~~~
-You can change the Name, URL, Status, Target, and Authentication type of a Webhook by clicking the **Edit** button next to a Webhook.
+You can change the Name, URL, Status, Target, and Authentication type of a webhook by clicking the **Edit** button next to a webhook.
 
-Deleting a Webhook
+Deleting a webhook
 ~~~~~~~~~~~~~~~~~~~~~
-You can delete a Webhook by clicking the **Delete** button next to a Webhook.
+You can delete a webhook by clicking the **Delete** button next to a webhook.
 
-Testing a Webhook
+Testing a webhook
 ~~~~~~~~~~~~~~~~~~~~~
-You can test a Webhook by sending it to the configured Webhook URL and return results.
+You can test a webhook by sending it to the configured webhook URL and return results.
 
 The body of a test Webhook is as follows. Note that relevant data will be sent in the header according to the selected Authentication type.
 
@@ -183,40 +183,40 @@ When adding or editing a Webhook, you can select one of the following authentica
 
 - **No authentication**
 
-Sends a Webhook without any information for authentication. In this case, you can still see the event information, but you can't authenticate that the Webhook received is a legitimate Webhook.
+Sends a webhook without any information for authentication. In this case, you can still see the event information, but you can't authenticate that the webhook received is a legitimate Webhook.
 
 - **Bearer Token**
 
-Uses the preset token value for authentication. When adding or editing a Webhook, select **Bearer token** as the Authentication type and enter the value to be used as the token under **Value**.
+Uses the preset token value for authentication. When adding or editing a webhook, select **Bearer token** as the Authentication type and enter the value to be used as the token under **Value**.
 
-In this case, the value will be included in the Authorization field of the request header when the Webhook is sent.
+In this case, the value will be included in the Authorization field of the request header when the webhook is sent.
 
 .. image:: resources/Webhook_auth_type1.png
     :width: 500
     :alt:  Selecting a Webhook authentication type
 
-For example, if you enter the test value as "bearer_test_value" as shown in the above image, you will see the following information in the header when the Webhook is received. 
+For example, if you enter the test value as "bearer_test_value" as shown in the above image, you will see the following information in the header when the webhook is received. 
 
 .. code:: JSON
 
     Authentication : Bearer bearer_test_value
 
 
-This way, authentication can be done by extracting the token value from the header of the Webhook and checking to see if it matches the preset value.
+This way, authentication can be done by extracting the token value from the header of the webhook and checking to see if it matches the preset value.
 
 
 
 - **Basic Authentication**
 
-Uses the ID and password for authentication. When adding or editing a Webhook, select **Basic authentication** as the Authentication type and enter the ID and password to be used for authentication.
+Uses the ID and password for authentication. When adding or editing a webhook, select **Basic authentication** as the Authentication type and enter the ID and password to be used for authentication.
 
-In this case, the value of the preset ID and password Base64-encoded in the form of **ID:password** will be included in the Authorization field of the request header when the Webhook is sent.
+In this case, the value of the preset ID and password Base64-encoded in the form of **ID:password** will be included in the Authorization field of the request header when the webhook is sent.
 
 .. image:: resources/Webhook_auth_type2.png
     :width: 500
     :alt:  Selecting a Webhook authentication type
 
-For example, if you enter the ID and password as **eformsign** and **Webhook123!**, respectively, you will see the following information in the header when the Webhook is received.
+For example, if you enter the ID and password as **eformsign** and **Webhook123!**, respectively, you will see the following information in the header when the webhook is received.
 
 
 .. code:: JSON
@@ -237,10 +237,10 @@ Uses the eformsign Signature value for authentication.
 
    eformsign_signature uses asymmetric key cryptography and elliptic curve cryptography, and uses the SHA256withECDSA algorithm.
 
-When adding or editing a Webhook, if you select **eformsign signature** as the Authentication type, the signature value will be included in the eformsign_signature field of the request header when the Webhook is sent.
+When adding or editing a webhook, if you select **eformsign signature** as the Authentication type, the signature value will be included in the eformsign_signature field of the request header when the webhook is sent.
 
 
-You can see an example of the header information as follows.
+You can see an example of the header content as follows.
 
 .. code:: JSON
 
@@ -251,7 +251,7 @@ You can see an example of the header information as follows.
 Sample code for signature authentication
 ------------------------------------------
 
-After extracting the eformsign_signature value from the Webhook's header, you can verify the signature by using the Webhook's public key, which can be found by clicking the **View Key** button in the Webhook list and the Request Body content of the incoming Webhook.
+After extracting the eformsign_signature value from the webhook's header, you can verify the signature by using the webhook's public key, which can be found by clicking the **View Key** button in the Webhook list, and the Request Body content of the incoming Webhook.
 
 
 Java
@@ -472,16 +472,16 @@ The following are the sample codes by language.
 Webhook events
 ====================
 
-Setting up a Webhook allows you to receive event information at the Webhook URL you set when specific events occur in eformsign.
+Setting up a webhook allows you to receive event information at the webhook URL you set when specific events occur in eformsign.
 
-The current Webhook provided, `Webhook <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/Webhook#/>`_, is as follows.
+The current `Webhooks <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/Webhook#/>`_ provided are as follows.
 
 
 
 Webhook event types
 --------------------
 
-Currently, eformsign sends Webhooks for **Document events** and **PDF generation events**.
+Currently, eformsign sends webhooks for **Document events** and **PDF generation events**.
 
 - **Document events:** These are events that occur when a document is generated or its status is changed in eformsign. The event_type is document and contains a document object.
 - **PDF generation events:** These are events that occur when the PDF file of a document is generated in eformsign. The event_type is ready_document_pdf and contains a ready_document_pdf object.
@@ -493,9 +493,9 @@ Currently, eformsign sends Webhooks for **Document events** and **PDF generation
 Webhook structure
 ------------------
 
-A Webhook is sent to the Webhook URL set by the user when a Webhook event occurs.
+A webhook is sent to the webhook URL set by the user when a webhook event occurs.
 
-The structure of the request body of the Webhook sent is as follows.
+The structure of the request body of the webhook sent is as follows.
 
 .. table:: 
 
@@ -529,7 +529,7 @@ The structure of the request body of the Webhook sent is as follows.
 
 .. note::
 
-    You can find more information about the eformsign Webhook's structure and samples in `eformsign Webhook <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_.
+    You can find more information about eformsign webhook's structure and samples in `eformsign Webhook <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_.
 
 
 
@@ -538,7 +538,7 @@ The structure of the request body of the Webhook sent is as follows.
 Document status code
 ----------------------
 
-A Webhook's request body contains a code that indicates the document status.
+A webhook's request body contains a code that indicates the document status.
 
 The document status code is shown in document.status and ready_document_pdf.document_status, for document events and PDF creation events, respectively.
 

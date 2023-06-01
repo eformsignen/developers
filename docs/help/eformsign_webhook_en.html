@@ -96,12 +96,12 @@
 <li class="toctree-l1"><a class="reference internal" href="eformsign_api_en.html">Using eformsign API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using eformsign Webhook</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#getting-a-webhook-key">Getting a Webhook key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-webhooks">Managing Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-a-webhook-key">Getting a webhook key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-webhooks">Managing webhooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#viewing-a-key">Viewing a key</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#editing-a-webhook">Editing a Webhook</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#deleting-a-webhook">Deleting a Webhook</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#testing-a-webhook">Testing a Webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-a-webhook">Editing a webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-webhook">Deleting a webhook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-a-webhook">Testing a webhook</a></li>
 </ul>
 </li>
 </ul>
@@ -193,7 +193,7 @@
             
   <div class="section" id="using-eformsign-webhook">
 <h1>Using eformsign Webhook<a class="headerlink" href="#using-eformsign-webhook" title="Permalink to this headline">¶</a></h1>
-<p>This is a feature that sends event information to the customer’s system/service when an event occurs in eformsign. By configuring Webhook, event information is sent to the customer’s webhook endpoint in the HTTP POST method.</p>
+<p>This is a feature that sends event information to the customer’s system/service when an event occurs in eformsign. By configuring a webhook, event information is sent to the customer’s webhook endpoint in the HTTP POST method.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A Webhook endpoint refers to the customer’s client callback URL. It allows you to get eformsign event information without making unnecessary calls, which differs from the Open API method where calls are continuously made to check for changes (polling).</p>
@@ -201,7 +201,7 @@
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="getting-a-webhook-key">
-<span id="webhook"></span><h3>Getting a Webhook key<a class="headerlink" href="#getting-a-webhook-key" title="Permalink to this headline">¶</a></h3>
+<span id="webhook"></span><h3>Getting a webhook key<a class="headerlink" href="#getting-a-webhook-key" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Log in to eformsign as the company administrator and then go to <strong>[Integration] &gt; [API / Webhook]</strong> in the sidebar menu.</p></li>
 </ol>
@@ -221,12 +221,12 @@
 <ul class="simple">
 <li><p><strong>All documents:</strong> Sends a webhook for all documents created in the company.</p></li>
 <li><p><strong>Documents created from my files:</strong> Sends a webhook for documents created using <strong>New from my file</strong>.</p></li>
-<li><p><strong>Documents created from templates:</strong> Send a webhook for dcouments created from a selected template.</p></li>
+<li><p><strong>Documents created from templates:</strong> Send a webhook for documents created from a selected template.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can select a template by following the instructions below.</p>
-<p>① Click <strong>List of affected templates</strong> to view the list of templates and the select the template you want. Make sure to select a template (<img alt="image1" src="../_images/template_icon.png" />) here. Selecting a category (<img alt="image2" src="../_images/category_icon.png" />) instead will not add any templates.</p>
+<p>① Click <strong>List of affected templates</strong> to view the list of templates and then select the template you want. Make sure to select a template (<img alt="image1" src="../_images/template_icon.png" />) here. Selecting a category (<img alt="image2" src="../_images/category_icon.png" />) instead will not add any templates.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="../_images/Webhook_select_template.png"><img alt="New Webhook pop-up 3" src="../_images/Webhook_select_template.png" style="width: 500px;" /></a>
 </div></blockquote>
@@ -234,42 +234,42 @@
 <blockquote>
 <div><a class="reference internal image-reference" href="../_images/Webhook_add_popup.png"><img alt="New Webhook pop-up 4" src="../_images/Webhook_add_popup.png" style="width: 500px;" /></a>
 </div></blockquote>
-<p>③ You can see that the selected templated has been added to the <strong>List of affected templates</strong>. You can add multiple templates this way.</p>
+<p>③ You can see that the selected template has been added to the <strong>List of affected templates</strong>. You can add multiple templates this way.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="../_images/Webhook_add_popup2.png"><img alt="New Webhook pop-up 5" src="../_images/Webhook_add_popup2.png" style="width: 500px;" /></a>
 </div></blockquote>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>Select the <strong>Authentication type</strong>.You can select from one of <strong>No authentication, Bearer token, Basic authentication, and eformsign signature</strong>. For more information, refer to <a class="reference external" href="#webhookauth">Webhook authentication</a>.</p></li>
+<li><p>Select the <strong>Authentication type</strong>. You can select from one of <strong>No authentication</strong>, <strong>Bearer token</strong>, <strong>Basic authentication</strong>, and <strong>eformsign signature</strong>. For more information, refer to <a class="reference external" href="#webhookauth">Webhook authentication</a>.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/Webhook_add_popup3.png"><img alt="New Webhook pop-up 6" src="../_images/Webhook_add_popup3.png" style="width: 500px;" /></a>
 <ol class="arabic simple" start="6">
-<li><p>Click the <strong>Register</strong> button to add the Webhook. You can view the webhook you added in the <strong>Manage Webhook</strong> tab.</p></li>
+<li><p>Click the <strong>Register</strong> button to add the webhook. You can view the webhook you added in the <strong>Manage Webhook</strong> tab.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/Webhook_add.png"><img alt="Webhook registration completed" src="../_images/Webhook_add.png" style="width: 700px;" /></a>
 </div>
 <div class="section" id="managing-webhooks">
-<h3>Managing Webhooks<a class="headerlink" href="#managing-webhooks" title="Permalink to this headline">¶</a></h3>
+<h3>Managing webhooks<a class="headerlink" href="#managing-webhooks" title="Permalink to this headline">¶</a></h3>
 <p>You can manage webhooks with the buttons on the right of each webhook.</p>
 <a class="reference internal image-reference" href="../_images/Webhook_manage1.png"><img alt="Integration &gt; API/Webhook &gt; Manage Webhook" src="../_images/Webhook_manage1.png" style="width: 700px;" /></a>
 <div class="section" id="viewing-a-key">
 <h4>Viewing a key<a class="headerlink" href="#viewing-a-key" title="Permalink to this headline">¶</a></h4>
-<p>If you select ‘eformsign signature’ for the Authentication type, you can view the public key for Webhook authentication.
+<p>If you select <strong>eformsign signature</strong> for the <strong>Authentication type</strong>, you can view the public key for webhook authentication.
 You can also regenerate the key by clicking the <strong>Regenerate key</strong> button. Note that regenerating a key means you cannot use the previous key.</p>
-<p>If you select the Authentication type to anything other than ‘eformsign signature’, the Public key will be left blank.</p>
+<p>If you select the <strong>Authentication type</strong> to anything other than <strong>eformsign signature</strong>, the public key will be left blank.</p>
 <a class="reference internal image-reference" href="../_images/Webhook_Key.png"><img alt="Integration &gt; API/Webhook &gt; Manage Webhook &gt; View key" src="../_images/Webhook_Key.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="editing-a-webhook">
-<h4>Editing a Webhook<a class="headerlink" href="#editing-a-webhook" title="Permalink to this headline">¶</a></h4>
-<p>You can change the Name, URL, Status, Target, and Authentication type of a Webhook by clicking the <strong>Edit</strong> button next to a Webhook.</p>
+<h4>Editing a webhook<a class="headerlink" href="#editing-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can change the Name, URL, Status, Target, and Authentication type of a webhook by clicking the <strong>Edit</strong> button next to a webhook.</p>
 </div>
 <div class="section" id="deleting-a-webhook">
-<h4>Deleting a Webhook<a class="headerlink" href="#deleting-a-webhook" title="Permalink to this headline">¶</a></h4>
-<p>You can delete a Webhook by clicking the <strong>Delete</strong> button next to a Webhook.</p>
+<h4>Deleting a webhook<a class="headerlink" href="#deleting-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can delete a webhook by clicking the <strong>Delete</strong> button next to a webhook.</p>
 </div>
 <div class="section" id="testing-a-webhook">
-<h4>Testing a Webhook<a class="headerlink" href="#testing-a-webhook" title="Permalink to this headline">¶</a></h4>
-<p>You can test a Webhook by sending it to the configured Webhook URL and return results.</p>
+<h4>Testing a webhook<a class="headerlink" href="#testing-a-webhook" title="Permalink to this headline">¶</a></h4>
+<p>You can test a webhook by sending it to the configured webhook URL and return results.</p>
 <p>The body of a test Webhook is as follows. Note that relevant data will be sent in the header according to the selected Authentication type.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>{
   &quot;webhook_id&quot;: &quot;Webhook ID&quot;,
@@ -309,25 +309,25 @@ You can also regenerate the key by clicking the <strong>Regenerate key</strong> 
 <ul class="simple">
 <li><p><strong>No authentication</strong></p></li>
 </ul>
-<p>Sends a Webhook without any information for authentication. In this case, you can still see the event information, but you can’t authenticate that the Webhook received is a legitimate Webhook.</p>
+<p>Sends a webhook without any information for authentication. In this case, you can still see the event information, but you can’t authenticate that the webhook received is a legitimate Webhook.</p>
 <ul class="simple">
 <li><p><strong>Bearer Token</strong></p></li>
 </ul>
-<p>Uses the preset token value for authentication. When adding or editing a Webhook, select <strong>Bearer token</strong> as the Authentication type and enter the value to be used as the token under <strong>Value</strong>.</p>
-<p>In this case, the value will be included in the Authorization field of the request header when the Webhook is sent.</p>
+<p>Uses the preset token value for authentication. When adding or editing a webhook, select <strong>Bearer token</strong> as the Authentication type and enter the value to be used as the token under <strong>Value</strong>.</p>
+<p>In this case, the value will be included in the Authorization field of the request header when the webhook is sent.</p>
 <a class="reference internal image-reference" href="../_images/Webhook_auth_type1.png"><img alt="Selecting a Webhook authentication type" src="../_images/Webhook_auth_type1.png" style="width: 500px;" /></a>
-<p>For example, if you enter the test value as “bearer_test_value” as shown in the above image, you will see the following information in the header when the Webhook is received.</p>
+<p>For example, if you enter the test value as “bearer_test_value” as shown in the above image, you will see the following information in the header when the webhook is received.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Bearer bearer_test_value
 </pre></div>
 </div>
-<p>This way, authentication can be done by extracting the token value from the header of the Webhook and checking to see if it matches the preset value.</p>
+<p>This way, authentication can be done by extracting the token value from the header of the webhook and checking to see if it matches the preset value.</p>
 <ul class="simple">
 <li><p><strong>Basic Authentication</strong></p></li>
 </ul>
-<p>Uses the ID and password for authentication. When adding or editing a Webhook, select <strong>Basic authentication</strong> as the Authentication type and enter the ID and password to be used for authentication.</p>
-<p>In this case, the value of the preset ID and password Base64-encoded in the form of <strong>ID:password</strong> will be included in the Authorization field of the request header when the Webhook is sent.</p>
+<p>Uses the ID and password for authentication. When adding or editing a webhook, select <strong>Basic authentication</strong> as the Authentication type and enter the ID and password to be used for authentication.</p>
+<p>In this case, the value of the preset ID and password Base64-encoded in the form of <strong>ID:password</strong> will be included in the Authorization field of the request header when the webhook is sent.</p>
 <a class="reference internal image-reference" href="../_images/Webhook_auth_type2.png"><img alt="Selecting a Webhook authentication type" src="../_images/Webhook_auth_type2.png" style="width: 500px;" /></a>
-<p>For example, if you enter the ID and password as <strong>eformsign</strong> and <strong>Webhook123!</strong>, respectively, you will see the following information in the header when the Webhook is received.</p>
+<p>For example, if you enter the ID and password as <strong>eformsign</strong> and <strong>Webhook123!</strong>, respectively, you will see the following information in the header when the webhook is received.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>Authentication : Basic ZWZvcm1zaWduOldlYmhvb2sxMjMh
 </pre></div>
 </div>
@@ -341,14 +341,14 @@ You can also regenerate the key by clicking the <strong>Regenerate key</strong> 
 <p class="admonition-title">Note</p>
 <p>eformsign_signature uses asymmetric key cryptography and elliptic curve cryptography, and uses the SHA256withECDSA algorithm.</p>
 </div>
-<p>When adding or editing a Webhook, if you select <strong>eformsign signature</strong> as the Authentication type, the signature value will be included in the eformsign_signature field of the request header when the Webhook is sent.</p>
-<p>You can see an example of the header information as follows.</p>
+<p>When adding or editing a webhook, if you select <strong>eformsign signature</strong> as the Authentication type, the signature value will be included in the eformsign_signature field of the request header when the webhook is sent.</p>
+<p>You can see an example of the header content as follows.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span>eformsign_signature : 3045022100b9f1e0cdd21492cb5fa16dabff4c4402bf3efb9a9741a40a0d1c70aeda24bc8c02204a57ca1abab288e968a799e2fecbf18de9ab59c7c5814144b17f32553640a71a
 </pre></div>
 </div>
 <div class="section" id="sample-code-for-signature-authentication">
 <h3>Sample code for signature authentication<a class="headerlink" href="#sample-code-for-signature-authentication" title="Permalink to this headline">¶</a></h3>
-<p>After extracting the eformsign_signature value from the Webhook’s header, you can verify the signature by using the Webhook’s public key, which can be found by clicking the <strong>View Key</strong> button in the Webhook list and the Request Body content of the incoming Webhook.</p>
+<p>After extracting the eformsign_signature value from the webhook’s header, you can verify the signature by using the webhook’s public key, which can be found by clicking the <strong>View Key</strong> button in the Webhook list, and the Request Body content of the incoming Webhook.</p>
 <div class="section" id="java">
 <h4>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h4>
 <p>Refer to the sample code provided in <strong>Sample code by language</strong></p>
@@ -555,11 +555,11 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </div>
 <div class="section" id="webhook-events">
 <span id="webhookevent"></span><h2>Webhook events<a class="headerlink" href="#webhook-events" title="Permalink to this headline">¶</a></h2>
-<p>Setting up a Webhook allows you to receive event information at the Webhook URL you set when specific events occur in eformsign.</p>
-<p>The current Webhook provided, <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/Webhook#/">Webhook</a>, is as follows.</p>
+<p>Setting up a webhook allows you to receive event information at the webhook URL you set when specific events occur in eformsign.</p>
+<p>The current <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/Webhook#/">Webhooks</a> provided are as follows.</p>
 <div class="section" id="webhook-event-types">
 <h3>Webhook event types<a class="headerlink" href="#webhook-event-types" title="Permalink to this headline">¶</a></h3>
-<p>Currently, eformsign sends Webhooks for <strong>Document events</strong> and <strong>PDF generation events</strong>.</p>
+<p>Currently, eformsign sends webhooks for <strong>Document events</strong> and <strong>PDF generation events</strong>.</p>
 <ul class="simple">
 <li><p><strong>Document events:</strong> These are events that occur when a document is generated or its status is changed in eformsign. The event_type is document and contains a document object.</p></li>
 <li><p><strong>PDF generation events:</strong> These are events that occur when the PDF file of a document is generated in eformsign. The event_type is ready_document_pdf and contains a ready_document_pdf object.</p></li>
@@ -567,8 +567,8 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </div>
 <div class="section" id="webhook-structure">
 <h3>Webhook structure<a class="headerlink" href="#webhook-structure" title="Permalink to this headline">¶</a></h3>
-<p>A Webhook is sent to the Webhook URL set by the user when a Webhook event occurs.</p>
-<p>The structure of the request body of the Webhook sent is as follows.</p>
+<p>A webhook is sent to the webhook URL set by the user when a webhook event occurs.</p>
+<p>The structure of the request body of the webhook sent is as follows.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -629,12 +629,12 @@ mass_job_request_id).</p></td>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can find more information about the eformsign Webhook’s structure and samples in <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook">eformsign Webhook</a>.</p>
+<p>You can find more information about eformsign webhook’s structure and samples in <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook">eformsign Webhook</a>.</p>
 </div>
 </div>
 <div class="section" id="document-status-code">
 <span id="status"></span><h3>Document status code<a class="headerlink" href="#document-status-code" title="Permalink to this headline">¶</a></h3>
-<p>A Webhook’s request body contains a code that indicates the document status.</p>
+<p>A webhook’s request body contains a code that indicates the document status.</p>
 <p>The document status code is shown in document.status and ready_document_pdf.document_status, for document events and PDF creation events, respectively.</p>
 <p>The below tables describes each code.</p>
 <table class="docutils align-default">
