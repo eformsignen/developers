@@ -5,6 +5,7 @@ Using eformsign API
 The API provided by eformsign allows customers to call and use eformsign features in their system/service.
 
 
+
 Getting started 
 ====================
 
@@ -82,7 +83,7 @@ Getting an API key and private key
         :alt: API key pop-up 1
 
 
-    Select **Bearer token** as the authentication type and enter the value to be used as the token value under **Value** and click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the token value in the format of the **Bearer token value** in the request header, eformsign_signature. Refer to the following example.
+    Select **Bearer token** as the authentication type and enter the value to be used as the token value under **Value** and click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the token value in the format of the **Bearer token value** in the request header, eformsign_signature. Refer to the following example.
 
     .. code:: Javascript
 
@@ -104,7 +105,7 @@ Getting an API key and private key
 
 
 
-    Select **Basic authentication** as the authentication type and enter the ID and password, then click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the Base64-encoded value in the format of **ID:Password** in the request header, eformsign_signature. Refer to the following example. 
+    Select **Basic authentication** as the authentication type and enter the ID and password, then click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the Base64-encoded value in the format of **ID:Password** in the request header, eformsign_signature. Refer to the following example. 
 
     .. code:: Javascript
 
@@ -384,13 +385,13 @@ eformsign provides API for generating a signature and API for document creation 
 API for generating a signature
 ------------------------------------
 
-To generate a signature, use `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\. 
+To generate a signature, use `Access Token API <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\. 
 
 ``POST``: `Issue Access Token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\ 
 
 
 Click
-`here <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\  for more information about Access Token API.
+`here <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\  for more information about Access Token API.
 
 .. caution:: 
    
@@ -400,7 +401,7 @@ Click
 
       { "code": "4000002", "ErrorMessage": "The validation time has expired.",     "execution_time": 1611538409405 }
 
-   Enter 'execution_time' in the following `Example <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\.
+   Enter 'execution_time' in the following `Example <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`__\.
    
    |image5| 
 
@@ -440,7 +441,7 @@ After generating a signature, you can use the following document API to create n
 
 .. caution:: 
 
-   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\  by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\. 
+   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\  by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\. 
 
 
 .. note:: 
@@ -448,29 +449,29 @@ After generating a signature, you can use the following document API to create n
    Make sure to enter Access Token value by clicking the **Authorize** button. 
 
 
-The followings are `Document API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document>`_\  provided in eformsign.
+The followings are `Document API <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document>`_\  provided in eformsign.
 
 
 
-``POST``: `Create a new document_member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents>`_\ 
+``POST``: `Create a new document_member <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents>`_\ 
 
-``POST``: `Create a new document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external>`_\ 
+``POST``: `Create a new document_external recipients <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external>`_\ 
 
-``GET``: `Inquiry document information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID>`_\
+``GET``: `Inquiry document information <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID>`_\
 
-``GET``: `Download document files_PDF and Audit trail certificate <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files>`_\
+``GET``: `Download document files_PDF and Audit trail certificate <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files>`_\
 
-``GET``: `Download attached files <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
+``GET``: `Download attached files <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
 
-``GET``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
+``GET``: `Inquiry document list <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
 
-``DELETE``: `Delete document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents>`_\ 
+``DELETE``: `Delete document <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents>`_\ 
 
-``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider>`_\ 
+``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider>`_\ 
 
-``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
+``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
 
-``POST``: `Send in bulk <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Send in bulk <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
 
 -----------------
 
@@ -483,38 +484,38 @@ You can use the following API to manage members and groups.
 
 .. caution:: 
 
-   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\  by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\. 
+   To use the document API, you need to get Access Token first. Enter the Access Token issued from `Access Token API <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_\  by clicking the **Authorize** button(|image4|) in `here <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\. 
 
 .. note:: 
   
    Make sure to enter Access Token value by clicking the **Authorize** button. 
 
 
-The followings are `Member and group management API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members>`_\  provided in eformsign.
+The followings are `Member and group management API <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members>`_\  provided in eformsign.
 
 
 API for managing members
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-``GET``: `Inquiry member list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members>`_\   
+``GET``: `Inquiry member list <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members>`_\   
 
-``PATCH``: `Edit member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/patch-api-members-member_id>`_\  
+``PATCH``: `Edit member <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/patch-api-members-member_id>`_\  
 
-``DELETE``: `Delete member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/delete-api-members-member_id>`_\  
+``DELETE``: `Delete member <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/delete-api-members-member_id>`_\  
 
 
 API for managing groups
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-``GET``: `Inquiry group list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/get-api-groups>`_\  
+``GET``: `Inquiry group list <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/get-api-groups>`_\  
 
-``POST``: `Add group <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/post-api-groups>`_\  
+``POST``: `Add group <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/post-api-groups>`_\  
 
-``PATCH``: `Edit group <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/patch-api-groups>`_\  
+``PATCH``: `Edit group <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/patch-api-groups>`_\  
 
-``DELETE``: `Delete group <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/delete-api-groups>`_\  
+``DELETE``: `Delete group <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/delete-api-groups>`_\  
 
 
 
