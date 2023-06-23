@@ -474,7 +474,7 @@ Webhook events
 
 Setting up a webhook allows you to receive event information at the webhook URL you set when specific events occur in eformsign.
 
-The current `Webhooks <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_ provided are as follows.
+The current `Webhooks <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_ provided are as follows.
 
 
 
@@ -529,7 +529,7 @@ The structure of the request body of the webhook sent is as follows.
 
 .. note::
 
-    You can find more information about the eformsign webhook's structure and samples in `eformsign Webhook <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_.
+    You can find more information about the eformsign webhook's structure and samples in `eformsign Webhook <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/Webhook-oas3#/Webhook/post-webhook>`_.
 
 
 

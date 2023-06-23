@@ -524,17 +524,17 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 <p>eformsign provides API for generating a signature and API for document creation and process.</p>
 <div class="section" id="api-for-generating-a-signature">
 <h3>API for generating a signature<a class="headerlink" href="#api-for-generating-a-signature" title="Permalink to this headline">¶</a></h3>
-<p>To generate a signature, use <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>.</p>
+<p>To generate a signature, use <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Issue Access Token</a></p>
 <p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">here</a> for more information about Access Token API.</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">here</a> for more information about Access Token API.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>There is a time limit of 30 seconds when generating a signature. A signature must be generated and a token must be issued within 30 seconds. Also, the server time and the current time may not match. Check the ‘execution_time’ of response message received after calling Access Token API.</p>
 <div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4000002&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ErrorMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The validation time has expired.&quot;</span><span class="p">,</span><span class="w">     </span><span class="nt">&quot;execution_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1611538409405</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Enter ‘execution_time’ in the following <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Example</a>.</p>
+<p>Enter ‘execution_time’ in the following <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Example</a>.</p>
 <p><a class="reference internal" href="../_images/execution_time.png"><img alt="image5" src="../_images/execution_time.png" style="width: 650px;" /></a></p>
 <p>Access Token can be issued for member. To get an Access Token for a member, enter ‘member_id’ together with the ‘execution_time’.</p>
 <p><a class="reference internal" href="../_images/execution_time2.png"><img alt="image6" src="../_images/execution_time2.png" style="width: 450px;" /></a></p>
@@ -558,23 +558,23 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 <p>After generating a signature, you can use the following document API to create new documents, to inquiry document information, or to download completed document files(PDF and audit trail certificate), or attached files.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a> by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/">here</a>.</p>
+<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a> by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/">here</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure to enter Access Token value by clicking the <strong>Authorize</strong> button.</p>
 </div>
-<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document">Document API</a> provided in eformsign.</p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents">Create a new document_member</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external">Create a new document_external recipients</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID">Inquiry document information</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files">Download document files_PDF and Audit trail certificate</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files">Download attached files</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents">Inquiry document list</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents">Delete document</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider">Resend a document_external recipients</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms">Inquiry available template lists</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Send in bulk</a></p>
+<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document">Document API</a> provided in eformsign.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents">Create a new document_member</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external">Create a new document_external recipients</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID">Inquiry document information</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files">Download document files_PDF and Audit trail certificate</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files">Download attached files</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents">Inquiry document list</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents">Delete document</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider">Resend a document_external recipients</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms">Inquiry available template lists</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Send in bulk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="api-for-managing-members-and-groups">
@@ -582,29 +582,29 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 <p>You can use the following API to manage members and groups.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a> by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/">here</a>.</p>
+<p>To use the document API, you need to get Access Token first. Enter the Access Token issued from <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a> by clicking the <strong>Authorize</strong> button(<img alt="image4" src="../_images/authorize_icon.png" />) in <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/">here</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure to enter Access Token value by clicking the <strong>Authorize</strong> button.</p>
 </div>
-<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members">Member and group management API</a> provided in eformsign.</p>
+<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members">Member and group management API</a> provided in eformsign.</p>
 <div class="section" id="api-for-managing-members">
 <h4>API for managing members<a class="headerlink" href="#api-for-managing-members" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members">Inquiry member list</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/patch-api-members-member_id">Edit member</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/members/delete-api-members-member_id">Delete member</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members">Inquiry member list</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/patch-api-members-member_id">Edit member</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/delete-api-members-member_id">Delete member</a></p>
 </div>
 <div class="section" id="api-for-managing-groups">
 <h4>API for managing groups<a class="headerlink" href="#api-for-managing-groups" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/get-api-groups">Inquiry group list</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/post-api-groups">Add group</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/patch-api-groups">Edit group</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/groups/delete-api-groups">Delete group</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/get-api-groups">Inquiry group list</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/post-api-groups">Add group</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/patch-api-groups">Edit group</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/delete-api-groups">Delete group</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Click
-<a class="reference external" href="https://app.swaggerhub.com/apis/eformsign_api/eformsign_API_2.0/2.0_general">here</a> for more information about each eformsign document API.</p>
+<a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_general">here</a> for more information about each eformsign document API.</p>
 </div>
 </div>
 </div>
