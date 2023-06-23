@@ -83,7 +83,7 @@ Getting an API key and private key
         :alt: API key pop-up 1
 
 
-    Select **Bearer token** as the authentication type and enter the value to be used as the token value under **Value** and click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the token value in the format of the **Bearer token value** in the request header, eformsign_signature. Refer to the following example.
+    Select **Bearer token** as the authentication type and enter the value to be used as the token value under **Value** and click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the token value in the format of the **Bearer token value** in the request header, eformsign_signature. Refer to the following example.
 
     .. code:: Javascript
 
@@ -105,7 +105,7 @@ Getting an API key and private key
 
 
 
-    Select **Basic authentication** as the authentication type and enter the ID and password, then click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the Base64-encoded value in the format of **ID:Password** in the request header, eformsign_signature. Refer to the following example. 
+    Select **Basic authentication** as the authentication type and enter the ID and password, then click **Save**.  `When getting an access token <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token>`_, enter the Base64-encoded value in the format of **ID:Password** in the request header, eformsign_signature. Refer to the following example. 
 
     .. code:: Javascript
 
