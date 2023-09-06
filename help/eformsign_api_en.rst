@@ -536,7 +536,7 @@ API for managing groups
 .. note:: 
 
     Click 
-    `here <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\  for more information about each eformsign document API.
+      for more information about each eformsign document API.
 
 
 
