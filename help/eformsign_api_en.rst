@@ -465,13 +465,27 @@ The followings are `Document API <https://app.swaggerhub.com/apis-docs/eformsign
 
 ``GET``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
 
+``POST``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
+
 ``DELETE``: `Delete document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents>`_\ 
 
 ``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider>`_\ 
 
 ``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
 
-``POST``: `Send in bulk <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``DELETE``: `Delete template <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
+
+``POST``: `Send in bulk_single template  <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+``POST``: `Send in bulk_multiple templates <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+``POST``: `Void document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+``GET``: `Usage status <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+``POST``: `Reject document_members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+``POST``: `Reject document_non members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
 
 -----------------
 
@@ -522,7 +536,7 @@ API for managing groups
 .. note:: 
 
     Click 
-    `here <https://app.swaggerhub.com/apis-docs/eformsign_api/eformsign_API_2.0/2.0_general>`__\  for more information about each eformsign document API.
+    `here <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`__\  for more information about each eformsign document API.
 
 
 
@@ -541,7 +555,7 @@ The API status code are as follows.
 ^^^^^^^^
 
 ===========  ===============  ===================================
-Code         Description      Remark
+Code         Description      Remark-
 ===========  ===============  ===================================
 200          Success          Success
 ===========  ===============  ===================================
@@ -587,6 +601,7 @@ Code         Description                               Remark
 4030005      Unsupported API                           When calling an unsupported API
 ===========  =======================================  ==========================================
 
+
 405
 ^^^^^^^^
 
@@ -609,48 +624,72 @@ Code                 Description      Remark
 ----------------------
 
 
-Step types
---------------
-
-===========  ===============  ===================================
-Type         Code             Description
-===========  ===============  ===================================
-Start         00               Start step
-Complete      01               Complete step
-Approval      02               Approval step
-External      03               External recipient step
-Accept        04               Internal recipient step
-Participant   05               Participant
-Reviewer      06               Reviewer
-===========  ===============  ===================================
-
-
 User types
 --------------
 
 ===================  ===============  ===============================================
 Type                 Code             Description
 ===================  ===============  ===============================================
-Internal member      01               Whether the user is an internal member or not
-External recipient   02               Whether the user is an external user or not
+Member               01               Whether the user is a member
+Non-member           02               Whether the user is a non-member
 ===================  ===============  ===============================================
 
-Status types
+
+Step types
 --------------
+
+=============  ===============  ===================================
+Type           Code             Description
+=============  ===============  ===================================
+Start          00               Start step
+Complete       01               Complete step
+Approval       02               Approval step
+External       03               External recipient step
+Accept         04               Internal recipient step
+Participant    05               Participant step
+Reviewer       06               Reviewer step
+Need to view   07               Need to view step
+=============  ===============  ===================================
+
+
+Document current status types
+------------------------------
+
+=========================  ===============  ==================================================
+Type                       Code             Description
+=========================  ===============  ==================================================
+doc_tempsave               001              Draft (temporarily saved by the document creator)
+doc_create                 002              Document created
+doc_complete               003              Document completed
+doc_update                 043              Document updated
+doc_request_delete         047              Document requested to be deleted
+doc_delete                 049              Document deleted
+doc_request_revoke         040              Document requested to be voided
+doc_revoke                 042              Document voided
+doc_request_reject         045              Document requested to be declined
+doc_request_participant    060              Document requested to a participant
+doc_accept_participant     062              Document approved by a participant 
+doc_reject_participant     061              Document declined by a participant
+doc_request_reviewer       070              Document requested to a reviewer
+doc_accept_reviewer        072              Document approved by a reviewer
+doc_reject_reviewer        071              Document declined by a reviewer
+=========================  ===============  ==================================================
+
+
+Document next status types
+------------------------------
 
 ===============  ===============  ==================================================
 Type              Code             Description
 ===============  ===============  ==================================================
-Draft             00               Document saved as draft at start step
-In pregress       01               Document requested for approval, requested to member or external recipient
+Draft             00               Document saved as draft in the start step
+In progress       01               Document requested
 Correcting        02               Document being corrected (member, document creator)
 Completed         03               Document completed
-Rejected          04               Document rejected by approver, member, or external recipient
+Rejected          04               Document rejected by an approver/reviewer
 Voided            05               Document voided
-Void requested    06               Document requested to void to member
+Void requested    06               Document requested to be voided
 ===============  ===============  ==================================================
-
-
 
 
 Action types
@@ -691,51 +730,15 @@ doc_transfer                 051              Transferring a document
 doc_request_participant      060              Requesting a document to participant   
 doc_reject_participant       061              Rejecting a document by participant  
 doc_accept_participant       062              A participant approving a document  
-doc_rerequest_participant    063              A participant(external recipient) rerequesting a document    
-doc_open_participant         064              A participant(external recipient) opening a document    
+doc_rerequest_participant    063              A participant(enon-member) rerequesting a document    
+doc_open_participant         064              A participant(non-member) opening a document    
 doc_request_reviewer         070              A reviewer requesting a document    
 doc_reject_reviewer          071              A reviewer rejecting a document    
 doc_request_reviewer         072              A reviewer approving a document    
-doc_rerequest_reviewer       073              A reviewer(external recipient) rerequesting a document    
-doc_open_review              074              A reviewer(external recipient) opening a document
+doc_rerequest_reviewer       073              A reviewer(non-member) rerequesting a document    
+doc_open_review              074              A reviewer(non-member) opening a document
 =========================  ===============  =================================================================
 
-
-
-
-
-Detailed status type
---------------------------------
-
-=========================  ===============  ======================================================================
-Type                        Code             Description
-=========================  ===============  ======================================================================
-doc_tempsave                001              Draft (when a document is saved as a draft by the initial creator)
-doc_create                  002              Document created
-doc_complete                003              Document completed
-doc_update                  043              Document modified
-doc_request_delete          047              Document deletion requested
-doc_delete                  049              Document deleted
-doc_request_revoke          040              Document void requested
-doc_revoke                  042              Document voided
-doc_request_reject          045              Document decline requested
-doc_request_approval        010              Document approval requested
-doc_accept_approval         012              Document approval request approved
-doc_reject_approval         011              Document approval request declined
-doc_cancel                  013              Document approval request canceled
-doc_request_reception       020              Document approval requested to internal recipient
-doc_accept_reception        022              Document approval request approved by internal recipient
-doc_reject_reception        021              Document approval request declined by internal recipient
-doc_request_outsider        030              Document approval requested to external recipient
-doc_accept_outsider         032              Document approved request approved by external recipient
-doc_reject_outsider         031              Document approval request declined by external recipient
-doc_request_participant     060              Document requested to participant
-doc_accept_participant      062              Document accepted by participant
-doc_reject_participant      061              Document rejected by participant
-doc_request_reviewer        070              Document requested to reviewer    
-doc_accept_reviewer         072              Document accepted by reviewer 
-doc_reject_reviewer         071              Document rejected by reviewer
-=========================  ===============  ======================================================================
 
 
 
