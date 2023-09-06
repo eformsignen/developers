@@ -23,7 +23,7 @@ You need the following information to use eformsign API.
 
 
 Where to find Company ID and Document ID
-------------------------------------------------------
+-----------------------------------------------------
 
 To use eformsign API, you need to know the company ID and the document ID that you want to lookup. 
 
