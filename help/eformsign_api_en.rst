@@ -144,6 +144,7 @@ Getting an API key and private key
 
     You can delete an API key by clicking the **Delete** button in the API key list.
 
+
 .. _eformsign_signature:
 
 Generating a signature 
@@ -371,8 +372,6 @@ The following shows the examples for each language.
         print 'execution_time : ' . execution_time . PHP_EOL;
         print 'eformsign_signature : ' . bin2hex($signature) . PHP_EOL;
         ?>
-
-
 
 
 
