@@ -4,9 +4,9 @@ Embedding eformsign features
 ======================================
 
 
-By embedding eformsign features, customers can use eformsign's electronic document features within their service/website without actually visiting the eformsign service.
+With embedding, customers can use eformsign's electronic document features within their service/website without actually visiting the eformsign service.
 
-For example, it's similar to the way of embedding a YouTube video in a blog post so that it can be played on the blog post itself.
+For example, it is similar to the way of embedding a YouTube video in a blog post so that it can be played on the blog post itself.
 
 -------------------
 Getting started

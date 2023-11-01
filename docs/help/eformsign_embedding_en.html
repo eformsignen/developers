@@ -7,19 +7,17 @@
   <title>Embedding eformsign features &mdash; eformsign API guide 2021.01.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/code-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0f4a298b"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/code-tabs.js?v=c983d12e"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +35,6 @@
           
           <a href="../index.html">
             
-              <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -95,10 +92,6 @@
       </nav>
 
       <div class="wy-nav-content">
-<div class="git-ribbon">
-  <a href="http://github.com/SwissDataScienceCenter" rel="me">Join us on GitHub</a>
-</div>
-
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
@@ -114,47 +107,47 @@
            <div itemprop="articleBody">
              
   <section id="embedding-eformsign-features">
-<h1>Embedding eformsign features<a class="headerlink" href="#embedding-eformsign-features" title="Permalink to this heading"></a></h1>
-<p>By embedding eformsign features, customers can use eformsign’s electronic document features within their service/website without actually visiting the eformsign service.</p>
-<p>For example, it’s similar to the way of embedding a YouTube video in a blog post so that it can be played on the blog post itself.</p>
+<h1>Embedding eformsign features<a class="headerlink" href="#embedding-eformsign-features" title="Link to this heading"></a></h1>
+<p>With embedding, customers can use eformsign’s electronic document features within their service/website without actually visiting the eformsign service.</p>
+<p>For example, it is similar to the way of embedding a YouTube video in a blog post so that it can be played on the blog post itself.</p>
 <section id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <p>You need Company ID and Template ID to use eformsign embedding features.</p>
 <section id="where-to-find-company-id">
-<h3>Where to find Company ID<a class="headerlink" href="#where-to-find-company-id" title="Permalink to this heading"></a></h3>
+<h3>Where to find Company ID<a class="headerlink" href="#where-to-find-company-id" title="Link to this heading"></a></h3>
 <p>You can view the company ID in Manage company &gt; Company profile &gt; Basic information.</p>
 <section id="eformsign-menu">
-<h4>eformsign Menu<a class="headerlink" href="#eformsign-menu" title="Permalink to this heading"></a></h4>
+<h4>eformsign Menu<a class="headerlink" href="#eformsign-menu" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/Dashboard_menu_icon.png"><img alt="eformsign Menu" src="../_images/Dashboard_menu_icon.png" style="width: 700px;" /></a>
 </section>
 <section id="eformsign-company-profile-menu">
-<h4>eformsign Company profile menu<a class="headerlink" href="#eformsign-company-profile-menu" title="Permalink to this heading"></a></h4>
+<h4>eformsign Company profile menu<a class="headerlink" href="#eformsign-company-profile-menu" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/Dashboard_sidemenu_companyinfo.png"><img alt="eformsign Company profile menu" src="../_images/Dashboard_sidemenu_companyinfo.png" style="width: 700px;" /></a>
 </section>
 <section id="company-profile-basic-information">
-<h4>Company profile &gt; Basic information<a class="headerlink" href="#company-profile-basic-information" title="Permalink to this heading"></a></h4>
+<h4>Company profile &gt; Basic information<a class="headerlink" href="#company-profile-basic-information" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/companyinfo_companyid.png"><img alt="Company profile &gt; Basic information" src="../_images/companyinfo_companyid.png" style="width: 700px;" /></a>
 </section>
 </section>
 <section id="where-to-find-template-id">
-<h3>Where to find Template ID<a class="headerlink" href="#where-to-find-template-id" title="Permalink to this heading"></a></h3>
+<h3>Where to find Template ID<a class="headerlink" href="#where-to-find-template-id" title="Link to this heading"></a></h3>
 <p>Go to Manage templates page and click the Settings icon of the template that you want to use. You can view the form_id in the URL of the template.</p>
 <section id="eformsign-manage-template-menu">
-<h4>eformsign Manage template menu<a class="headerlink" href="#eformsign-manage-template-menu" title="Permalink to this heading"></a></h4>
+<h4>eformsign Manage template menu<a class="headerlink" href="#eformsign-manage-template-menu" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/sidemenu_managetemplate.png"><img alt="eformsign menu - Manage templates" src="../_images/sidemenu_managetemplate.png" style="width: 700px;" /></a>
 </section>
 <section id="eformsign-manage-templates-page">
-<h4>eformsign Manage templates page<a class="headerlink" href="#eformsign-manage-templates-page" title="Permalink to this heading"></a></h4>
+<h4>eformsign Manage templates page<a class="headerlink" href="#eformsign-manage-templates-page" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/managetemplate.png"><img alt="eformsign Manage templates page" src="../_images/managetemplate.png" style="width: 700px;" /></a>
 </section>
 <section id="template-id">
-<h4>Template ID<a class="headerlink" href="#template-id" title="Permalink to this heading"></a></h4>
+<h4>Template ID<a class="headerlink" href="#template-id" title="Link to this heading"></a></h4>
 <a class="reference internal image-reference" href="../_images/templateURL_templateID.png"><img alt="Template ID" src="../_images/templateURL_templateID.png" style="width: 700px;" /></a>
 </section>
 </section>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Add the following script in the webpage where you want to use eformsign features.</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">//jquery</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="o">/&gt;</span>
@@ -170,7 +163,7 @@
 </div>
 </section>
 <section id="about-the-eformsign-object">
-<h2>About the eformsign object<a class="headerlink" href="#about-the-eformsign-object" title="Permalink to this heading"></a></h2>
+<h2>About the eformsign object<a class="headerlink" href="#about-the-eformsign-object" title="Link to this heading"></a></h2>
 <p>There are two types of eformsign objects: embedded and redirect.</p>
 <table class="docutils align-default">
 <thead>
@@ -269,7 +262,7 @@ by redirecting to eformsign</p>
 </pre></div>
 </div>
 <section id="embedding-document-function">
-<h3>embedding_document function<a class="headerlink" href="#embedding-document-function" title="Permalink to this heading"></a></h3>
+<h3>embedding_document function<a class="headerlink" href="#embedding-document-function" title="Link to this heading"></a></h3>
 <p>This function allows to create documents in the customer’s website/service by embedding eformsign features.</p>
 <p>You can use two types of parameters: document_option and callback.</p>
 <div class="admonition note">
@@ -367,14 +360,14 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 </section>
 <section id="parameter-description-document-option">
-<h3>Parameter description: document-option<a class="headerlink" href="#parameter-description-document-option" title="Permalink to this heading"></a></h3>
+<h3>Parameter description: document-option<a class="headerlink" href="#parameter-description-document-option" title="Link to this heading"></a></h3>
 <p>In document-option, you can configure settings regarding company information, user information, mode, return fields, and autofill.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Company information and mode are required fields.</p>
 </div>
 <section id="company-information-required">
-<h4>1. Company information (required)<a class="headerlink" href="#company-information-required" title="Permalink to this heading"></a></h4>
+<h4>1. Company information (required)<a class="headerlink" href="#company-information-required" title="Link to this heading"></a></h4>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;company&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;f9aec832efef4133a1e849efaf8a9aed&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// can be checked in company id - manage company - company profile (required)</span>
@@ -386,7 +379,7 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 </section>
 <section id="user-information-optional">
-<h4>2. User information (optional)<a class="headerlink" href="#user-information-optional" title="Permalink to this heading"></a></h4>
+<h4>2. User information (optional)<a class="headerlink" href="#user-information-optional" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt><strong>Creation of a new document through an internal member logging in</strong></dt><dd><ul class="simple">
 <li><p>This applies when the user information is not specified.</p></li>
@@ -456,7 +449,7 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 </section>
 <section id="mode-required">
-<h4>3. Mode (required)<a class="headerlink" href="#mode-required" title="Permalink to this heading"></a></h4>
+<h4>3. Mode (required)<a class="headerlink" href="#mode-required" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt><strong>Creating a new document by using a template</strong></dt><dd><ul class="simple">
 <li><p>Create a new document by using a template.</p></li>
@@ -512,7 +505,7 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 </section>
 <section id="return-fields-optional">
-<h4>4. Return fields (optional)<a class="headerlink" href="#return-fields-optional" title="Permalink to this heading"></a></h4>
+<h4>4. Return fields (optional)<a class="headerlink" href="#return-fields-optional" title="Link to this heading"></a></h4>
 <p>Specify the fields that can be received using callback functions after creating and updating a document.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -525,7 +518,7 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </div>
 </section>
 <section id="auto-entry-used-for-automatically-entering-fields-in-the-document-creation-process">
-<h4>5. Auto entry (used for automatically entering fields in the document creation process)<a class="headerlink" href="#auto-entry-used-for-automatically-entering-fields-in-the-document-creation-process" title="Permalink to this heading"></a></h4>
+<h4>5. Auto entry (used for automatically entering fields in the document creation process)<a class="headerlink" href="#auto-entry-used-for-automatically-entering-fields-in-the-document-creation-process" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt><strong>Document title</strong></dt><dd><ul class="simple">
 <li><p>Specify the title of the document to be created in document_name.</p></li>
@@ -562,7 +555,7 @@ document (document_option, iframe_id, success_callback, error_callback)</p>
 </section>
 </section>
 <section id="parameter-description-callback">
-<h3>Parameter description: Callback<a class="headerlink" href="#parameter-description-callback" title="Permalink to this heading"></a></h3>
+<h3>Parameter description: Callback<a class="headerlink" href="#parameter-description-callback" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
