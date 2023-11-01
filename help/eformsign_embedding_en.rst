@@ -1,7 +1,7 @@
 
-======================================
+=====================================
 Embedding eformsign features
-======================================
+=====================================
 
 
 With embedding, customers can use eformsign's electronic document features within their service/website without actually visiting the eformsign service.

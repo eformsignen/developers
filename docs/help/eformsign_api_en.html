@@ -7,19 +7,17 @@
   <title>Using eformsign API &mdash; eformsign API guide 2021.01.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
       <link rel="stylesheet" href="../_static/code-tabs.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/code-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0f4a298b"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/code-tabs.js?v=c983d12e"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +35,6 @@
           
           <a href="../index.html">
             
-              <img src="../_static/forcs_b.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -106,10 +103,6 @@
       </nav>
 
       <div class="wy-nav-content">
-<div class="git-ribbon">
-  <a href="http://github.com/SwissDataScienceCenter" rel="me">Join us on GitHub</a>
-</div>
-
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
@@ -125,10 +118,10 @@
            <div itemprop="articleBody">
              
   <section id="using-eformsign-api">
-<h1>Using eformsign API<a class="headerlink" href="#using-eformsign-api" title="Permalink to this heading"></a></h1>
+<h1>Using eformsign API<a class="headerlink" href="#using-eformsign-api" title="Link to this heading"></a></h1>
 <p>The API provided by eformsign allows customers to call and use eformsign features in their system/service.</p>
 <section id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <p>You need the following information to use eformsign API.</p>
 <ul class="simple">
 <li><p>Company ID and Document ID</p></li>
@@ -140,7 +133,7 @@
 <p>There is a <strong>30 second time limit</strong> for generating a signature. You must create a signature and get token issued within 30 seconds.</p>
 </div>
 <section id="where-to-find-company-id-and-document-id">
-<h3>Where to find Company ID and Document ID<a class="headerlink" href="#where-to-find-company-id-and-document-id" title="Permalink to this heading"></a></h3>
+<h3>Where to find Company ID and Document ID<a class="headerlink" href="#where-to-find-company-id-and-document-id" title="Link to this heading"></a></h3>
 <p>To use eformsign API, you need to know the company ID and the document ID that you want to lookup.</p>
 <p>Log in to eformsign service and find the company ID and the document ID.</p>
 <div class="admonition note">
@@ -152,7 +145,7 @@
 </div>
 </section>
 <section id="getting-an-api-key-and-private-key">
-<span id="apikey"></span><h3>Getting an API key and private key<a class="headerlink" href="#getting-an-api-key-and-private-key" title="Permalink to this heading"></a></h3>
+<span id="apikey"></span><h3>Getting an API key and private key<a class="headerlink" href="#getting-an-api-key-and-private-key" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Log in to eformsign as the company administrator and then go to <strong>[Integration] &gt; [API / Webhook]</strong> in the sidebar menu.</p></li>
 </ol>
@@ -227,7 +220,7 @@
 </section>
 </section>
 <section id="eformsign-signature">
-<span id="id2"></span><h2>Generating a signature<a class="headerlink" href="#eformsign-signature" title="Permalink to this heading"></a></h2>
+<span id="id2"></span><h2>Generating a signature<a class="headerlink" href="#eformsign-signature" title="Link to this heading"></a></h2>
 <p>eformsign_signature uses asymmetric key cryptography and elliptic curve cryptography.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -235,7 +228,7 @@
 </div>
 <p>The following describes how to generate a signature for each language: Java, Python, and PHP.</p>
 <section id="java">
-<h3>Java<a class="headerlink" href="#java" title="Permalink to this heading"></a></h3>
+<h3>Java<a class="headerlink" href="#java" title="Link to this heading"></a></h3>
 <p>Convert the current time of the server to String (UTF-8) and sign using the private key issued to you in <a class="reference external" href="#apikey">Getting an API Key</a>. Then, convert the signed data into hex string.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -243,25 +236,25 @@
 </div>
 </section>
 <section id="javascript-node-js">
-<h3>Javascript(Node.JS)<a class="headerlink" href="#javascript-node-js" title="Permalink to this heading"></a></h3>
+<h3>Javascript(Node.JS)<a class="headerlink" href="#javascript-node-js" title="Link to this heading"></a></h3>
 <p>Ensure that Jsrsasign(<a class="reference external" href="https://kjur.github.io/jsrsasign/">https://kjur.github.io/jsrsasign/</a>) npm is installed.</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">npm</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">jsrsasign</span>
 </pre></div>
 </div>
 </section>
 <section id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h3>
+<h3>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
 <p>Use the library for key generation in the link below. Install the library using the following command.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">warner</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">ecdsa</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 </section>
 <section id="php">
-<h3>PHP<a class="headerlink" href="#php" title="Permalink to this heading"></a></h3>
+<h3>PHP<a class="headerlink" href="#php" title="Link to this heading"></a></h3>
 <p>Ensure that PHP OpenSSL library is installed and the keycheck.inc.php and test.php files in the following examples are located in the same path before proceeding.</p>
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
 <p>The following shows the examples for each language.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -433,10 +426,10 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </div></div></section>
 </section>
 <section id="open-api-list">
-<h2>Open API list<a class="headerlink" href="#open-api-list" title="Permalink to this heading"></a></h2>
+<h2>Open API list<a class="headerlink" href="#open-api-list" title="Link to this heading"></a></h2>
 <p>eformsign provides API for generating a signature and API for document creation and process.</p>
 <section id="api-for-generating-a-signature">
-<h3>API for generating a signature<a class="headerlink" href="#api-for-generating-a-signature" title="Permalink to this heading"></a></h3>
+<h3>API for generating a signature<a class="headerlink" href="#api-for-generating-a-signature" title="Link to this heading"></a></h3>
 <p>To generate a signature, use <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Access Token API</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/token/post-api_auth-access_token">Issue Access Token</a></p>
 <p>Click
@@ -467,7 +460,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </section>
 <hr class="docutils" />
 <section id="api-for-document-creation-and-process">
-<h3>API for document creation and process<a class="headerlink" href="#api-for-document-creation-and-process" title="Permalink to this heading"></a></h3>
+<h3>API for document creation and process<a class="headerlink" href="#api-for-document-creation-and-process" title="Link to this heading"></a></h3>
 <p>After generating a signature, you can use the following document API to create new documents, to inquiry document information, or to download completed document files(PDF and audit trail certificate), or attached files.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -498,7 +491,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </section>
 <hr class="docutils" />
 <section id="api-for-managing-members-and-groups">
-<h3>API for managing members and groups<a class="headerlink" href="#api-for-managing-members-and-groups" title="Permalink to this heading"></a></h3>
+<h3>API for managing members and groups<a class="headerlink" href="#api-for-managing-members-and-groups" title="Link to this heading"></a></h3>
 <p>You can use the following API to manage members and groups.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -510,13 +503,13 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </div>
 <p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members">Member and group management API</a> provided in eformsign.</p>
 <section id="api-for-managing-members">
-<h4>API for managing members<a class="headerlink" href="#api-for-managing-members" title="Permalink to this heading"></a></h4>
+<h4>API for managing members<a class="headerlink" href="#api-for-managing-members" title="Link to this heading"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/get-api-members">Inquiry member list</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/patch-api-members-member_id">Edit member</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/members/delete-api-members-member_id">Delete member</a></p>
 </section>
 <section id="api-for-managing-groups">
-<h4>API for managing groups<a class="headerlink" href="#api-for-managing-groups" title="Permalink to this heading"></a></h4>
+<h4>API for managing groups<a class="headerlink" href="#api-for-managing-groups" title="Link to this heading"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/get-api-groups">Inquiry group list</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/post-api-groups">Add group</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/groups/patch-api-groups">Edit group</a></p>
@@ -530,12 +523,12 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </section>
 </section>
 <section id="api-code">
-<h2>API code<a class="headerlink" href="#api-code" title="Permalink to this heading"></a></h2>
+<h2>API code<a class="headerlink" href="#api-code" title="Link to this heading"></a></h2>
 <section id="api-status-code">
-<h3>API status code<a class="headerlink" href="#api-status-code" title="Permalink to this heading"></a></h3>
+<h3>API status code<a class="headerlink" href="#api-status-code" title="Link to this heading"></a></h3>
 <p>The API status code are as follows.</p>
 <section id="id6">
-<h4>200<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<h4>200<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -552,7 +545,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="id7">
-<h4>202<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<h4>202<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -574,7 +567,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="id8">
-<h4>400<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<h4>400<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -607,7 +600,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="id9">
-<h4>403<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<h4>403<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -640,7 +633,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="id10">
-<h4>405<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<h4>405<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -657,7 +650,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="id11">
-<h4>500<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+<h4>500<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
@@ -676,7 +669,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </section>
 <hr class="docutils" />
 <section id="user-types">
-<h3>User types<a class="headerlink" href="#user-types" title="Permalink to this heading"></a></h3>
+<h3>User types<a class="headerlink" href="#user-types" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -697,7 +690,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="step-types">
-<h3>Step types<a class="headerlink" href="#step-types" title="Permalink to this heading"></a></h3>
+<h3>Step types<a class="headerlink" href="#step-types" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -742,7 +735,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="document-current-status-types">
-<h3>Document current status types<a class="headerlink" href="#document-current-status-types" title="Permalink to this heading"></a></h3>
+<h3>Document current status types<a class="headerlink" href="#document-current-status-types" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -815,7 +808,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="document-next-status-types">
-<h3>Document next status types<a class="headerlink" href="#document-next-status-types" title="Permalink to this heading"></a></h3>
+<h3>Document next status types<a class="headerlink" href="#document-next-status-types" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -856,7 +849,7 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 </table>
 </section>
 <section id="action-types">
-<h3>Action types<a class="headerlink" href="#action-types" title="Permalink to this heading"></a></h3>
+<h3>Action types<a class="headerlink" href="#action-types" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
