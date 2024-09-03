@@ -135,14 +135,17 @@
 <section id="where-to-find-company-id-and-document-id">
 <h3>Where to find Company ID and Document ID<a class="headerlink" href="#where-to-find-company-id-and-document-id" title="Link to this heading"></a></h3>
 <p>To use eformsign API, you need to know the company ID and the document ID that you want to lookup.</p>
-<p>Log in to eformsign service and find the company ID and the document ID.</p>
+<p>Log in to the eformsign service and find the company ID and the document ID.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can view the company ID in Manage company &gt; Company profile &gt; Basic information.</p>
-<p><a class="reference internal" href="../_images/companyinfo_companyid.png"><img alt="image1" src="../_images/companyinfo_companyid.png" style="width: 600px;" /></a></p>
-<p>Go to the document box and click the document icon (<img alt="image2" src="../_images/column_icon.png" />) at the top right corner and add Document ID column. Then you can view the document ID in the document list.</p>
-<p><img alt="image3" src="../_images/document_id.png" /></p>
+<p>You can find the company ID in Manage company &gt; Company profile &gt; Basic information.</p>
 </div>
+<a class="reference internal image-reference" href="../_images/basicinfo2.png"><img alt="Company profile &gt; Basic information" src="../_images/basicinfo2.png" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find the document ID of a document in the inbox where the document is stored.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/document_id_column2.png"><img alt="Document inbox-add a document ID column" src="../_images/document_id_column2.png" style="width: 700px;" /></a>
 </section>
 <section id="getting-an-api-key-and-private-key">
 <span id="apikey"></span><h3>Getting an API key and private key<a class="headerlink" href="#getting-an-api-key-and-private-key" title="Link to this heading"></a></h3>
@@ -470,24 +473,41 @@ PHP - test.php</li></ul><div class="tab codetab selected" data-id="0">
 <p class="admonition-title">Note</p>
 <p>Make sure to enter Access Token value by clicking the <strong>Authorize</strong> button.</p>
 </div>
-<p>The followings are <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document">Document API</a> provided in eformsign.</p>
+<p>The following are the <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document">Document APIs</a> provided in eformsign.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents">Create a new document_member</a></p>
+<p>Creates a document from a template via a member account.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external">Create a new document_external recipients</a></p>
+<p>A user who is not a company member creates a template document. Documents can be created only from templates that have the ‘create documents from URL’ option checked in Template settings - properties of the Start step of Workflow.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID">Inquiry document information</a></p>
+<p>Views the general information, detailed information, history, and status of a specific document.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files">Download document files_PDF and Audit trail certificate</a></p>
+<p>Downloads the document and audit trail certificate files in PDF format.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files">Download attached files</a></p>
+<p>Downloads the file attached to the document.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents">Inquiry document list</a></p>
+<p>Views the list of documents created in the company. Views information of each document such as general information, detailed information, history, and document status in a list format.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents">Inquiry document list</a></p>
+<p>Queries the list of documents in document inboxes, general and detailed information of each document, document history, and document progress.</p>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents">Delete document</a></p>
+<p>Deletes a document.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider">Resend a document_external recipients</a></p>
+<p>Re-requests a document requested to a recipient.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms">Inquiry available template lists</a></p>
+<p>Gets the list of templates available in the company for the member to create.</p>
 <p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms">Delete template</a></p>
+<p>Deletes a template.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Send in bulk_single template</a></p>
+<p>Bulk sends multiple documents created from a template documents through a company member account.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Send in bulk_multiple templates</a></p>
+<p>Bulk sends documents from multiple templates with an access token containing member information.</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Void document</a></p>
+<p>Voids a document.</p>
 <p><code class="docutils literal notranslate"><span class="pre">GET</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Usage status</a></p>
+<p>Views usage by year or month</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Reject document_members</a></p>
+<p>Declines a document (member).</p>
 <p><code class="docutils literal notranslate"><span class="pre">POST</span></code>: <a class="reference external" href="https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id">Reject document_non members</a></p>
+<p>Declines a document (non-member).</p>
 </section>
 <hr class="docutils" />
 <section id="api-for-managing-members-and-groups">
