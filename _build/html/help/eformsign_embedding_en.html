@@ -760,44 +760,30 @@ In this case, documents can be created after the eformsign login page is started
 </pre></div>
 </div>
 <p><strong>Non-members creating new documents</strong></p>
-<p>This is for non-members creating documents.
-.. code-block:: javascript</p>
-<blockquote>
-<div><dl>
-<dt>var document_option = {</dt><dd><dl>
-<dt>“user”:{</dt><dd><p>“type” : “02”,
-“external_user_info” : {</p>
-<blockquote>
-<div><p>“name” : “John Doe”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>};</p>
-</div></blockquote>
+<p>This is for non-members creating documents.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
 <p><strong>Non-members processing (filling in) documents they received</strong></p>
-<p>When embedded, this is for non-members to fill in documents they received.
-.. code-block:: javascript</p>
-<blockquote>
-<div><dl>
-<dt>var document_option = {</dt><dd><dl>
-<dt>“user”:{</dt><dd><p>“type” : “02”,
-“external_token” : “f8e2ff29114445dcac1e2889ac2f8a5e”,
-“external_user_info” : {</p>
-<blockquote>
-<div><p>“name” : “John Doe”</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>};</p>
-</div></blockquote>
+<p>When embedded, this is for non-members to fill in documents they received.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;02&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;external_token&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;f8e2ff29114445dcac1e2889ac2f8a5e&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;external_user_info&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
 </section>
 <section id="layout-optional">
 <h5>4. Layout (optional)<a class="headerlink" href="#layout-optional" title="Link to this heading"></a></h5>
@@ -1603,56 +1589,56 @@ in the Design Form step</p></td>
 <hr class="docutils" />
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">template_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;prefill&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;template_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Purchasing form,</span>
-<span class="s2">        &quot;</span><span class="nx">step_settings</span><span class="s2">&quot;: [</span>
-<span class="s2">            {</span>
-<span class="s2">                &quot;</span><span class="nx">step_type</span><span class="s2">&quot;: &quot;</span><span class="mo">05</span><span class="s2">&quot;,</span>
-<span class="s2">                &quot;</span><span class="nx">step_name</span><span class="s2">&quot;: &quot;</span><span class="nx">Participant</span><span class="w"> </span><span class="mf">1</span><span class="s2">&quot;,</span>
-<span class="s2">                &quot;</span><span class="nx">selected</span><span class="s2">&quot;: true,</span>
-<span class="s2">                &quot;</span><span class="nx">recipient</span><span class="s2">&quot;: {</span>
-<span class="s2">                    &quot;</span><span class="nx">id</span><span class="s2">&quot;: &quot;</span><span class="nx">test1</span><span class="err">@</span><span class="nx">forcs</span><span class="p">.</span><span class="nx">com</span><span class="s2">&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">name</span><span class="s2">&quot;: &quot;</span><span class="nx">John</span><span class="w"> </span><span class="nx">Doe</span><span class="s2">&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">sms</span><span class="s2">&quot;: &quot;</span><span class="o">+</span><span class="mf">821022223333</span><span class="s2">&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">use_mail</span><span class="s2">&quot;: true,</span>
-<span class="s2">                    &quot;</span><span class="nx">use_sms</span><span class="s2">&quot;: true,</span>
-<span class="s2">                    &quot;</span><span class="nx">use_alimtalk</span><span class="s2">&quot; : true,</span>
-<span class="s2">                    &quot;</span><span class="nx">auth</span><span class="s2">&quot;: {</span>
-<span class="s2">                        &quot;</span><span class="nx">type</span><span class="s2">&quot;: &quot;</span><span class="nx">field</span><span class="s2">&quot;,</span>
-<span class="s2">                        &quot;</span><span class="nx">password</span><span class="s2">&quot;: &quot;</span><span class="nx">Text</span><span class="w"> </span><span class="mf">1</span><span class="s2">&quot;,</span>
-<span class="s2">                        &quot;</span><span class="nx">password_hint</span><span class="s2">&quot;: &quot;</span><span class="nx">Your</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="nx">digit</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">birth</span><span class="s2">&quot;,</span>
-<span class="s2">                        &quot;</span><span class="nx">valid</span><span class="s2">&quot;: {</span>
-<span class="s2">                            &quot;</span><span class="nx">day</span><span class="s2">&quot;: &quot;</span><span class="mf">7</span><span class="s2">&quot;,</span>
-<span class="s2">                            &quot;</span><span class="nx">hour</span><span class="s2">&quot;: &quot;</span><span class="mf">7</span><span class="s2">&quot;,</span>
-<span class="s2">                        },</span>
-<span class="s2">                    },</span>
-<span class="s2">                    &quot;</span><span class="nx">additional_auth</span><span class="s2">&quot; : {</span>
-<span class="s2">                        &quot;</span><span class="nx">use_pincode</span><span class="s2">&quot;: true,</span>
-<span class="s2">                        &quot;</span><span class="nx">use_pincode_result</span><span class="s2">&quot;: false</span>
-<span class="s2">                        &quot;</span><span class="nx">use_mobile_verifyAuth</span><span class="s2">&quot;: true,</span>
-<span class="s2">                        &quot;</span><span class="nx">use_mobile_verifyAuth_result</span><span class="s2">&quot; : true</span>
-<span class="s2">                    }</span>
-<span class="s2">                }</span>
-<span class="s2">            },</span>
-<span class="s2">            {</span>
-<span class="s2">                &quot;</span><span class="nx">step_type</span><span class="s2">&quot;: &quot;</span><span class="mo">06</span><span class="s2">&quot;,</span>
-<span class="s2">                &quot;</span><span class="nx">step_name</span><span class="s2">&quot;: &quot;</span><span class="nx">Reviewer</span><span class="w"> </span><span class="mf">1</span><span class="s2">&quot;,</span>
-<span class="s2">                &quot;</span><span class="nx">selected</span><span class="s2">&quot;: false,</span>
-<span class="s2">                &quot;</span><span class="nx">recipient</span><span class="s2">&quot;: {</span>
-<span class="s2">                    &quot;</span><span class="nx">id</span><span class="s2">&quot;: &quot;</span><span class="nx">test2</span><span class="err">@</span><span class="nx">forcs</span><span class="p">.</span><span class="nx">com</span><span class="s2">&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">name</span><span class="s2">&quot;: &quot;</span><span class="nx">Jane</span><span class="w"> </span><span class="nx">Doe</span><span class="s2">&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">sms</span><span class="s2">&quot;: &quot;&quot;,</span>
-<span class="s2">                    &quot;</span><span class="nx">use_mail</span><span class="s2">&quot;: true,</span>
-<span class="s2">                    &quot;</span><span class="nx">use_sms</span><span class="s2">&quot;: false,</span>
-<span class="s2">                    &quot;</span><span class="nx">auth</span><span class="s2">&quot;: {</span>
-<span class="s2">                        &quot;</span><span class="nx">valid</span><span class="s2">&quot;: {</span>
-<span class="s2">                            &quot;</span><span class="nx">day</span><span class="s2">&quot;: &quot;</span><span class="mf">3</span><span class="s2">&quot;,</span>
-<span class="s2">                            &quot;</span><span class="nx">hour</span><span class="s2">&quot;: &quot;</span><span class="mf">0</span><span class="err">&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;template_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Purchasing form&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;step_settings&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;step_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;05&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;step_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Participant 1&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;selected&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;recipient&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test1@forcs.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;sms&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;+821022223333&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;use_mail&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;use_sms&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;use_alimtalk&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;password&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Text 1&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;password_hint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Your 6 digit date of birth&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;valid&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;hour&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="s2">&quot;additional_auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;use_pincode&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;use_pincode_result&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;use_mobile_verifyAuth&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;use_mobile_verifyAuth_result&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;step_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;06&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;step_name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Reviewer 1&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;selected&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;recipient&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test2@forcs.com&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;sms&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;use_mail&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;use_sms&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;valid&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="s2">&quot;hour&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">                        </span><span class="p">}</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nx">disabled_form_id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="s2">&quot;disabled_form_id&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
@@ -3318,35 +3304,36 @@ To reduce the likelihood of errors, we recommend that you check the response you
 <span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">action_callback</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">Create</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">every</span><span class="w"> </span><span class="nx">action</span><span class="p">,</span><span class="w"> </span><span class="nx">make</span><span class="w"> </span><span class="nx">it</span><span class="w"> </span><span class="nx">invisible</span><span class="p">,</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">then</span><span class="w"> </span><span class="nx">handle</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">action_callback</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">show</span><span class="w"> </span><span class="nx">only</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">buttons</span><span class="w"> </span><span class="nx">you</span><span class="w"> </span><span class="nx">need</span><span class="p">.</span><span class="w"> </span><span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;buttonList&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;padding: 10px;&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_01&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;01&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_02&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;02&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_03&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;03&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_04&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;04&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_05&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;05&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_06&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;06&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_07&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;07&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_08&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;08&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_09&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;09&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_10&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;10&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_11&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;11&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_12&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;12&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_13&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;13&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_14&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;14&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_15&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;15&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_16&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;16&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_17&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;17&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_18&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;18&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_19&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;19&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_20&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;20&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_21&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:80px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;21&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;btn_22&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width:150px; height:30px; display: none;&quot;</span><span class="w"> </span><span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;actionTest(&#39;22&#39;);&quot;</span><span class="o">&gt;&lt;</span><span class="err">/button&gt;</span>
-<span class="o">&lt;</span><span class="err">/div&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Create a button for every action, make it invisible, and then handle the action_callback to show only the buttons you need. --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;buttonList&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding: 10px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_01&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;01&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_02&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;02&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_03&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;03&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_04&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;04&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_05&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;05&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_06&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;06&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_07&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;07&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_08&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;08&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_09&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;09&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_10&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;10&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_11&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;11&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_12&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;12&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_13&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;13&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_14&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;14&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_15&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;15&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_16&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;16&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_17&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;17&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_18&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;18&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_19&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;19&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_20&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;20&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_21&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:80px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;21&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn_22&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:150px; height:30px; display: none;&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;actionTest(&#39;22&#39;);&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 
-<span class="c">&lt;!--</span><span class="w"> </span><span class="nx">Create</span><span class="w"> </span><span class="nx">an</span><span class="w"> </span><span class="nx">iframe</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">embed</span><span class="w">  </span><span class="o">--&gt;</span>
-<span class="o">&lt;</span><span class="nx">iframe</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="s2">&quot;width: 100%; height: 700px;&quot;</span><span class="o">&gt;&lt;</span><span class="err">/iframe&gt;</span>
+<span class="cm">&lt;!-- Create an iframe to embed  --&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;eformsign_iframe&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eformsign_iframe&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; height: 700px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -3359,7 +3346,7 @@ To reduce the likelihood of errors, we recommend that you check the response you
 <h3>Create an area to embed an eformsign feature<a class="headerlink" href="#create-an-area-to-embed-an-eformsign-feature" title="Link to this heading"></a></h3>
 <p>First, you need to create a region to embed and display an eformsign feature.
 The area for embedding an eformsign feature supports the iframe format.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">iframe</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">&quot;1440&quot;</span><span class="w"> </span><span class="nx">height</span><span class="o">=</span><span class="s2">&quot;1024&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/iframe&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;eformsign_iframe&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;1440&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;1024&quot;</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>For example, you can create an iframe that is 1440 pixels wide and 1024 pixels tall, as shown above.
@@ -3489,47 +3476,46 @@ Once you’ve finished creating the document or template functions that set the 
 <section id="id20">
 <h4>Example<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
 <p>The full example code, including installation, is as follows.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">embedding</span><span class="w"> </span><span class="nx">test</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Embedding Test<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="o">/&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;https://www.eformsign.com/lib/js/efs_embedded_v2.js&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;</span><span class="err">/head&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.eformsign.com/plugins/jquery/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.eformsign.com/lib/js/efs_embedded_v2.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;eformsign_iframe&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;1440&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;1024&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 
-<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">iframe</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">&quot;1440&quot;</span><span class="w"> </span><span class="nx">height</span><span class="o">=</span><span class="s2">&quot;1024&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/iframe&gt;</span>
-
-
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">eformsign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EformSignDocument</span><span class="p">();</span>
 
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">document_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Omitted</span>
-<span class="w">            </span><span class="s2">&quot;mode&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="s2">&quot;type&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
-<span class="w">               </span><span class="s2">&quot;template_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a2c6ed9df9b642f2ade43c7efe58c9a3&quot;</span>
-<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="s2">&quot;mode&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;template_id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a2c6ed9df9b642f2ade43c7efe58c9a3&quot;</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="c1">// Omitted</span>
 <span class="w">        </span><span class="p">};</span>
 
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">success_callback</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">success_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Omitted</span>
 <span class="w">        </span><span class="p">};</span>
 
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">error_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Omitted</span>
 <span class="w">        </span><span class="p">};</span>
 
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">action_callback</span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">action_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Omitted</span>
 <span class="w">        </span><span class="p">};</span>
 
 <span class="w">        </span><span class="nx">eformsign</span><span class="p">.</span><span class="nb">document</span><span class="p">(</span><span class="nx">document_option</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;eformsign_iframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">success_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">error_callback</span><span class="p">,</span><span class="w"> </span><span class="nx">action_callback</span><span class="p">);</span>
 <span class="w">        </span><span class="nx">eformsign</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="err">/script&gt;</span>
-<span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </section>

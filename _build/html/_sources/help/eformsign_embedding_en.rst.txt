@@ -448,6 +448,7 @@ When embedded, the token of an account is used to create documents or process (f
 **Non-members creating new documents**  
 
 This is for non-members creating documents.
+
 .. code-block:: javascript
 
     var document_option = {
@@ -462,6 +463,7 @@ This is for non-members creating documents.
 **Non-members processing (filling in) documents they received**
 
 When embedded, this is for non-members to fill in documents they received.
+
 .. code-block:: javascript 
 
     var document_option = {
@@ -1067,7 +1069,7 @@ The ID input field in the Design Form step is disabled (fixed to default ID).
 
     var template_option = {
         "prefill": {
-            "template_name": "Purchasing form,
+            "template_name": "Purchasing form",
             "step_settings": [
                 {
                     "step_type": "05",
@@ -1079,21 +1081,21 @@ The ID input field in the Design Form step is disabled (fixed to default ID).
                         "sms": "+821022223333",
                         "use_mail": true,
                         "use_sms": true,
-                        "use_alimtalk" : true,
+                        "use_alimtalk": true,
                         "auth": {
                             "type": "field",
                             "password": "Text 1",
                             "password_hint": "Your 6 digit date of birth",
                             "valid": {
                                 "day": "7",
-                                "hour": "7",
-                            },
+                                "hour": "7"
+                            }
                         },
-                        "additional_auth" : {
+                        "additional_auth": {
                             "use_pincode": true,
-                            "use_pincode_result": false
+                            "use_pincode_result": false,
                             "use_mobile_verifyAuth": true,
-                            "use_mobile_verifyAuth_result" : true
+                            "use_mobile_verifyAuth_result": true
                         }
                     }
                 },
@@ -1110,15 +1112,16 @@ The ID input field in the Design Form step is disabled (fixed to default ID).
                         "auth": {
                             "valid": {
                                 "day": "3",
-                                "hour": "0",
-                            },
+                                "hour": "0"
+                            }
                         }
                     }
                 }
             ],
-            disabled_form_id : true
+            "disabled_form_id": true
         }
     };
+
 
 
 6. template_file (optional)
@@ -2255,9 +2258,10 @@ In the following example, you can see an example of a variable button that creat
 
 
 
-.. code-block:: javascript
+.. code-block:: html
 
     <!-- Create a button for every action, make it invisible, and then handle the action_callback to show only the buttons you need. -->
+
     <div id="buttonList" style="padding: 10px;">
         <button id="btn_01" style="width:80px; height:30px; display: none;" onclick="actionTest('01');"></button>
         <button id="btn_02" style="width:80px; height:30px; display: none;" onclick="actionTest('02');"></button>
@@ -2308,7 +2312,7 @@ First, you need to create a region to embed and display an eformsign feature.
 The area for embedding an eformsign feature supports the iframe format.
 
 
-.. code-block:: javascript
+.. code-block:: html
 
     <iframe id="eformsign_iframe" width="1440" height="1024"> </iframe>
 
@@ -2408,42 +2412,40 @@ Example
 The full example code, including installation, is as follows.
 
 
-.. code-block:: javascript
+.. code-block:: html
 
     <html>
     <head>
-        <title>embedding test</title>
+        <title>Embedding Test</title>
          
-        <script src="https://www.eformsign.com/plugins/jquery/jquery.min.js"/>
-        <script src="https://www.eformsign.com/lib/js/efs_embedded_v2.js"/>
+        <script src="https://www.eformsign.com/plugins/jquery/jquery.min.js"></script>
+        <script src="https://www.eformsign.com/lib/js/efs_embedded_v2.js"></script>
     </head>
      
-     
     <body>
-        <iframe id="eformsign_iframe" width="1440" height="1024"> </iframe>
-     
+        <iframe id="eformsign_iframe" width="1440" height="1024"></iframe>
      
         <script>
             var eformsign = new EformSignDocument();
      
             var document_option = {
                 // Omitted
-                "mode" : {
-                   "type" : "01",
-                   "template_id" : "a2c6ed9df9b642f2ade43c7efe58c9a3"
-                },
+                "mode": {
+                    "type": "01",
+                    "template_id": "a2c6ed9df9b642f2ade43c7efe58c9a3"
+                }
                 // Omitted
             };
          
-            var success_callback= function(response){
+            var success_callback = function(response) {
                 // Omitted
             };
       
-            var error_callback= function(response){
+            var error_callback = function(response) {
                 // Omitted
             };
      
-            var action_callback= function(response){
+            var action_callback = function(response) {
                 // Omitted
             };
      
@@ -2451,6 +2453,9 @@ The full example code, including installation, is as follows.
             eformsign.open();
         </script>
     </body>
+    </html>
+
+
 
 
 .. |image1| image:: resources/column_icon.png
