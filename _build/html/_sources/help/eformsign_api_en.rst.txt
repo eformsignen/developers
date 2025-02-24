@@ -27,17 +27,23 @@ Where to find Company ID and Document ID
 
 To use eformsign API, you need to know the company ID and the document ID that you want to lookup. 
 
-Log in to eformsign service and find the company ID and the document ID.
+Log in to the eformsign service and find the company ID and the document ID.
 
 .. note:: 
 
-   You can view the company ID in Manage company > Company profile > Basic information.
+   You can find the company ID in Manage company > Company profile > Basic information.
 
-   |image1|
+.. image:: resources/basicinfo2.png
+    :alt: Company profile > Basic information
+    :width: 700px
 
-   Go to the document box and click the document icon (|image2|) at the top right corner and add Document ID column. Then you can view the document ID in the document list. 
 
-   |image3|
+.. note:: 
+   You can find the document ID of a document in the inbox where the document is stored.
+
+.. image:: resources/document_id_column2.png
+    :alt: Document inbox-add a document ID column
+    :width: 700px
 
 
 
@@ -448,45 +454,79 @@ After generating a signature, you can use the following document API to create n
    Make sure to enter Access Token value by clicking the **Authorize** button. 
 
 
-The followings are `Document API <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document>`_\  provided in eformsign.
+The following are the `Document APIs <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document>`_\  provided in eformsign.
 
 
 
 ``POST``: `Create a new document_member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents>`_\ 
 
+Creates a document from a template via a member account.
+
 ``POST``: `Create a new document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external>`_\ 
+
+A user who is not a company member creates a template document. Documents can be created only from templates that have the 'create documents from URL' option checked in Template settings - properties of the Start step of Workflow.
 
 ``GET``: `Inquiry document information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID>`_\
 
+Views the general information, detailed information, history, and status of a specific document.
+
 ``GET``: `Download document files_PDF and Audit trail certificate <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files>`_\
+
+Downloads the document and audit trail certificate files in PDF format.
 
 ``GET``: `Download attached files <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
 
+Downloads the file attached to the document.
+
 ``GET``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
+
+Views the list of documents created in the company. Views information of each document such as general information, detailed information, history, and document status in a list format.
 
 ``POST``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
 
+Queries the list of documents in document inboxes, general and detailed information of each document, document history, and document progress.
+
 ``DELETE``: `Delete document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents>`_\ 
+
+Deletes a document.
 
 ``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider>`_\ 
 
+Re-requests a document requested to a recipient.
+
 ``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
+
+Gets the list of templates available in the company for the member to create.
 
 ``DELETE``: `Delete template <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
 
+Deletes a template.
+
 ``POST``: `Send in bulk_single template  <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+Bulk sends multiple documents created from a template documents through a company member account.
 
 ``POST``: `Send in bulk_multiple templates <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
 
+Bulk sends documents from multiple templates with an access token containing member information.
+
 ``POST``: `Void document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+Voids a document.
 
 ``GET``: `Usage status <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
 
+Views usage by year or month
+
 ``POST``: `Reject document_members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+
+Declines a document (member).
 
 ``POST``: `Reject document_non members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
 
------------------
+Declines a document (non-member).
+
+---------------------------------------------------
 
 
 API for managing members and groups

@@ -15,7 +15,7 @@ Getting started
 --------------------
 
 Overview
-======================
+========================
 
 The following embedding features are supported in eformsign. 
 
@@ -146,7 +146,7 @@ You can find the company ID in Manage company > Company profile > Basic informat
 Where to find the template ID
 -------------------------------
 
-Go to the Manage templates page and click the Settings icon of the template that you want to use. You can find the form_id in the URL of the template.
+Go to Manage templates page and click the Settings icon of the template that you want to use. You can find the form_id in the URL of the template.
 
 1. Click the **Manage templates** menu in the sidebar.
 
@@ -607,6 +607,8 @@ Enter the field name in the "return_fields" array in the string format.
 
 
 
+
+
 New from my file
 ===========================================
 
@@ -774,7 +776,7 @@ Parameter name    Description       Data type   Required  Sub options
          }
     };
 
-2. Parameter name (embedding mode, required)
+2. Variable name (embedding mode, required)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ===============  ===============  ===========  ========  ==================================================
@@ -831,7 +833,7 @@ When embedded, you can manage templates when you log in after the eformsign logi
 
 **For members managing templates via a token**   
 When embedded, you can manage templates with the token of an account, without logging in to eformsign.
-For information on getting a token, go to Using eformsign API - `Get access token <https://eformsignen.github.io/developers/help/eformsign_api_en.html#api-for-generating-a-signature>`_.
+For information on getting a token, go to Using eformsign API - `Get access token <https://eformsignkr.github.io/developers/help/eformsign_api.html#id5>`_.
 
 .. code-block:: javascript
 
@@ -1357,13 +1359,13 @@ Duplicates an existing template to create a new template.
 3. user (user info, optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-=========================  ===================  =============  =========  ===============================================================================================================================
+=========================  ===================  =============  =========  ==========================================================================================================================
  Parameter name               Description          Data type   Required     Remark
-=========================  ===================  =============  =========  ===============================================================================================================================
+=========================  ===================  =============  =========  ==========================================================================================================================
  id                         Account (email)        String         X        Enter the user ID/email
  access_token               Access token           String         X        Open API > Refer to `Issue access token <https://eformsignen.github.io/developers/help/eformsign_api_en.html#open-api-list>`_
- refresh_token              Refresh token          String         X        Open API > Refer to `Issue access token <https://eformsignen.github.io/developers/help/eformsign_api_en.html#open-api-list>`_
-=========================  ===================  =============  =========  ===============================================================================================================================
+ refresh_token              Refresh token          String         X        Open API > Refer to`Issue access token <https://eformsignen.github.io/developers/help/eformsign_api_en.html#open-api-list>`_
+=========================  ===================  =============  =========  ==========================================================================================================================
 
 
 
@@ -1754,7 +1756,7 @@ Tick the check box in **General > Document settings > Skip pop-up window when se
 
 
 6. template_file (template file, optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configures so that the file to be used in a template is uploaded automatically.
 
