@@ -52,8 +52,8 @@
   --fontColor: #252630;
   --linkColor: #2980b9;
   --mainBackgroundColor: white;
-  --mainNavColor: #3889ce;
-  --notificationBannerColor: #176bb0;
+  --mainNavColor: #0E73C3;
+  --notificationBannerColor: white;
   --searchHighlightColor: #fff150;
   --sidebarColor: white;
   --navbarHeight: 4rem;
@@ -163,10 +163,10 @@ div#top_nav {
   z-index: 100;
 }
 div#top_nav div#notification_banner {
-  background-color: var(--notificationBannerColor);
+  background-color: white(--notificationBannerColor);
   box-sizing: border-box;
   padding: 0.1rem 1rem;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   justify-content: right;
@@ -194,7 +194,7 @@ div#top_nav div#notification_banner p {
   padding: 0.4rem 0;
 }
 div#top_nav div#notification_banner p a {
-  color: white;
+  color: #0E73C3;
   text-decoration: underline;
 }
 div#top_nav nav {
@@ -216,7 +216,7 @@ div#top_nav nav h1 a {
   color: white;
 }
 div#top_nav nav h1 img {
-  height: 1.3rem;
+  height: 2.5rem;
   width: auto;
 }
 div#top_nav nav p#toggle_sidebar {

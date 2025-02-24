@@ -15,7 +15,7 @@ Getting started
 --------------------
 
 Overview
-======================
+=====================
 
 The following embedding features are supported in eformsign. 
 

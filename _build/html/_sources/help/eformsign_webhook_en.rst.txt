@@ -16,7 +16,7 @@ Getting started
 .. _webhook:
 
 Getting a webhook key
-------------------------------
+-----------------------------
 
 1. Log in to eformsign as the company administrator and then go to **[Integration] > [API / Webhook]** in the sidebar menu.
 
