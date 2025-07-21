@@ -458,73 +458,82 @@ The following are the `Document APIs <https://app.swaggerhub.com/apis-docs/eform
 
 
 
-``POST``: `Create a new document_member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents>`_\ 
+``POST``: `Create a new document_member <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Creates a document from a template via a member account.
 
-``POST``: `Create a new document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-external>`_\ 
+``POST``: `Create a new document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 A user who is not a company member creates a template document. Documents can be created only from templates that have the 'create documents from URL' option checked in Template settings - properties of the Start step of Workflow.
 
-``GET``: `Inquiry document information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID>`_\
+``GET``: `Inquiry document information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\
 
 Views the general information, detailed information, history, and status of a specific document.
 
-``GET``: `Download document files_PDF and Audit trail certificate <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_files>`_\
+``GET``: `Download document files_PDF and Audit trail certificate <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\
 
 Downloads the document and audit trail certificate files in PDF format.
 
-``GET``: `Download attached files <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents-DOCUMENT_ID-download_attach_files>`_\ 
+``GET``: `Download attached files <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Downloads the file attached to the document.
 
-``GET``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
+``GET``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Views the list of documents created in the company. Views information of each document such as general information, detailed information, history, and document status in a list format.
 
-``POST``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-documents>`_\ 
+``POST``: `Inquiry document list <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Queries the list of documents in document inboxes, general and detailed information of each document, document history, and document progress.
 
-``DELETE``: `Delete document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/delete-api-documents>`_\ 
+``DELETE``: `Delete document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Deletes a document.
 
-``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-documents-document_id-re_request_outsider>`_\ 
+``POST``: `Resend a document_external recipients <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\ 
 
 Re-requests a document requested to a recipient.
 
-``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
+``GET``: `Inquiry available template lists <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Gets the list of templates available in the company for the member to create.
 
-``DELETE``: `Delete template <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/get-api-forms>`_\  
+``GET``: `View template information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
+
+Gets the information of a template.
+
+``DELETE``: `Delete template <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Deletes a template.
 
-``POST``: `Send in bulk_single template  <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Send in bulk_single template  <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Bulk sends multiple documents created from a template documents through a company member account.
 
-``POST``: `Send in bulk_multiple templates <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Send in bulk_multiple templates <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Bulk sends documents from multiple templates with an access token containing member information.
 
-``POST``: `Void document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Void document <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Voids a document.
 
-``GET``: `Usage status <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``GET``: `Usage status <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Views usage by year or month
 
-``POST``: `Reject document_members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Reject document_members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Declines a document (member).
 
-``POST``: `Reject document_non members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/document/post-api-forms-mass_documents%3Ftemplate_id%3D-form_id>`_\  
+``POST``: `Reject document_non members <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
 
 Declines a document (non-member).
+
+
+``GET``: `Retrieves single template information <https://app.swaggerhub.com/apis-docs/eformsign_api.en/eformsign_API_2.0/2.0#/>`_\  
+
+Retrieves single template information.
 
 ---------------------------------------------------
 
